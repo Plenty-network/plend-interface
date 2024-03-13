@@ -82,7 +82,7 @@
     "react-number-format": "^4.9.1",
     "reflect-metadata": "^0.1.13",
     "remark-gfm": "^3.0.1",
-    "web3-ledgerhq-frame-connector": "^1.0.1",
+    "web3-ledgerhq-frame-connector": "^1.1.0",
     "zustand": "^4.1.2"
   },
   "devDependencies": {
