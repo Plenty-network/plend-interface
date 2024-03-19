@@ -1,8 +1,7 @@
 import { Trans } from '@lingui/macro';
-import { CircularProgress, Paper, PaperProps, Typography, useTheme } from '@mui/material';
+import { Box, CircularProgress, Paper, PaperProps, Typography, useTheme } from '@mui/material';
 import { ReactNode } from 'react';
 
-import WalletConnectLogo from '/public/walletConnectLogo.svg';
 import WalletConnectLogoDark from '/public/walletConnectLogoDark.svg';
 
 import { ConnectWalletButton } from './WalletConnection/ConnectWalletButton';
@@ -28,17 +27,27 @@ export const ConnectWalletPaper = ({
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        p: 4,
         flex: 1,
         ...sx,
       }}
     >
       {theme.palette.mode === 'light' ? (
-        <WalletConnectLogo style={{ marginBottom: '16px', maxWidth: '250px' }} />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            width: '100%',
+            backgroundColor: '#27212F',
+            borderTopLeftRadius: '6px',
+            borderTopRightRadius: '6px',
+          }}
+        >
+          <WalletConnectLogoDark style={{ marginBottom: '16px', maxWidth: '250px' }} />
+        </Box>
       ) : (
         <WalletConnectLogoDark style={{ marginBottom: '16px', maxWidth: '250px' }} />
       )}
-      <>
+      <Box sx={{ p: 4 }}>
         {loading ? (
           <CircularProgress />
         ) : (
@@ -46,12 +55,10 @@ export const ConnectWalletPaper = ({
             {description ? (
               <Typography
                 sx={{
-                  mb: 6,
                   textAlign: 'left',
                   maxWidth: '700px',
                   marginBottom: '50px',
                   padding: '15px 20px',
-                  borderRadius: '6px',
                 }}
               >
                 {description}
@@ -62,7 +69,7 @@ export const ConnectWalletPaper = ({
             <ConnectWalletButton />
           </>
         )}
-      </>
+      </Box>
     </Paper>
   );
 };

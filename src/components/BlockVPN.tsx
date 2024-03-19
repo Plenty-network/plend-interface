@@ -2,7 +2,7 @@
 import { Box, Link, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 
-import WalletConnectLogo from '/public/walletConnectLogo.svg';
+import WalletConnectLogoDark from '/public/walletConnectLogoDark.svg';
 
 export function BlockVPN({ children }: { children: React.ReactNode }): React.ReactElement {
   if (process.env.NEXT_PUBLIC_VPN_PROTECTION !== '1') {
@@ -40,23 +40,32 @@ function VPNDetected() {
   return (
     <Box
       sx={{
-        width: 1,
-        height: 1,
+        height: 'calc(100vh - 16px)',
         display: 'flex',
+        justifyContent: 'center',
         alignItems: 'center',
-        justifyItems: 'center',
-        flexDirection: 'column',
+        backgroundColor: '#27212F',
       }}
     >
-      <WalletConnectLogo style={{ maxWidth: '250px' }} />
-      <Typography variant="h1" sx={{ fontSize: 40 }}>
-        Accessing this website via VPN is not allowed!
-      </Typography>
-      <Typography variant="h3" sx={{ fontSize: 20 }}>
-        If you believe this is a mistake, contact us via email{' '}
-        <Link href="mailto:contact@marsfoundation.xyz">contact@marsfoundation.xyz</Link>. Don't
-        forget to send us your current IP address.
-      </Typography>
+      <Box
+        sx={{
+          px: 2,
+          pb: 4,
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
+        }}
+      >
+        <WalletConnectLogoDark style={{ maxWidth: '250px' }} />
+        <Typography variant="h1" sx={{ fontSize: 40, color: '#EAEBEF' }}>
+          Accessing this website via VPN is not allowed!
+        </Typography>
+        <Typography variant="h3" sx={{ fontSize: 20, color: '#EAEBEF' }}>
+          If you believe this is a mistake, contact us via email{' '}
+          <Link href="mailto:contact@marsfoundation.xyz">contact@marsfoundation.xyz</Link>. Don't
+          forget to send us your current IP address.
+        </Typography>
+      </Box>
     </Box>
   );
 }

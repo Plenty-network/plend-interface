@@ -18,6 +18,7 @@ const {
 } = theme;
 
 const FONT = 'Inter, Arial';
+const FONT_HEADER = 'Space Grotesk, monospace';
 
 declare module '@mui/material/styles/createPalette' {
   interface PaletteColor extends ColorPartial {}
@@ -40,12 +41,20 @@ declare module '@mui/material/styles/createPalette' {
       aaveGradient: string;
       newGradient: string;
     };
+    fonts: {
+      header: string;
+      main: string;
+    };
   }
 
   interface PaletteOptions {
     gradients: {
       aaveGradient: string;
       newGradient: string;
+    };
+    fonts: {
+      header: string;
+      main: string;
     };
   }
 }
@@ -176,17 +185,11 @@ export const getDesignTokens = (mode: 'light' | 'dark') => {
         muted: getColor('#A5A8B6', '#8E92A3'),
       },
       background: {
-        default: getColor('#F1F1F3', '#373736'),
-        paper: getColor('#f1f1f1', '#2d2d2b'),
-        surface: getColor('#F7F7F9', '#383D51'),
-        navbar: getColor(
-          'radial-gradient(150% 300% at center calc(100% + 80px), #3F3E37, #171715)',
-          'radial-gradient(200% 200% at center calc(100% + 80px), #3F3E37, #171715)'
-        ),
-        header: getColor(
-          'radial-gradient(150% 300% at bottom, #3F3E37, #171715)',
-          'radial-gradient(200% 200% at bottom, #3F3E37, #171715)'
-        ),
+        default: getColor('#F1F1F3', '#151519'),
+        paper: getColor('#f1f1f1', '#27212F'),
+        surface: getColor('#F7F7F9', '#3F2566'),
+        navbar: getColor('#180E26', '#180E26'),
+        header: getColor('#1C112E', '#1C112E'),
         disabled: getColor('#EAEBEF', '#EBEBEF14'),
       },
       divider: getColor('#EAEBEF', '#EBEBEF14'),
@@ -199,8 +202,12 @@ export const getDesignTokens = (mode: 'light' | 'dark') => {
         focus: getColor('#F1F1F3', '#EBEBEF1F'),
       },
       gradients: {
-        aaveGradient: 'linear-gradient(to right, #E5D718, #E3C154)',
-        newGradient: 'linear-gradient(to right, #E5D718, #E3C154)',
+        aaveGradient: 'linear-gradient(to right, #52F4DC, #33c0ab)',
+        newGradient: 'linear-gradient(to right, #52F4DC, #33c0ab)',
+      },
+      fonts: {
+        header: FONT_HEADER,
+        main: FONT,
       },
     },
     spacing: 4,
@@ -215,29 +222,29 @@ export const getDesignTokens = (mode: 'light' | 'dark') => {
       button: undefined,
       overline: undefined,
       display1: {
-        fontFamily: FONT,
-        fontWeight: 700,
+        fontFamily: FONT_HEADER,
+        fontWeight: 500,
         letterSpacing: pxToRem(0.25),
         lineHeight: '123.5%',
         fontSize: pxToRem(32),
       },
       h1: {
-        fontFamily: FONT,
-        fontWeight: 700,
+        fontFamily: FONT_HEADER,
+        fontWeight: 500,
         letterSpacing: pxToRem(0.25),
         lineHeight: '123.5%',
         fontSize: pxToRem(28),
       },
       h2: {
-        fontFamily: FONT,
-        fontWeight: 600,
+        fontFamily: FONT_HEADER,
+        fontWeight: 500,
         letterSpacing: 'unset',
         lineHeight: '133.4%',
         fontSize: pxToRem(21),
       },
       h3: {
-        fontFamily: FONT,
-        fontWeight: 600,
+        fontFamily: FONT_HEADER,
+        fontWeight: 500,
         letterSpacing: pxToRem(0.15),
         lineHeight: '160%',
         fontSize: pxToRem(18),
@@ -422,7 +429,7 @@ export function getThemedComponents(theme: Theme) {
               color: theme.palette.common.white,
               border: '1px solid',
               borderColor: '#EBEBED1F',
-              backgroundColor: '#383D51',
+              backgroundColor: '#3F2566',
               '&:hover, &.Mui-focusVisible': {
                 backgroundColor: theme.palette.background.header,
               },
@@ -433,9 +440,9 @@ export function getThemedComponents(theme: Theme) {
             style: {
               color: theme.palette.common.black,
               borderColor: '#EBEBED1F',
-              background: '#E3C154',
+              background: '#33c0ab',
               '&:hover, &.Mui-focusVisible': {
-                background: '#E5D718',
+                background: '#52F4DC',
               },
             },
           },
@@ -455,7 +462,7 @@ export function getThemedComponents(theme: Theme) {
             props: { color: 'primary', variant: 'outlined' },
             style: {
               background: theme.palette.background.surface,
-              borderColor: theme.palette.divider,
+              borderColor: theme.palette.background.disabled,
             },
           },
         ],

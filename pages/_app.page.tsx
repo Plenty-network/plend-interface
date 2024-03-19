@@ -1,4 +1,5 @@
 import '/public/fonts/inter/inter.css';
+import '/public/fonts/space-grotesk/space-grotesk.css';
 import '/src/styles/variables.css';
 
 import { CacheProvider, EmotionCache } from '@emotion/react';

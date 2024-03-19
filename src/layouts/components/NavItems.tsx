@@ -15,7 +15,7 @@ export const NavItems = ({ setOpen }: NavItemsProps) => {
   const { i18n } = useLingui();
   const { currentMarketData } = useProtocolDataContext();
 
-  const { breakpoints } = useTheme();
+  const { breakpoints, palette } = useTheme();
   const md = useMediaQuery(breakpoints.down('md'));
 
   return (
@@ -59,9 +59,10 @@ export const NavItems = ({ setOpen }: NavItemsProps) => {
                   p: '6px 20px',
                   fontSize: '16px',
                   fontWeight: '400',
+                  fontFamily: palette.fonts.header,
                   position: 'relative',
                   '&.active, &:hover': {
-                    color: '#E3C154',
+                    color: '#52F4DC',
                   },
                 })}
               >
