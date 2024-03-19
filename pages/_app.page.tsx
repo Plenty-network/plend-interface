@@ -8,7 +8,7 @@ import { providers } from 'ethers';
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import SparkMetaImage from 'public/sparkMetaLogo-min.jpg';
+import PlendMetaImage from 'public/plendMetaLogo.jpg';
 import * as React from 'react';
 import { AddressBlocked } from 'src/components/AddressBlocked';
 import { BlockVPN } from 'src/components/BlockVPN';
@@ -66,8 +66,8 @@ export default function MyApp(props: MyAppProps) {
       </Head>
       <Meta
         title={'Maker-Powered Lending Market'}
-        description={'Spark'}
-        imageUrl={SparkMetaImage.src}
+        description={'Plend'}
+        imageUrl={PlendMetaImage.src}
       />
       <LanguageProvider>
         <BlockVPN>

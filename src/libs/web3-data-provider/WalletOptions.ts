@@ -23,7 +23,7 @@ export enum WalletType {
   READ_ONLY_MODE = 'read_only_mode',
 }
 
-const APP_NAME = 'Spark';
+const APP_NAME = 'Plend';
 const APP_LOGO_URL = 'https://sparkapp.finance/favicon.ico';
 
 const mockProvider = {

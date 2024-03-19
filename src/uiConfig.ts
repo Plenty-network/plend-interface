@@ -1,3 +1,3 @@
 export const uiConfig = {
-  appLogo: '/sparkLogo.svg',
+  appLogo: '/plendLogo.svg',
 };
