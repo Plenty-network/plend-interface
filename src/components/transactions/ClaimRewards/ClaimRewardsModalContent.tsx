@@ -1,4 +1,3 @@
-import { ChainId } from '@aave/contract-helpers';
 import { normalize, UserIncentiveData } from '@aave/math-utils';
 import { Trans } from '@lingui/macro';
 import { Box, Typography } from '@mui/material';
@@ -11,6 +10,7 @@ import { useAppDataContext } from 'src/hooks/app-data-provider/useAppDataProvide
 import { useModalContext } from 'src/hooks/useModal';
 import { useProtocolDataContext } from 'src/hooks/useProtocolDataContext';
 import { useWeb3Context } from 'src/libs/hooks/useWeb3Context';
+import { ChainId } from 'src/ui-config/networksConfig';
 import { getNetworkConfig } from 'src/utils/marketsAndNetworksConfig';
 
 import { TxErrorView } from '../FlowCommons/Error';

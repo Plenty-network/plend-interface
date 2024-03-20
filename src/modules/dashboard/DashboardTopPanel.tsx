@@ -1,4 +1,3 @@
-import { ChainId } from '@aave/contract-helpers';
 import { normalize, UserIncentiveData, valueToBigNumber } from '@aave/math-utils';
 import { Trans } from '@lingui/macro';
 import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
@@ -10,6 +9,7 @@ import { useModalContext } from 'src/hooks/useModal';
 import { useProtocolDataContext } from 'src/hooks/useProtocolDataContext';
 import { useWeb3Context } from 'src/libs/hooks/useWeb3Context';
 import { usePoolDataV2Subscription } from 'src/store/root';
+import { ChainId } from 'src/ui-config/networksConfig';
 
 import ClaimGiftIcon from '../../../public/icons/markets/claim-gift-icon.svg';
 import EmptyHeartIcon from '../../../public/icons/markets/empty-heart-icon.svg';
