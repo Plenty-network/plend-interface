@@ -10,7 +10,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import PlendMetaImage from 'public/plendMetaLogo.jpg';
 import * as React from 'react';
-import { AddressBlocked } from 'src/components/AddressBlocked';
+// import { AddressBlocked } from 'src/components/AddressBlocked';
 import { BlockVPN } from 'src/components/BlockVPN';
 import { Meta } from 'src/components/Meta';
 import { BorrowModal } from 'src/components/transactions/Borrow/BorrowModal';
@@ -73,31 +73,31 @@ export default function MyApp(props: MyAppProps) {
           <Web3ReactProvider getLibrary={getWeb3Library}>
             <Web3ContextProvider>
               <AppGlobalStyles>
-                <AddressBlocked>
-                  <PermissionProvider>
-                    <ModalContextProvider>
-                      <BackgroundDataProvider>
-                        <AppDataProvider>
-                          <GasStationProvider>
-                            {getLayout(<Component {...pageProps} />)}
-                            <SupplyModal />
-                            <WithdrawModal />
-                            <BorrowModal />
-                            <RepayModal />
-                            <CollateralChangeModal />
-                            <RateSwitchModal />
-                            <ClaimRewardsModal />
-                            <EmodeModal />
-                            <SwapModal />
-                            <FaucetModal />
-                            <PSMSwapModal />
-                            <MigrateV3Modal />
-                          </GasStationProvider>
-                        </AppDataProvider>
-                      </BackgroundDataProvider>
-                    </ModalContextProvider>
-                  </PermissionProvider>
-                </AddressBlocked>
+                {/* <AddressBlocked> */}
+                <PermissionProvider>
+                  <ModalContextProvider>
+                    <BackgroundDataProvider>
+                      <AppDataProvider>
+                        <GasStationProvider>
+                          {getLayout(<Component {...pageProps} />)}
+                          <SupplyModal />
+                          <WithdrawModal />
+                          <BorrowModal />
+                          <RepayModal />
+                          <CollateralChangeModal />
+                          <RateSwitchModal />
+                          <ClaimRewardsModal />
+                          <EmodeModal />
+                          <SwapModal />
+                          <FaucetModal />
+                          <PSMSwapModal />
+                          <MigrateV3Modal />
+                        </GasStationProvider>
+                      </AppDataProvider>
+                    </BackgroundDataProvider>
+                  </ModalContextProvider>
+                </PermissionProvider>
+                {/* </AddressBlocked> */}
               </AppGlobalStyles>
             </Web3ContextProvider>
           </Web3ReactProvider>

@@ -1,5 +1,6 @@
-import { ChainId } from '@aave/contract-helpers';
 import { ReactNode } from 'react';
+
+import { ChainId } from './networksConfig';
 
 // Enable for premissioned market
 // import { PermissionView } from 'src/components/transactions/FlowCommons/PermissionView';
@@ -50,93 +51,29 @@ export type MarketDataType = {
 };
 
 export enum CustomMarket {
-  // v3 test networks
-  proto_spark_goerli_v3 = 'proto_spark_goerli_v3',
-  // v3 mainnets
-  proto_spark_v3 = 'proto_spark_v3',
-  proto_mainnet = 'proto_mainnet',
-  // external
-  // permissioned_market = 'permissioned_market',
-  gnosis = 'gnosis',
+  etherlink_testnet = 'etherlink_testnet',
 }
 
 export const marketsData: {
   [key in keyof typeof CustomMarket]: MarketDataType;
 } = {
-  [CustomMarket.proto_spark_v3]: {
-    marketTitle: 'Ethereum',
-    v3: true,
-    chainId: ChainId.mainnet,
-    enabledFeatures: {
-      liquiditySwap: false,
-      collateralRepay: false,
-    },
-    addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x02C3eA4e34C0cBd694D2adFa2c690EECbC1793eE'.toLowerCase(),
-      LENDING_POOL: '0xC13e21B648A5Ee794902342038FF3aDAB66BE987',
-      WETH_GATEWAY: '0xBD7D6a9ad7865463DE44B05F04559f65e3B11704',
-      WALLET_BALANCE_PROVIDER: '0xd2AeF86F51F92E8e49F42454c287AE4879D1BeDc',
-      UI_POOL_DATA_PROVIDER: '0xF028c2F4b19898718fD0F77b9b881CbfdAa5e8Bb',
-      UI_INCENTIVE_DATA_PROVIDER: '0xA7F8A757C4f7696c015B595F51B2901AC0121B18',
-      COLLECTOR: '0xb137E7d16564c81ae2b0C8ee6B55De81dd46ECe5',
-      CHAINLOG: '0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F',
-      SAVINGS_DAI: '0x83f20f44975d03b1b09e64809b757c47f942beea',
-      V3_MIGRATOR: '0xe2a3C1ff038E14d401cA6dE0673a598C33168460',
-    },
-  },
-  [CustomMarket.proto_spark_goerli_v3]: {
-    marketTitle: 'Görli',
-    v3: true,
-    chainId: ChainId.goerli,
-    enabledFeatures: {
-      faucet: true,
-    },
-    addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x026a5B6114431d8F3eF2fA0E1B2EDdDccA9c540E'.toLowerCase(),
-      LENDING_POOL: '0x26ca51Af4506DE7a6f0785D20CD776081a05fF6d',
-      WETH_GATEWAY: '0xe6fC577E87F7c977c4393300417dCC592D90acF8',
-      FAUCET: '0xe2bE5BfdDbA49A86e27f3Dd95710B528D43272C2',
-      WALLET_BALANCE_PROVIDER: '0x261135877A92B42183c998bFB8580558a28377a6',
-      UI_POOL_DATA_PROVIDER: '0x36eddc380C7f370e5f05Da5Bd7F970a27f063e39',
-      UI_INCENTIVE_DATA_PROVIDER: '0x1472B7d120ab62D60f60e1D804B3858361c3C475',
-      COLLECTOR: '0x0D56700c90a690D8795D6C148aCD94b12932f4E3',
-      CHAINLOG: '0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F',
-      SAVINGS_DAI: '0xd8134205b0328f5676aaefb3b2a0dc15f4029d8c',
-    },
-  },
-  [CustomMarket.proto_mainnet]: {
-    marketTitle: 'Aave V2',
-    chainId: ChainId.mainnet,
-    enabledFeatures: {},
-    addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0xB53C1a33016B2DC2fF3653530bfF1848a515c8c5'.toLowerCase(),
-      LENDING_POOL: '0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9',
-      WETH_GATEWAY: '0xEFFC18fC3b7eb8E676dac549E0c693ad50D1Ce31',
-      WALLET_BALANCE_PROVIDER: '0x8E8dAd5409E0263a51C0aB5055dA66Be28cFF922',
-      UI_POOL_DATA_PROVIDER: '0x00e50FAB64eBB37b87df06Aa46b8B35d5f1A4e1A',
-      UI_INCENTIVE_DATA_PROVIDER: '0xD01ab9a6577E1D84F142e44D49380e23A340387d',
-      COLLECTOR: '0x464C71f6c2F760DdA6093dCB91C24c39e5d6e18c',
-      CHAINLOG: '0xdA0Ab1e0017DEbCd72Be8599041a2aa3bA7e740F',
-      SAVINGS_DAI: '0x83f20f44975d03b1b09e64809b757c47f942beea',
-      V3_MIGRATOR: '0xe2a3C1ff038E14d401cA6dE0673a598C33168460',
-    },
-  },
-  [CustomMarket.gnosis]: {
-    marketTitle: 'Gnosis',
-    chainId: ChainId.xdai,
+  [CustomMarket.etherlink_testnet]: {
+    marketTitle: 'Etherlink Testnet',
+    chainId: ChainId.etherlink_testnet,
     v3: true,
     enabledFeatures: {
       liquiditySwap: false,
       collateralRepay: false,
+      faucet: false,
     },
     addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0xA98DaCB3fC964A6A0d2ce3B77294241585EAbA6d'.toLowerCase(),
-      LENDING_POOL: '0x2Dae5307c5E3FD1CF5A72Cb6F698f915860607e0',
-      WETH_GATEWAY: '0xBD7D6a9ad7865463DE44B05F04559f65e3B11704',
-      WALLET_BALANCE_PROVIDER: '0xd2AeF86F51F92E8e49F42454c287AE4879D1BeDc',
-      UI_POOL_DATA_PROVIDER: '0xF028c2F4b19898718fD0F77b9b881CbfdAa5e8Bb',
-      UI_INCENTIVE_DATA_PROVIDER: '0xA7F8A757C4f7696c015B595F51B2901AC0121B18',
-      COLLECTOR: '0xb9E6DBFa4De19CCed908BcbFe1d015190678AB5f',
+      LENDING_POOL_ADDRESS_PROVIDER: '0x63932761B9832c081Be9a523c9955D94e36E5371'.toLowerCase(),
+      LENDING_POOL: '0x83cFF6D05559a6123210693a1168FA98FCEe43b0',
+      // WETH_GATEWAY: '0xf1483E13FaD2DAC8454774fb9805dd1302035EE4',
+      WALLET_BALANCE_PROVIDER: '0x0e651B052038fA349955D274e7775168888eF322',
+      UI_POOL_DATA_PROVIDER: '0xE251B6564b6A21fd5F33bf83a5DF2ACF7dE82500',
+      UI_INCENTIVE_DATA_PROVIDER: '0x139168a0b174c4311B5792c9E670BCE1D10fC2F5',
+      COLLECTOR: '0x52050Ff3A007b0F9d862E4C59e6f3E995cce622B',
     },
   },
 } as const;
