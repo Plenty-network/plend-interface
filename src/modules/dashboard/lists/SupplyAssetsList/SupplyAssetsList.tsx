@@ -13,7 +13,7 @@ import { AssetCapsProvider } from 'src/hooks/useAssetCaps';
 import { fetchIconSymbolAndName } from 'src/ui-config/reservePatches';
 
 import { ListWrapper } from '../../../../components/lists/ListWrapper';
-import { Link, ROUTES } from '../../../../components/primitives/Link';
+import { Link } from '../../../../components/primitives/Link';
 import {
   ComputedReserveData,
   useAppDataContext,
@@ -239,7 +239,7 @@ export const SupplyAssetsList = () => {
       noData={supplyDisabled}
       subChildrenComponent={
         <>
-          <Box sx={{ px: 6 }}>
+          <Box sx={{ px: 6, position: 'relative' }}>
             {supplyDisabled && currentNetworkConfig.name === 'Harmony' ? (
               <MarketWarning marketName="Harmony" />
             ) : supplyDisabled && currentNetworkConfig.name === 'Fantom' ? (
@@ -258,7 +258,10 @@ export const SupplyAssetsList = () => {
               (isTestnet ? (
                 <Warning severity="info">
                   <Trans>Your {networkName} wallet is empty. Get free test assets at </Trans>{' '}
-                  <Link href={ROUTES.faucet} style={{ fontWeight: 400 }}>
+                  <Link
+                    href={'https://docs.etherlink.com/get-started/get-testnet-xtz-on-etherlink'}
+                    style={{ fontWeight: 400 }}
+                  >
                     <Trans>{networkName} Faucet</Trans>
                   </Link>
                 </Warning>

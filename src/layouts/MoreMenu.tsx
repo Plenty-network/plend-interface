@@ -37,7 +37,7 @@ export function MoreMenu() {
           minWidth: 'unset',
           p: '6px 8px',
           '&:hover': {
-            color: '#52F4DC',
+            color: '#33ddc4',
           },
         }}
       >

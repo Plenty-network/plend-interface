@@ -62,7 +62,7 @@ export const NavItems = ({ setOpen }: NavItemsProps) => {
                   fontFamily: palette.fonts.header,
                   position: 'relative',
                   '&.active, &:hover': {
-                    color: '#52F4DC',
+                    color: '#33ddc4',
                   },
                 })}
               >
