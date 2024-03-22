@@ -88,14 +88,10 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     ],
     baseUniswapAdapter: '0x0',
     baseAssetSymbol: 'XTZ',
+    wrappedBaseAssetSymbol: 'WXTZ',
     baseAssetDecimals: 18,
     explorerLink: 'https://testnet-explorer.etherlink.com',
     isTestnet: true,
     networkLogoPath: '/icons/networks/etherlink.svg',
-    // bridge: {
-    //   name: 'Etherlink Bridge',
-    //   icon: '/icons/networks/etherlink.svg',
-    //   url: 'https://bridge.etherlink.com/',
-    // },
   },
 } as const;
