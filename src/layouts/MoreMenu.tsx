@@ -1,7 +1,7 @@
 import { DotsHorizontalIcon } from '@heroicons/react/solid';
 import { Trans } from '@lingui/macro';
 import { useLingui } from '@lingui/react';
-import { Button, ListItemIcon, ListItemText, SvgIcon } from '@mui/material';
+import { Button, ListItemIcon, ListItemText, SvgIcon, useTheme } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import React from 'react';
@@ -13,6 +13,7 @@ import { moreNavigation } from '../ui-config/menu-items';
 export function MoreMenu() {
   const { i18n } = useLingui();
   const { currentAccount: walletAddress } = useWeb3Context();
+  const { palette } = useTheme();
 
   const [anchorEl, setAnchorEl] = React.useState<Element | null>(null);
   const open = Boolean(anchorEl);
@@ -36,8 +37,10 @@ export function MoreMenu() {
           color: 'rgba(255, 255, 255, 0.5)',
           minWidth: 'unset',
           p: '6px 8px',
+          fontFamily: palette.fonts.header,
+          fontWeight: 400,
           '&:hover': {
-            color: '#33ddc4',
+            color: '#52F4DC',
           },
         }}
       >

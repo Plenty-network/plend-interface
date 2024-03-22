@@ -202,8 +202,8 @@ export const getDesignTokens = (mode: 'light' | 'dark') => {
         focus: getColor('#F1F1F3', '#EBEBEF1F'),
       },
       gradients: {
-        aaveGradient: 'linear-gradient(to right, #33ddc4, #33c0ab)',
-        newGradient: 'linear-gradient(to right, #33ddc4, #33c0ab)',
+        aaveGradient: 'linear-gradient(to right, #52F4DC, #33c0ab)',
+        newGradient: 'linear-gradient(to right, #52F4DC, #33c0ab)',
       },
       fonts: {
         header: FONT_HEADER,
@@ -445,7 +445,7 @@ export function getThemedComponents(theme: Theme) {
               borderColor: '#EBEBED1F',
               background: '#33c0ab',
               '&:hover, &.Mui-focusVisible': {
-                background: '#33ddc4',
+                background: '#52F4DC',
               },
             },
           },

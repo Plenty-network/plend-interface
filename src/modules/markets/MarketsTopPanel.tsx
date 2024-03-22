@@ -41,7 +41,7 @@ export const MarketsTopPanel = () => {
       titleComponent={
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <PageTitle
-            pageTitle={<Trans>Dashboard</Trans>}
+            pageTitle={<Trans>Markets</Trans>}
             withMarketSwitcher={true}
             bridge={currentNetworkConfig.bridge}
           />
