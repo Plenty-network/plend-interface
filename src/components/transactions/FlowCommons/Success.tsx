@@ -156,7 +156,9 @@ export const TxSuccessView = ({
                     aToken={addToken.aToken}
                   />
                 )}
-                <WalletIcon sx={{ width: '20px', height: '20px' }} />
+                <WalletIcon
+                  sx={{ width: '20px', height: '20px', stroke: theme.palette.common.white }}
+                />
                 <Typography variant="buttonM" color="white" ml="4px">
                   <Trans>Add to wallet</Trans>
                 </Typography>

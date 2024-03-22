@@ -464,7 +464,7 @@ export function getThemedComponents(theme: Theme) {
           {
             props: { color: 'primary', variant: 'outlined' },
             style: {
-              // background: theme.palette.background.surface,
+              background: theme.palette.background.surface,
               borderColor: theme.palette.background.disabled,
             },
           },

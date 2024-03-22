@@ -53,7 +53,7 @@ export const SupplyAssetsList = () => {
   const [sortName, setSortName] = useState('');
   const [sortDesc, setSortDesc] = useState(false);
 
-  const { bridge, isTestnet, baseAssetSymbol, name: networkName } = currentNetworkConfig;
+  const { bridge, baseAssetSymbol, name: networkName } = currentNetworkConfig;
 
   const localStorageName = 'showSupplyZeroAssets';
   const [isShowZeroAssets, setIsShowZeroAssets] = useState(
@@ -254,20 +254,18 @@ export const SupplyAssetsList = () => {
                 </Trans>
               </Warning>
             ) : (
-              filteredSupplyReserves.length === 0 &&
-              (isTestnet ? (
-                <Warning severity="info">
-                  <Trans>Your {networkName} wallet is empty. Get free test assets at </Trans>{' '}
-                  <Link
-                    href={'https://docs.etherlink.com/get-started/get-testnet-xtz-on-etherlink'}
-                    style={{ fontWeight: 400 }}
-                  >
-                    <Trans>{networkName} Faucet</Trans>
-                  </Link>
-                </Warning>
-              ) : (
+              filteredSupplyReserves.length === 0 && (
+                // (isTestnet ? (
+                //   <Warning severity="info">
+                //     <Trans>Your {networkName} wallet is empty. Get free test assets at </Trans>{' '}
+                //     <Link href={ROUTES.faucet} style={{ fontWeight: 400 }}>
+                //       <Trans>{networkName} Faucet</Trans>
+                //     </Link>
+                //   </Warning>
+                // ) : (
                 <WalletEmptyInfo name={networkName} bridge={bridge} chainId={currentChainId} />
-              ))
+              )
+              // ))
             )}
           </Box>
 
