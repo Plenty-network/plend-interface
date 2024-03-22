@@ -47,35 +47,15 @@ export const useReserveActionState = ({
       maxAmountToBorrow === '0',
     alerts: (
       <Stack gap={3}>
-        {balance === '0' && (
-          <>
-            {/* {currentNetworkConfig.isTestnet ? (
-              <Warning sx={{ mb: 0 }} severity="info" icon={false}>
-                <Trans>
-                  Your {networkName} wallet is empty. Get free test {reserve.name} at
-                </Trans>{' '}
-                <Button
-                  variant="text"
-                  sx={{ verticalAlign: 'top' }}
-                  onClick={() => openFaucet(reserve.underlyingAsset)}
-                  disableRipple
-                >
-                  <Typography variant="caption">
-                    <Trans>{networkName} Faucet</Trans>
-                  </Typography>
-                </Button>
-              </Warning>
-            ) : ( */}
-            <WalletEmptyInfo
-              sx={{ mb: 0 }}
-              name={networkName}
-              bridge={bridge}
-              icon={false}
-              chainId={currentChainId}
-              symbol={reserve.symbol}
-            />
-            {/* )} */}
-          </>
+        {balance === '0' && !currentNetworkConfig.isTestnet && (
+          <WalletEmptyInfo
+            sx={{ mb: 0 }}
+            name={networkName}
+            bridge={bridge}
+            icon={false}
+            chainId={currentChainId}
+            symbol={reserve.symbol}
+          />
         )}
 
         {balance !== '0' && user?.totalCollateralMarketReferenceCurrency === '0' && (
