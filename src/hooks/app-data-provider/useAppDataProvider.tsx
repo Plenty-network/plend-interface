@@ -80,6 +80,7 @@ export interface AppDataContextType {
   realChi?: BigNumber;
   realDSR?: BigNumber;
   daiInDSR?: BigNumber;
+  basePriceInUsd: number;
 }
 
 const AppDataContext = React.createContext<AppDataContextType>({} as AppDataContextType);
@@ -224,6 +225,9 @@ export const AppDataProvider: React.FC = ({ children }) => {
         realChi,
         realDSR,
         daiInDSR,
+        basePriceInUsd:
+          parseFloat(baseCurrencyData.networkBaseTokenPriceInUsd) /
+          Math.pow(10, baseCurrencyData.networkBaseTokenPriceDecimals),
       }}
     >
       {children}
