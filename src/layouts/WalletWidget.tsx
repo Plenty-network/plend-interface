@@ -167,6 +167,7 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
           color: '#A5A8B6',
           px: 4,
           py: 2,
+          fontFamily: palette.fonts.header,
         }}
       >
         <Trans>Account</Trans>
@@ -220,6 +221,8 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
 
               <Typography
                 variant={ensNameAbbreviated ? 'caption' : 'h4'}
+                fontFamily={palette.fonts.header}
+                fontWeight={500}
                 color={
                   ensNameAbbreviated
                     ? { xs: '#A5A8B6', md: 'text.secondary' }
@@ -278,7 +281,11 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
               mb: 1,
             }}
           >
-            <Typography variant="caption" color={{ xs: '#FFFFFFB2', md: 'text.secondary' }}>
+            <Typography
+              variant="caption"
+              color={{ xs: '#FFFFFFB2', md: 'text.secondary' }}
+              fontFamily={palette.fonts.header}
+            >
               <Trans>Network</Trans>
             </Typography>
           </Box>
@@ -293,7 +300,12 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
                 borderRadius: '50%',
               }}
             />
-            <Typography color={{ xs: '#F1F1F3', md: 'text.primary' }} variant="subheader1">
+            <Typography
+              color={{ xs: '#F1F1F3', md: 'text.primary' }}
+              variant="subheader1"
+              fontFamily={palette.fonts.header}
+              fontWeight={500}
+            >
               {networkConfig.name}
             </Typography>
           </Box>
@@ -320,7 +332,7 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
             <DuplicateIcon />
           </SvgIcon>
         </ListItemIcon>
-        <ListItemText>
+        <ListItemText sx={{ fontFamily: palette.fonts.header, fontWeight: 500 }}>
           <Trans>Copy address</Trans>
         </ListItemText>
       </Box>
@@ -346,7 +358,7 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
                 <ExternalLinkIcon />
               </SvgIcon>
             </ListItemIcon>
-            <ListItemText>
+            <ListItemText sx={{ fontFamily: palette.fonts.header, fontWeight: 500 }}>
               <Trans>View on Explorer</Trans>
             </ListItemText>
           </Box>
@@ -405,6 +417,7 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
           sx={{
             p: connected || readOnlyModeAddress ? '5px 8px' : undefined,
             minWidth: hideWalletAccountText ? 'unset' : undefined,
+            fontFamily: palette.fonts.header,
           }}
           startIcon={(connected || readOnlyModeAddress) && !hideWalletAccountText && accountAvatar}
           endIcon={

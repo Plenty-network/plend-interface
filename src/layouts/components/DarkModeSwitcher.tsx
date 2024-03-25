@@ -6,6 +6,7 @@ import {
   ListItemText,
   MenuItem,
   Switch,
+  Typography,
   useTheme,
 } from '@mui/material';
 import React from 'react';
@@ -29,7 +30,7 @@ export const DarkModeSwitcher = ({ component = ListItem }: DarkModeSwitcherProps
         py: { xs: 1.5, md: 2 },
       }}
     >
-      <ListItemText>
+      <ListItemText sx={{ fontFamily: theme.palette.fonts.header, fontWeight: 500 }}>
         <Trans>Dark mode</Trans>
       </ListItemText>
       <FormControlLabel
@@ -42,7 +43,11 @@ export const DarkModeSwitcher = ({ component = ListItem }: DarkModeSwitcherProps
             sx={{ '.MuiSwitch-track': { bgcolor: { xs: '#FFFFFF1F', md: 'primary.light' } } }}
           />
         }
-        label={theme.palette.mode === 'dark' ? 'On' : 'Off'}
+        label={
+          <Typography fontFamily={theme.palette.fonts.header}>
+            {theme.palette.mode === 'dark' ? 'On' : 'Off'}
+          </Typography>
+        }
         labelPlacement="start"
       />
     </Box>

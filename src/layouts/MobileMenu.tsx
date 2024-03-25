@@ -11,6 +11,7 @@ import {
   ListItemText,
   SvgIcon,
   Typography,
+  useTheme,
 } from '@mui/material';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { PROD_ENV } from 'src/utils/marketsAndNetworksConfig';
@@ -30,23 +31,31 @@ interface MobileMenuProps {
   headerHeight: number;
 }
 
-const MenuItemsWrapper = ({ children, title }: { children: ReactNode; title: ReactNode }) => (
-  <Box sx={{ mb: 6, '&:last-of-type': { mb: 0, '.MuiDivider-root': { display: 'none' } } }}>
-    <Box sx={{ px: 2 }}>
-      <Typography variant="subheader2" sx={{ color: '#A5A8B6', px: 4, py: 2 }}>
-        {title}
-      </Typography>
+const MenuItemsWrapper = ({ children, title }: { children: ReactNode; title: ReactNode }) => {
+  const { palette } = useTheme();
 
-      {children}
+  return (
+    <Box sx={{ mb: 6, '&:last-of-type': { mb: 0, '.MuiDivider-root': { display: 'none' } } }}>
+      <Box sx={{ px: 2 }}>
+        <Typography
+          variant="subheader2"
+          sx={{ color: '#A5A8B6', px: 4, py: 2, fontFamily: palette.fonts.header }}
+        >
+          {title}
+        </Typography>
+
+        {children}
+      </Box>
+
+      <Divider sx={{ borderColor: '#F2F3F729', mt: 6 }} />
     </Box>
-
-    <Divider sx={{ borderColor: '#F2F3F729', mt: 6 }} />
-  </Box>
-);
+  );
+};
 
 export const MobileMenu = ({ open, setOpen, headerHeight }: MobileMenuProps) => {
   const { i18n } = useLingui();
   const [isLanguagesListOpen, setIsLanguagesListOpen] = useState(false);
+  const { palette } = useTheme();
 
   useEffect(() => setIsLanguagesListOpen(false), [open]);
 
@@ -88,7 +97,9 @@ export const MobileMenu = ({ open, setOpen, headerHeight }: MobileMenuProps) => 
                       <SvgIcon sx={{ fontSize: '20px', color: '#F1F1F3' }}>{item.icon}</SvgIcon>
                     </ListItemIcon>
 
-                    <ListItemText>{i18n._(item.title)}</ListItemText>
+                    <ListItemText sx={{ fontFamily: palette.fonts.header, fontWeight: 500 }}>
+                      {i18n._(item.title)}
+                    </ListItemText>
                   </ListItem>
                 ))}
               </List>
