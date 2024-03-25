@@ -132,8 +132,8 @@ export const TxSuccessView = ({
               />
               <Typography variant="description" color="text.primary" sx={{ mx: '24px' }}>
                 <Trans>
-                  Add {addToken && addToken.aToken ? 'spToken ' : 'token '} to wallet to track your
-                  balance.
+                  Add {addToken && addToken.aToken ? 'aXtzToken ' : 'token '} to wallet to track
+                  your balance.
                 </Trans>
               </Typography>
               <Button
@@ -141,7 +141,7 @@ export const TxSuccessView = ({
                   addERC20Token({
                     address: addToken.address,
                     decimals: addToken.decimals,
-                    symbol: addToken.aToken ? `sp${addToken.symbol}` : addToken.symbol,
+                    symbol: addToken.aToken ? `aXtz${addToken.symbol}` : addToken.symbol,
                     image: !/_/.test(addToken.symbol) ? base64 : undefined,
                   });
                 }}
@@ -156,7 +156,9 @@ export const TxSuccessView = ({
                     aToken={addToken.aToken}
                   />
                 )}
-                <WalletIcon sx={{ width: '20px', height: '20px' }} />
+                <WalletIcon
+                  sx={{ width: '20px', height: '20px', stroke: theme.palette.common.white }}
+                />
                 <Typography variant="buttonM" color="white" ml="4px">
                   <Trans>Add to wallet</Trans>
                 </Typography>

@@ -1,6 +1,7 @@
-import { ChainId, Proposal, ProposalState } from '@aave/contract-helpers';
+import { Proposal, ProposalState } from '@aave/contract-helpers';
 import { normalizeBN } from '@aave/math-utils';
 import BigNumber from 'bignumber.js';
+import { ChainId } from 'src/ui-config/networksConfig';
 import { getProvider } from 'src/utils/marketsAndNetworksConfig';
 
 export type FormattedProposal = {

@@ -1,4 +1,5 @@
 import '/public/fonts/inter/inter.css';
+import '/public/fonts/space-grotesk/space-grotesk.css';
 import '/src/styles/variables.css';
 
 import { CacheProvider, EmotionCache } from '@emotion/react';
@@ -7,9 +8,9 @@ import { providers } from 'ethers';
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import SparkMetaImage from 'public/sparkMetaLogo-min.jpg';
+import PlendMetaImage from 'public/plendMetaLogo.jpg';
 import * as React from 'react';
-import { AddressBlocked } from 'src/components/AddressBlocked';
+// import { AddressBlocked } from 'src/components/AddressBlocked';
 import { BlockVPN } from 'src/components/BlockVPN';
 import { Meta } from 'src/components/Meta';
 import { BorrowModal } from 'src/components/transactions/Borrow/BorrowModal';
@@ -61,43 +62,42 @@ export default function MyApp(props: MyAppProps) {
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <script defer data-domain="app.spark.fi" src="https://plausible.io/js/script.js" />
       </Head>
       <Meta
         title={'Maker-Powered Lending Market'}
-        description={'Spark'}
-        imageUrl={SparkMetaImage.src}
+        description={'Plend'}
+        imageUrl={PlendMetaImage.src}
       />
       <LanguageProvider>
         <BlockVPN>
           <Web3ReactProvider getLibrary={getWeb3Library}>
             <Web3ContextProvider>
               <AppGlobalStyles>
-                <AddressBlocked>
-                  <PermissionProvider>
-                    <ModalContextProvider>
-                      <BackgroundDataProvider>
-                        <AppDataProvider>
-                          <GasStationProvider>
-                            {getLayout(<Component {...pageProps} />)}
-                            <SupplyModal />
-                            <WithdrawModal />
-                            <BorrowModal />
-                            <RepayModal />
-                            <CollateralChangeModal />
-                            <RateSwitchModal />
-                            <ClaimRewardsModal />
-                            <EmodeModal />
-                            <SwapModal />
-                            <FaucetModal />
-                            <PSMSwapModal />
-                            <MigrateV3Modal />
-                          </GasStationProvider>
-                        </AppDataProvider>
-                      </BackgroundDataProvider>
-                    </ModalContextProvider>
-                  </PermissionProvider>
-                </AddressBlocked>
+                {/* <AddressBlocked> */}
+                <PermissionProvider>
+                  <ModalContextProvider>
+                    <BackgroundDataProvider>
+                      <AppDataProvider>
+                        <GasStationProvider>
+                          {getLayout(<Component {...pageProps} />)}
+                          <SupplyModal />
+                          <WithdrawModal />
+                          <BorrowModal />
+                          <RepayModal />
+                          <CollateralChangeModal />
+                          <RateSwitchModal />
+                          <ClaimRewardsModal />
+                          <EmodeModal />
+                          <SwapModal />
+                          <FaucetModal />
+                          <PSMSwapModal />
+                          <MigrateV3Modal />
+                        </GasStationProvider>
+                      </AppDataProvider>
+                    </BackgroundDataProvider>
+                  </ModalContextProvider>
+                </PermissionProvider>
+                {/* </AddressBlocked> */}
               </AppGlobalStyles>
             </Web3ContextProvider>
           </Web3ReactProvider>

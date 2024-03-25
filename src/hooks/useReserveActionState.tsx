@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro';
-import { Button, Stack, Typography } from '@mui/material';
+import { Stack } from '@mui/material';
 import { Link, ROUTES } from 'src/components/primitives/Link';
 import { Warning } from 'src/components/primitives/Warning';
 import { getEmodeMessage } from 'src/components/transactions/Emode/EmodeNaming';
@@ -11,8 +11,6 @@ import { useAssetCaps } from 'src/hooks/useAssetCaps';
 import { WalletEmptyInfo } from 'src/modules/dashboard/lists/SupplyAssetsList/WalletEmptyInfo';
 import { useRootStore } from 'src/store/root';
 import { assetCanBeBorrowedByUser } from 'src/utils/getMaxAmountAvailableToBorrow';
-
-import { useModalContext } from './useModal';
 
 interface ReserveActionStateProps {
   balance: string;
@@ -30,7 +28,6 @@ export const useReserveActionState = ({
   const { user, eModes } = useAppDataContext();
   const { supplyCap, borrowCap, debtCeiling } = useAssetCaps();
   const { currentNetworkConfig, currentChainId } = useRootStore();
-  const { openFaucet } = useModalContext();
 
   const { bridge, name: networkName } = currentNetworkConfig;
 
@@ -50,35 +47,15 @@ export const useReserveActionState = ({
       maxAmountToBorrow === '0',
     alerts: (
       <Stack gap={3}>
-        {balance === '0' && (
-          <>
-            {currentNetworkConfig.isTestnet ? (
-              <Warning sx={{ mb: 0 }} severity="info" icon={false}>
-                <Trans>
-                  Your {networkName} wallet is empty. Get free test {reserve.name} at
-                </Trans>{' '}
-                <Button
-                  variant="text"
-                  sx={{ verticalAlign: 'top' }}
-                  onClick={() => openFaucet(reserve.underlyingAsset)}
-                  disableRipple
-                >
-                  <Typography variant="caption">
-                    <Trans>{networkName} Faucet</Trans>
-                  </Typography>
-                </Button>
-              </Warning>
-            ) : (
-              <WalletEmptyInfo
-                sx={{ mb: 0 }}
-                name={networkName}
-                bridge={bridge}
-                icon={false}
-                chainId={currentChainId}
-                symbol={reserve.symbol}
-              />
-            )}
-          </>
+        {balance === '0' && !currentNetworkConfig.isTestnet && (
+          <WalletEmptyInfo
+            sx={{ mb: 0 }}
+            name={networkName}
+            bridge={bridge}
+            icon={false}
+            chainId={currentChainId}
+            symbol={reserve.symbol}
+          />
         )}
 
         {balance !== '0' && user?.totalCollateralMarketReferenceCurrency === '0' && (

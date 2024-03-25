@@ -1,4 +1,3 @@
-import { ChainId } from '@aave/contract-helpers';
 import { SafeAppConnector } from '@gnosis.pm/safe-apps-web3-react';
 import { AbstractConnector } from '@web3-react/abstract-connector';
 import { UnsupportedChainIdError } from '@web3-react/core';
@@ -7,6 +6,7 @@ import { InjectedConnector } from '@web3-react/injected-connector';
 import { TorusConnector } from '@web3-react/torus-connector';
 import { ConnectorUpdate } from '@web3-react/types';
 import { WalletLinkConnector } from '@web3-react/walletlink-connector';
+import { ChainId } from 'src/ui-config/networksConfig';
 import { getNetworkConfig } from 'src/utils/marketsAndNetworksConfig';
 import { LedgerHQFrameConnector } from 'web3-ledgerhq-frame-connector';
 
@@ -23,7 +23,7 @@ export enum WalletType {
   READ_ONLY_MODE = 'read_only_mode',
 }
 
-const APP_NAME = 'Spark';
+const APP_NAME = 'Plend';
 const APP_LOGO_URL = 'https://sparkapp.finance/favicon.ico';
 
 const mockProvider = {
@@ -102,7 +102,7 @@ export const getWallet = (
         chainId,
         initOptions: {
           network: {
-            host: chainId === ChainId.polygon ? 'matic' : chainId,
+            host: chainId,
           },
           showTorusButton: false,
           enableLogging: false,

@@ -6,7 +6,6 @@ import React from 'react';
 import { GasTooltip } from 'src/components/infoTooltips/GasTooltip';
 import { useGasStation } from 'src/hooks/useGasStation';
 import { useModalContext } from 'src/hooks/useModal';
-import { useProtocolDataContext } from 'src/hooks/useProtocolDataContext';
 
 import { useAppDataContext } from '../../../hooks/app-data-provider/useAppDataProvider';
 import { GasPriceData } from '../../../hooks/useGetGasPrices';
@@ -36,19 +35,12 @@ export const GasStation: React.FC<GasStationProps> = ({ gasLimit }) => {
     state,
     gasPriceData: { data },
   } = useGasStation();
-  const { reserves } = useAppDataContext();
-  const {
-    currentNetworkConfig: { wrappedBaseAssetSymbol },
-  } = useProtocolDataContext();
+  const { basePriceInUsd } = useAppDataContext();
   const { loadingTxns } = useModalContext();
 
-  const wrappedAsset = reserves.find(
-    (token) => token.symbol.toLowerCase() === wrappedBaseAssetSymbol?.toLowerCase()
-  );
-
   const totalGasCostsUsd =
-    data && wrappedAsset
-      ? getGasCosts(gasLimit, state.gasOption, state.customGas, data, wrappedAsset.priceInUSD)
+    data && basePriceInUsd
+      ? getGasCosts(gasLimit, state.gasOption, state.customGas, data, basePriceInUsd.toString())
       : undefined;
 
   return (
