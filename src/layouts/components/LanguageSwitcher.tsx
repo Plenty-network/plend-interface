@@ -9,6 +9,7 @@ import {
   MenuItem,
   SvgIcon,
   Typography,
+  useTheme,
 } from '@mui/material';
 import React from 'react';
 
@@ -28,17 +29,21 @@ interface LanguageListItemProps {
 
 export const LanguageListItem = ({ component = ListItem, onClick }: LanguageListItemProps) => {
   const { i18n } = useLingui();
+  const { palette } = useTheme();
+
   return (
     <Box
       component={component}
       onClick={onClick}
       sx={{ color: { xs: '#F1F1F3', md: 'text.primary' } }}
     >
-      <ListItemText>
+      <ListItemText sx={{ fontFamily: palette.fonts.header, fontWeight: 500 }}>
         <Trans>Language</Trans>
       </ListItemText>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        {i18n._(langMap[i18n.locale as keyof typeof langMap])}{' '}
+        <Typography fontFamily={palette.fonts.header}>
+          {i18n._(langMap[i18n.locale as keyof typeof langMap])}{' '}
+        </Typography>
         <SvgIcon fontSize="small" sx={{ color: { xs: '#F1F1F3', md: 'text.primary' }, ml: 1 }}>
           <ChevronRightIcon />
         </SvgIcon>
@@ -49,6 +54,7 @@ export const LanguageListItem = ({ component = ListItem, onClick }: LanguageList
 
 export const LanguagesList = ({ component = ListItem, onClick }: LanguageListItemProps) => {
   const { i18n } = useLingui();
+  const { palette } = useTheme();
 
   return (
     <>
@@ -69,7 +75,7 @@ export const LanguagesList = ({ component = ListItem, onClick }: LanguageListIte
           </SvgIcon>
         </ListItemIcon>
         <ListItemText disableTypography>
-          <Typography variant="subheader2">
+          <Typography variant="subheader2" fontFamily={palette.fonts.header}>
             <Trans>Select language</Trans>
           </Typography>
         </ListItemText>
@@ -91,7 +97,9 @@ export const LanguagesList = ({ component = ListItem, onClick }: LanguageListIte
           >
             <img src={`/icons/flags/${lang}.svg`} width="100%" height="100%" alt={`${lang} icon`} />
           </ListItemIcon>
-          <ListItemText>{i18n._(langMap[lang as keyof typeof langMap])}</ListItemText>
+          <ListItemText sx={{ fontFamily: palette.fonts.header, fontWeight: 400 }}>
+            {i18n._(langMap[lang as keyof typeof langMap])}
+          </ListItemText>
           {lang === i18n.locale && (
             <ListItemIcon sx={{ m: 0 }}>
               <SvgIcon fontSize="small" sx={{ color: { xs: '#F1F1F3', md: 'text.primary' } }}>

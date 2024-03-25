@@ -69,7 +69,9 @@ export function MoreMenu() {
             <ListItemIcon>
               <SvgIcon sx={{ fontSize: '20px' }}>{item.icon}</SvgIcon>
             </ListItemIcon>
-            <ListItemText>{i18n._(item.title)}</ListItemText>
+            <ListItemText sx={{ fontFamily: palette.fonts.header, fontWeight: 500 }}>
+              {i18n._(item.title)}
+            </ListItemText>
           </MenuItem>
         ))}
       </Menu>
