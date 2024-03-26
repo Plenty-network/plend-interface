@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 
 import WalletConnectLogoDark from '/public/walletConnectLogoDark.svg';
 
+import { Link, ROUTES } from './primitives/Link';
 import { ConnectWalletButton } from './WalletConnection/ConnectWalletButton';
 
 interface ConnectWalletPaperProps extends PaperProps {
@@ -92,10 +93,7 @@ export const Disclaimers = () => {
         <a href="https://spark.fi/terms-of-use.html" target="blank">
           Terms of Use
         </a>{' '}
-        and{' '}
-        <a href="https://spark.fi/privacy-policy.html" target="blank">
-          Privacy Policy
-        </a>
+        and <InnerLink href={ROUTES.privacyPolicy}>Privacy Policy</InnerLink>
         .
         <br />
         <br />- I am not the person or entities who reside in, are citizens of, are incorporated in,
@@ -121,5 +119,24 @@ export const Disclaimers = () => {
       </Trans>
       )
     </Typography>
+  );
+};
+
+interface InnerLinkProps {
+  children: JSX.Element | string;
+  href: string;
+}
+export const InnerLink = ({ children, href }: InnerLinkProps) => {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      sx={(theme) => ({
+        color: theme.palette.mode === 'light' ? '#3F2566' : '#52F4DC',
+        textDecoration: 'underline',
+      })}
+    >
+      {children}
+    </Link>
   );
 };
