@@ -1,27 +1,7 @@
-import { Paper, styled, Typography } from '@mui/material';
+import { Paper, Typography } from '@mui/material';
+import MarkedList from 'src/components/lists/MarkedList';
+import MarkedListItem from 'src/components/lists/MarkedListItem';
 import { Link } from 'src/components/primitives/Link';
-
-const MarkedList = styled('ol')`
-  margin: 0;
-  counter-reset: list;
-  & li {
-    list-style: none;
-    counter-increment: list;
-    padding-left: 1rem;
-  }
-  & li:not(:last-child) {
-    margin-bottom: 0.25rem;
-  }
-  &.lower-roman > li::marker {
-    content: '(' counter(list, lower-roman) ')';
-  }
-  &.lower-alpha > li::marker {
-    content: '(' counter(list, lower-alpha) ')';
-  }
-  &.mb-1 {
-    margin-bottom: 1rem;
-  }
-`;
 
 const PPContent = (): JSX.Element => {
   return (
@@ -58,79 +38,57 @@ const PPContent = (): JSX.Element => {
       <Typography mb={4}>
         Your personal data may be stored and processed by the Foundation for the following purposes:
       </Typography>
-      <MarkedList className="lower-alpha mb-1">
-        <li>
-          <Typography>
-            Assessing and processing your access to and use of the Website and the Front-End,
-            including performing know-your-client procedures, enabling access to or continued use of
-            the Front-End, and overseeing these processes;
-          </Typography>
-        </li>
-        <li>
-          <Typography>
-            General business administration, including communicating with you, audit services, risk
-            monitoring, the administration of IT systems and monitoring and improving products; and
-          </Typography>
-        </li>
-        <li>
-          <Typography>
-            Compliance with legal and regulatory obligations and industry standards, including
-            know-your-client procedures, the automatic exchange of tax information and legal
-            judgments.
-          </Typography>
-        </li>
+      <MarkedList markerType="lower-alpha" name="usesofpersonaldata" sx={{ mb: 4 }}>
+        <MarkedListItem>
+          Assessing and processing your access to and use of the Website and the Front-End,
+          including performing know-your-client procedures, enabling access to or continued use of
+          the Front-End, and overseeing these processes;
+        </MarkedListItem>
+        <MarkedListItem>
+          General business administration, including communicating with you, audit services, risk
+          monitoring, the administration of IT systems and monitoring and improving products; and
+        </MarkedListItem>
+        <MarkedListItem>
+          Compliance with legal and regulatory obligations and industry standards, including
+          know-your-client procedures, the automatic exchange of tax information and legal
+          judgments.
+        </MarkedListItem>
       </MarkedList>
       <Typography mb={4}>
         The Foundation is entitled to process your personal data in these ways for the following
         reasons:
       </Typography>
-      <MarkedList className="lower-alpha mb-1">
-        <li>
-          <Typography>
-            Processing may be necessary to discharge a relevant legal or regulatory obligation;
-          </Typography>
-        </li>
-        <li>
-          <Typography>
-            The processing will, in all cases, be necessary for the legitimate business interests of
-            the Foundation, such as:
-          </Typography>
-          <MarkedList className="lower-roman">
-            <li>
-              <Typography>
-                carrying out the ordinary or reasonable business activities of the Foundation, or
-                other activities referred to in this privacy notice;
-              </Typography>
-            </li>
-            <li>
-              <Typography>
-                ensuring compliance with all legal and regulatory obligations and industry
-                standards, and preventing fraud;
-              </Typography>
-            </li>
-            <li>
-              <Typography>
-                establishing, exercising or defending legal rights or for other purposes relating to
-                legal proceedings; and
-              </Typography>
-            </li>
-            <li>
-              <Typography>ensuring the security of information systems.</Typography>
-            </li>
+      <MarkedList markerType="lower-alpha" name="processingreasons" sx={{ mb: 4 }}>
+        <MarkedListItem>
+          Processing may be necessary to discharge a relevant legal or regulatory obligation;
+        </MarkedListItem>
+        <MarkedListItem>
+          The processing will, in all cases, be necessary for the legitimate business interests of
+          the Foundation, such as:
+          <MarkedList markerType="lower-roman" name="businessinterests">
+            <MarkedListItem>
+              carrying out the ordinary or reasonable business activities of the Foundation, or
+              other activities referred to in this privacy notice;
+            </MarkedListItem>
+            <MarkedListItem>
+              ensuring compliance with all legal and regulatory obligations and industry standards,
+              and preventing fraud;
+            </MarkedListItem>
+            <MarkedListItem>
+              establishing, exercising or defending legal rights or for other purposes relating to
+              legal proceedings; and
+            </MarkedListItem>
+            <MarkedListItem>ensuring the security of information systems.</MarkedListItem>
           </MarkedList>
-        </li>
-        <li>
-          <Typography>
-            You have given your explicit consent (this basis is used only exceptionally).
-          </Typography>
-        </li>
-        <li>
-          <Typography>
-            In respect of any processing of sensitive personal data falling within special
-            categories, such as any personal data relating to the political opinions of a
-            politically exposed person, the processing will be subject to additional safeguards.
-          </Typography>
-        </li>
+        </MarkedListItem>
+        <MarkedListItem>
+          You have given your explicit consent (this basis is used only exceptionally).
+        </MarkedListItem>
+        <MarkedListItem>
+          In respect of any processing of sensitive personal data falling within special categories,
+          such as any personal data relating to the political opinions of a politically exposed
+          person, the processing will be subject to additional safeguards.
+        </MarkedListItem>
       </MarkedList>
 
       <Typography variant="h3" mb={4}>
@@ -139,35 +97,29 @@ const PPContent = (): JSX.Element => {
       <Typography mb={4}>
         The Foundation might process the following personal data about you:
       </Typography>
-      <MarkedList className="lower-alpha mb-1">
-        <li>
-          <Typography>
-            Information provided to the Foundation by you which might include your name and address
-            (including proofs of name and address), contact details, digital assets wallet address,
-            date of birth, gender, nationality, photograph, signature, occupational history, and job
-            title. Such information might be provided in an application form or in other documents
-            (as part of an application process or at other times), face-to-face, by telephone, by
-            email or otherwise;
-          </Typography>
-        </li>
-        <li>
-          <Typography>
-            Information that the Foundation collects or generates which might include information
-            relating to your use of the Website and the Front-End, your IP address, emails (and
-            related data), call recordings and website usage data and messages submitted through the
-            Administrator’s website; and
-          </Typography>
-        </li>
-        <li>
-          <Typography>
-            Information that the Foundation obtains from other sources which might include
-            information obtained for the purpose of the Foundation’s know-your-client procedures
-            (which include anti-money laundering procedures, counter-terrorist financing procedures,
-            politically-exposed-person checks, sanctions checks, among other things), information
-            from public websites and other public sources and information received from the
-            applicant’s advisers or from intermediaries.
-          </Typography>
-        </li>
+      <MarkedList markerType="lower-alpha" name="personaldataused" sx={{ mb: 4 }}>
+        <MarkedListItem>
+          Information provided to the Foundation by you which might include your name and address
+          (including proofs of name and address), contact details, digital assets wallet address,
+          date of birth, gender, nationality, photograph, signature, occupational history, and job
+          title. Such information might be provided in an application form or in other documents (as
+          part of an application process or at other times), face-to-face, by telephone, by email or
+          otherwise;
+        </MarkedListItem>
+        <MarkedListItem>
+          Information that the Foundation collects or generates which might include information
+          relating to your use of the Website and the Front-End, your IP address, emails (and
+          related data), call recordings and website usage data and messages submitted through the
+          Administrator’s website; and
+        </MarkedListItem>
+        <MarkedListItem>
+          Information that the Foundation obtains from other sources which might include information
+          obtained for the purpose of the Foundation’s know-your-client procedures (which include
+          anti-money laundering procedures, counter-terrorist financing procedures,
+          politically-exposed-person checks, sanctions checks, among other things), information from
+          public websites and other public sources and information received from the applicant’s
+          advisers or from intermediaries.
+        </MarkedListItem>
       </MarkedList>
 
       <Typography variant="h3" mb={4}>
@@ -236,47 +188,37 @@ const PPContent = (): JSX.Element => {
         You have a number of legal rights in relation to the personal data that the Foundation holds
         about you. These rights include the following:
       </Typography>
-      <MarkedList className="lower-alpha mb-1">
-        <li>
-          <Typography>
-            The right to obtain information regarding the processing of your personal data and
-            access to the personal data that the Foundation holds about you.
-          </Typography>
-        </li>
-        <li>
-          <Typography>
-            The right to request that the Foundation rectifies your personal data if it is
-            inaccurate or incomplete.
-          </Typography>
-        </li>
-        <li>
-          <Typography>
-            The right to object to, and the right to request that the Foundation restricts, its
-            processing of your personal data in certain circumstances. There may be circumstances
-            where you object to, or ask the Foundation to restrict, its processing of your personal
-            data but the Foundation is legally entitled to continue processing your personal data or
-            to refuse that request.
-          </Typography>
-        </li>
-        <li>
-          <Typography>
-            The right to ask the Foundation not to subject you to automated decision making that
-            uses your personal data.
-          </Typography>
-        </li>
-        <li>
+      <MarkedList markerType="lower-alpha" name="yourrights" sx={{ mb: 4 }}>
+        <MarkedListItem>
+          The right to obtain information regarding the processing of your personal data and access
+          to the personal data that the Foundation holds about you.
+        </MarkedListItem>
+        <MarkedListItem>
+          The right to request that the Foundation rectifies your personal data if it is inaccurate
+          or incomplete.
+        </MarkedListItem>
+        <MarkedListItem>
+          The right to object to, and the right to request that the Foundation restricts, its
+          processing of your personal data in certain circumstances. There may be circumstances
+          where you object to, or ask the Foundation to restrict, its processing of your personal
+          data but the Foundation is legally entitled to continue processing your personal data or
+          to refuse that request.
+        </MarkedListItem>
+        <MarkedListItem>
+          The right to ask the Foundation not to subject you to automated decision making that uses
+          your personal data.
+        </MarkedListItem>
+        <MarkedListItem>
           <Typography>
             The right to object to the Foundation using your personal data for direct marketing
             purposes.
           </Typography>
-        </li>
-        <li>
-          <Typography>
-            The right to lodge a complaint with the data protection regulator (details of which are
-            provided below) if you think that any of your rights have been infringed by the
-            Foundation.
-          </Typography>
-        </li>
+        </MarkedListItem>
+        <MarkedListItem>
+          The right to lodge a complaint with the data protection regulator (details of which are
+          provided below) if you think that any of your rights have been infringed by the
+          Foundation.
+        </MarkedListItem>
       </MarkedList>
       <Typography mb={4}>
         You can exercise your rights by contacting the Foundation using the details set out under

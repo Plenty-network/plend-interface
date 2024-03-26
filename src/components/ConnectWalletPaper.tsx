@@ -4,6 +4,8 @@ import { ReactNode } from 'react';
 
 import WalletConnectLogoDark from '/public/walletConnectLogoDark.svg';
 
+import MarkedList from './lists/MarkedList';
+import MarkedListItem from './lists/MarkedListItem';
 import { Link, ROUTES } from './primitives/Link';
 import { ConnectWalletButton } from './WalletConnection/ConnectWalletButton';
 
@@ -78,46 +80,45 @@ export const ConnectWalletPaper = ({
 export const Disclaimers = () => {
   return (
     <Typography
+      component="div"
       sx={{
         mb: 6,
         textAlign: 'left',
         maxWidth: '700px',
-        marginBottom: '50px',
+        marginBottom: '20px',
         padding: '15px 20px',
         borderRadius: '6px',
       }}
     >
-      (
       <Trans>
         By using this Site, I have read and agree to the{' '}
-        <a href="https://spark.fi/terms-of-use.html" target="blank">
-          Terms of Use
-        </a>{' '}
-        and <InnerLink href={ROUTES.privacyPolicy}>Privacy Policy</InnerLink>
-        .
+        <InnerLink href={ROUTES.termsOfService}>Terms of Service</InnerLink> and{' '}
+        <InnerLink href={ROUTES.privacyPolicy}>Privacy Policy</InnerLink>.
         <br />
-        <br />- I am not the person or entities who reside in, are citizens of, are incorporated in,
-        or have a registered office in the United States of America or any Prohibited Localities, as
-        defined in the{' '}
-        <a href="https://spark.fi/terms-of-use.html" target="blank">
-          Terms of Use
-        </a>
-        .
-        <br />- I will not in the future access this site while located within the United States or
-        any Prohibited Localities, as defined in the{' '}
-        <a href="https://spark.fi/terms-of-use.html" target="blank">
-          Terms of Use
-        </a>
-        .
-        <br />
-        - I am not using, and will not in the future use, a VPN to mask my physical location from a
-        restricted territory.
-        <br />
-        - I am lawfully permitted to access this site and use it&#39;s services under the laws of
-        the jurisdiction in which I reside and am located.
-        <br />- I understand the risks associated with entering into using the Spark.
+        <MarkedList markerType="dash" name="disclaimer" sx={{ pt: 8 }}>
+          <MarkedListItem>
+            I am not the person or entities who reside in, are citizens of, are incorporated in, or
+            have a registered office in the United States of America or any Prohibited Localities,
+            as defined in the <InnerLink href={ROUTES.termsOfService}>Terms of Service</InnerLink>.
+          </MarkedListItem>
+          <MarkedListItem>
+            I will not in the future access this site while located within the United States or any
+            Prohibited Localities, as defined in the{' '}
+            <InnerLink href={ROUTES.termsOfService}>Terms of Service</InnerLink>.
+          </MarkedListItem>
+          <MarkedListItem>
+            I am not using, and will not in the future use, a VPN to mask my physical location from
+            a restricted territory.
+          </MarkedListItem>
+          <MarkedListItem>
+            I am lawfully permitted to access this site and use it&#39;s services under the laws of
+            the jurisdiction in which I reside and am located.
+          </MarkedListItem>
+          <MarkedListItem>
+            I understand the risks associated with entering into using the Plend.
+          </MarkedListItem>
+        </MarkedList>
       </Trans>
-      )
     </Typography>
   );
 };
