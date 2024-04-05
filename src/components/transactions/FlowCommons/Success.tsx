@@ -134,8 +134,8 @@ export const TxSuccessView = ({
                 <Trans>
                   Add{' '}
                   {addToken && addToken.aToken
-                    ? `aXtz${addToken.symbol} `
-                    : `${addToken.symbol} token `}
+                    ? `aXtz${addToken.symbol}`
+                    : `${addToken.symbol} token`}{' '}
                   to wallet to track your balance.
                 </Trans>
               </Typography>
