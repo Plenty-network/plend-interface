@@ -59,10 +59,7 @@ export const DebtCeilingStatus = ({
                 Debt ceiling limits the amount possible to borrow against this asset by protocol
                 users. Debt ceiling is specific to assets in isolation mode and is denoted in USD.
               </Trans>{' '}
-              <Link
-                href="https://docs.spark.fi/defi-infrastructure/sparklend/spark-lend-features#how-does-isolation-mode-affect-my-borrowing-power"
-                underline="always"
-              >
+              <Link href="https://docs.plend.finance" underline="always">
                 <Trans>Learn more</Trans>
               </Link>
             </>

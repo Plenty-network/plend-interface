@@ -55,7 +55,7 @@ export const LiquidationRiskParametresInfoModal = ({
           liquidations you can supply more collateral or repay borrow positions.
         </Trans>{' '}
         <Link
-          href="https://docs.spark.fi/faq/"
+          href="https://docs.plend.finance"
           sx={{ textDecoration: 'underline' }}
           color="text.primary"
           variant="description"

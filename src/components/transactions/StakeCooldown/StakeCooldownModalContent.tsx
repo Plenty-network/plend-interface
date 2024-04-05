@@ -123,7 +123,7 @@ export const StakeCooldownModalContent = ({ stakeAssetName }: StakeCooldownProps
         </Trans>{' '}
         <Link
           variant="description"
-          href="https://docs.spark.fi/"
+          href="https://docs.plend.finance"
           sx={{ textDecoration: 'underline' }}
         >
           <Trans>Learn more</Trans>

@@ -34,17 +34,17 @@ interface MoreMenuItem extends Navigation {
 
 const moreMenuItems: MoreMenuItem[] = [
   {
-    link: 'https://docs.spark.fi/faq',
+    link: 'https://docs.plend.finance',
     title: t`FAQ`,
     icon: <QuestionMarkCircleIcon />,
   },
   {
-    link: 'https://devs.spark.fi/',
+    link: 'https://docs.aave.com/developers',
     title: t`Developers`,
     icon: <BookOpenIcon />,
   },
   {
-    link: 'https://github.com/marsfoundation/spark-interface',
+    link: 'https://github.com/rs-collab/spark-interface',
     title: t`Github`,
     icon: <GithubIcon />,
   },

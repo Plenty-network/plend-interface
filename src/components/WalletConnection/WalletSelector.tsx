@@ -235,11 +235,7 @@ export const WalletSelector = () => {
       <Typography variant="description" sx={{ mt: '22px', mb: '30px', alignSelf: 'center' }}>
         <Trans>
           Need help connecting a wallet?{' '}
-          <Link
-            href="https://docs.spark.fi/defi-infrastructure/sparklend/troubleshooting"
-            target="_blank"
-            rel="noopener"
-          >
+          <Link href="https://docs.plend.finance" target="_blank" rel="noopener">
             Read our FAQ
           </Link>
         </Trans>
