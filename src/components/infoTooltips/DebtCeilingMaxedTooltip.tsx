@@ -21,10 +21,7 @@ export const DebtCeilingMaxedTooltip = ({ debtCeiling, ...rest }: DebtCeilingMax
             Protocol debt ceiling is at 100% for this asset. Futher borrowing against this asset is
             unavailable.
           </Trans>{' '}
-          <Link
-            href="https://docs.spark.fi/defi-infrastructure/sparklend/spark-lend-features#how-does-isolation-mode-affect-my-borrowing-power"
-            underline="always"
-          >
+          <Link href="https://docs.plend.finance" underline="always">
             <Trans>Learn more</Trans>
           </Link>
         </>

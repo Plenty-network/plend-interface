@@ -20,7 +20,7 @@ export const EModeTooltip = ({
         />
         .{' '}
         <Link
-          href="https://docs.spark.fi/defi-infrastructure/sparklend/spark-lend-features#how-does-isolation-mode-affect-my-borrowing-power"
+          href="https://docs.plend.finance"
           sx={{ textDecoration: 'underline' }}
           variant="caption"
           color="text.secondary"
