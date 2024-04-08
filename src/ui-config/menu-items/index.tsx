@@ -44,7 +44,7 @@ const moreMenuItems: MoreMenuItem[] = [
     icon: <BookOpenIcon />,
   },
   {
-    link: 'https://github.com/rs-collab/spark-interface',
+    link: 'https://github.com/rs-collab/plend-interface',
     title: t`Github`,
     icon: <GithubIcon />,
   },
