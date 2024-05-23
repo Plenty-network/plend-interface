@@ -59,7 +59,7 @@ export const marketsData: {
 } = {
   [CustomMarket.etherlink_testnet]: {
     marketTitle: 'Etherlink Testnet',
-    chainId: ChainId.etherlink_testnet,
+    chainId: 128123, //ChainId.etherlink_testnet,
     v3: true,
     enabledFeatures: {
       liquiditySwap: false,
@@ -67,11 +67,11 @@ export const marketsData: {
       faucet: false,
     },
     addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x20FC2ffeeE0626f1F2Fb10604aBF005487C93611'.toLowerCase(),
-      LENDING_POOL: '0xf5fEFa0c91BD40bA312e59aA6c8d0e3507ce9ff2',
-      WALLET_BALANCE_PROVIDER: '0xdC3Cc3B452C262D713F58059Ad7D40799dB6576b',
-      UI_POOL_DATA_PROVIDER: '0x47997520d8F70cBfe03520a08Ff5Cec537DE78bb',
-      UI_INCENTIVE_DATA_PROVIDER: '0x8A73C9083DE35Aa8D47cb500400e31E14463d05A',
+      LENDING_POOL_ADDRESS_PROVIDER: '0x54Ae8d702C8F54207BEB43c4B34Bdcf2A33a1631'.toLowerCase(),
+      LENDING_POOL: '0x50648A1C05aB60015A4a1bE838EF13DE6125085e',
+      WALLET_BALANCE_PROVIDER: '0x8143aBBf80159eaeE6efbD64F59129c32E1360c8',
+      UI_POOL_DATA_PROVIDER: '0xf634f88A01D17734d1f4Ed999e4dD191a6f22223',
+      UI_INCENTIVE_DATA_PROVIDER: '0x3b25823c78234596C396284fdBb2380f2BA147D8',
     },
   },
 } as const;
