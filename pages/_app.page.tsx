@@ -64,7 +64,7 @@ export default function MyApp(props: MyAppProps) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <Meta
-        title={'Maker-Powered Lending Market'}
+        title={'Etherlink-Powered Lending Market'}
         description={'Plend'}
         imageUrl={PlendMetaImage.src}
       />

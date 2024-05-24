@@ -167,7 +167,7 @@ export const MarketSwitcher = () => {
       <Box>
         <Typography variant="subheader2" color="text.secondary" sx={{ px: 4, py: 2 }}>
           <Trans>
-            {ENABLE_TESTNET || STAGING_ENV ? 'Select Spark Testnet Market' : 'Select Spark Market'}
+            {ENABLE_TESTNET || STAGING_ENV ? 'Select Plend Testnet Market' : 'Select Plend Market'}
           </Trans>
         </Typography>
       </Box>

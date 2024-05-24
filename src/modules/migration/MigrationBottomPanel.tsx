@@ -76,7 +76,7 @@ export const MigrationBottomPanel = ({
         return (
           <>
             <Trans>
-              This action will reduce health factor of Spark Protocol below liquidation threshold.
+              This action will reduce health factor of Plend Protocol below liquidation threshold.
               Increase migrated collateral or reduce migrated borrow to continue.
             </Trans>
           </>
@@ -116,7 +116,7 @@ export const MigrationBottomPanel = ({
         />
 
         <HFChange
-          caption={<Trans>Health Factor (Spark Protocol)</Trans>}
+          caption={<Trans>Health Factor (Plend Protocol)</Trans>}
           hfCurrent={hfV3Current}
           hfAfter={hfV3AfterChange}
           loading={loading}
@@ -192,7 +192,7 @@ export const MigrationBottomPanel = ({
         <Typography sx={{ mb: { xs: 3, lg: 4 } }}>
           <Trans>
             Please always be aware of your <b>Health Factor (HF)</b> when partially migrating a
-            position and that your rates will be updated to Spark Protocol rates.
+            position and that your rates will be updated to Plend Protocol rates.
           </Trans>
         </Typography>
         <Typography sx={{ mb: { xs: 3, lg: 4 } }}>

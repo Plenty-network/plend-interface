@@ -72,7 +72,7 @@ export const MigrateV3ModalContent = () => {
 
   return (
     <>
-      <TxModalTitle title="Migrate to Spark Protocol" />
+      <TxModalTitle title="Migrate to Plend Protocol" />
       {isWrongNetwork && !readOnlyModeAddress && (
         <ChangeNetworkWarning networkName={networkConfig.name} chainId={currentChainId} />
       )}
