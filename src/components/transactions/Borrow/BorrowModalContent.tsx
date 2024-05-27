@@ -310,14 +310,6 @@ export const BorrowModalContent = ({
         </>
       )}
 
-      <Warning severity="info" sx={{ my: 6 }}>
-        <Trans>
-          <b>Attention:</b> Parameter changes via governance can alter your account health factor
-          and risk of liquidation. Follow the{' '}
-          <a href="https://forum.makerdao.com/">Maker governance forum</a> for updates.
-        </Trans>
-      </Warning>
-
       <BorrowActions
         poolReserve={poolReserve}
         amountToBorrow={amount}

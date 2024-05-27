@@ -1,7 +1,6 @@
 import { Trans } from '@lingui/macro';
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import * as React from 'react';
-import { Link } from 'src/components/primitives/Link';
 import { PageTitle } from 'src/components/TopInfoPanel/PageTitle';
 import { useProtocolDataContext } from 'src/hooks/useProtocolDataContext';
 
@@ -28,13 +27,6 @@ export const FaucetTopPanel = () => {
                 switch your wallet provider to the appropriate testnet network, select desired
                 asset, and click ‘Faucet’ to get tokens transferred to your wallet. The assets on a
                 testnet are not “real,” meaning they have no monetary value.{' '}
-                <Link
-                  color="#A5A8B6"
-                  href="https://devs.spark.fi/sparklend/features/testing-guide"
-                  sx={{ textDecoration: 'underline' }}
-                >
-                  Learn more
-                </Link>
               </Trans>
             </Typography>
           </Box>

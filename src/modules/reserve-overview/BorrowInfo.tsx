@@ -87,7 +87,7 @@ export const BorrowInfo = ({
                         pool insolvency.
                       </Trans>{' '}
                       <Link
-                        href="https://devs.spark.fi/sparklend/features/supply-borrow-caps"
+                        href="https://tezsure.gitbook.io/plend-finance/borrowing"
                         underline="always"
                       >
                         <Trans>Learn more</Trans>
