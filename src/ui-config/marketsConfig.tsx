@@ -39,6 +39,7 @@ export type MarketDataType = {
     SAVINGS_DAI?: string;
     V3_MIGRATOR?: string;
   };
+  faucetUrl: string;
   /**
    * https://www.hal.xyz/ has integrated aave for healtfactor warning notification
    * the integration doesn't follow aave market naming & only supports a subset of markets.
@@ -73,5 +74,6 @@ export const marketsData: {
       UI_POOL_DATA_PROVIDER: '0xA69C04756c604b63514cBF13466eCE70a5BF755b',
       UI_INCENTIVE_DATA_PROVIDER: '0xdfe6cC78B0A1ed393246B9151c83036AD3e165b8',
     },
+    faucetUrl: 'http://13.201.29.196/receiveFaucetTokens',
   },
 } as const;

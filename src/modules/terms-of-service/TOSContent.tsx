@@ -287,8 +287,8 @@ const TOSContent = (): JSX.Element => {
             <MarkedListItem>
               <strong>“Plend Smart Contract Protocol”</strong> means the source code for
               Blockchain-based smart contracts at{' '}
-              <Link href="https://github.com/rs-collab/aave-v3-core">
-                https://github.com/rs-collab/aave-v3-core
+              <Link href="https://github.com/Plenty-network/plend-core-contracts">
+                https://github.com/Plenty-network/plend-core-contracts
               </Link>{' '}
               intended to be deployed to Etherlink Mainnet or Plend Altchains.
             </MarkedListItem>
