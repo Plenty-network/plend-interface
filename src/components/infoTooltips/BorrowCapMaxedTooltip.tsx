@@ -18,10 +18,7 @@ export const BorrowCapMaxedTooltip = ({ borrowCap, ...rest }: BorrowCapMaxedTool
       <TextWithTooltip {...rest} icon={<ExclamationIcon />} color="warning.main" iconSize={18}>
         <>
           <Trans>Protocol borrow cap at 100% for this asset. Further borrowing unavailable.</Trans>{' '}
-          <Link
-            href="https://devs.spark.fi/sparklend/features/supply-borrow-caps"
-            underline="always"
-          >
+          <Link href="https://tezsure.gitbook.io/plend-finance/borrowing" underline="always">
             <Trans>Learn more</Trans>
           </Link>
         </>

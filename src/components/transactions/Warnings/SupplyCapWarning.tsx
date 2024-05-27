@@ -30,10 +30,7 @@ export const SupplyCapWarning = ({ supplyCap, icon = true, ...rest }: SupplyCapW
   return (
     <Warning severity={severity} icon={icon} {...rest}>
       {renderText()}{' '}
-      <Link
-        href="https://devs.spark.fi/sparklend/features/supply-borrow-caps"
-        underline="always"
-      >
+      <Link href="https://tezsure.gitbook.io/plend-finance/borrowing" underline="always">
         <Trans>Learn more</Trans>
       </Link>
     </Warning>

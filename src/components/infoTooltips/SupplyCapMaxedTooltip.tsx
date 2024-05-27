@@ -19,7 +19,7 @@ export const SupplyCapMaxedTooltip = ({ supplyCap, ...rest }: SupplyCapMaxedTool
         <>
           <Trans>Protocol supply cap at 100% for this asset. Further supply unavailable.</Trans>{' '}
           <Link
-            href="https://devs.spark.fi/sparklend/features/supply-borrow-caps"
+            href="https://tezsure.gitbook.io/plend-finance/supplying-and-earning"
             underline="always"
           >
             <Trans>Learn more</Trans>
