@@ -74,6 +74,6 @@ export const marketsData: {
       UI_POOL_DATA_PROVIDER: '0xA69C04756c604b63514cBF13466eCE70a5BF755b',
       UI_INCENTIVE_DATA_PROVIDER: '0xdfe6cC78B0A1ed393246B9151c83036AD3e165b8',
     },
-    faucetUrl: 'http://localhost:3002/receive', // TODO : replace this localhost url with server ip or url
+    faucetUrl: 'http://13.201.29.196/receiveFaucetTokens',
   },
 } as const;

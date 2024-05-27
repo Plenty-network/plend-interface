@@ -39,12 +39,12 @@ const moreMenuItems: MoreMenuItem[] = [
     icon: <QuestionMarkCircleIcon />,
   },
   {
-    link: 'https://docs.aave.com/developers',
-    title: t`Developers`,
+    link: 'https://tezsure.gitbook.io/plend-finance',
+    title: t`Documentation`,
     icon: <BookOpenIcon />,
   },
   {
-    link: 'https://github.com/rs-collab/plend-interface',
+    link: 'https://github.com/Plenty-network/plend-core-contracts',
     title: t`Github`,
     icon: <GithubIcon />,
   },
