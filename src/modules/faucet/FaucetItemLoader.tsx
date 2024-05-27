@@ -1,5 +1,4 @@
-import { Trans } from '@lingui/macro';
-import { Box, Button, Skeleton } from '@mui/material';
+import { Box, Skeleton } from '@mui/material';
 
 import { ListColumn } from '../../components/lists/ListColumn';
 import { ListItem } from '../../components/lists/ListItem';
@@ -16,12 +15,6 @@ export const FaucetItemLoader = () => {
 
       <ListColumn>
         <Skeleton width={70} height={24} />
-      </ListColumn>
-
-      <ListColumn maxWidth={280} align="right">
-        <Button variant="contained">
-          <Trans>Faucet</Trans>
-        </Button>
       </ListColumn>
     </ListItem>
   );

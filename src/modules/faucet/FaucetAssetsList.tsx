@@ -1,6 +1,14 @@
 import { valueToBigNumber } from '@aave/math-utils';
 import { Trans } from '@lingui/macro';
-import { Box, Button, Typography, useMediaQuery, useTheme } from '@mui/material';
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Skeleton,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import * as React from 'react';
 import { ConnectWalletPaper } from 'src/components/ConnectWalletPaper';
 import { ListColumn } from 'src/components/lists/ListColumn';
@@ -13,7 +21,7 @@ import { Link, ROUTES } from 'src/components/primitives/Link';
 import { TokenIcon } from 'src/components/primitives/TokenIcon';
 import { useAppDataContext } from 'src/hooks/app-data-provider/useAppDataProvider';
 import { useWalletBalances } from 'src/hooks/app-data-provider/useWalletBalances';
-import { useModalContext } from 'src/hooks/useModal';
+import { useFaucetCall } from 'src/hooks/useFaucetCall';
 import { useProtocolDataContext } from 'src/hooks/useProtocolDataContext';
 import { useWeb3Context } from 'src/libs/hooks/useWeb3Context';
 
@@ -23,9 +31,9 @@ import { FaucetMobileItemLoader } from './FaucetMobileItemLoader';
 export default function FaucetAssetsList() {
   const { reserves, loading } = useAppDataContext();
   const { walletBalances } = useWalletBalances();
-  const { openFaucet } = useModalContext();
   const { currentAccount, loading: web3Loading } = useWeb3Context();
   const { currentMarket } = useProtocolDataContext();
+  const { makeFaucetCall, isLoading, isError, data } = useFaucetCall();
 
   const theme = useTheme();
   const downToXSM = useMediaQuery(theme.breakpoints.down('xsm'));
@@ -61,17 +69,92 @@ export default function FaucetAssetsList() {
         </>
       }
     >
-      <Box px={downToXSM ? 4 : 6}>
-        Use{' '}
-        <Link
-          href="https://faucet.paradigm.xyz/"
-          sx={{ textDecoration: 'underline' }}
-          variant="caption"
-          color="text.secondary"
-        >
-          Paradigm Faucet
-        </Link>{' '}
-        to request testnet ether. With that you can borrow DAI or any other available asset.
+      <Box
+        px={downToXSM ? 4 : 6}
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+        }}
+      >
+        <div>
+          Use{' '}
+          <Link
+            href="https://faucet.etherlink.com/"
+            sx={{ textDecoration: 'underline' }}
+            variant="caption"
+            color="text.secondary"
+          >
+            Etherlink Faucet
+          </Link>{' '}
+          to request testnet xtz. With that you can borrow USDT or any other available asset.
+        </div>
+
+        {isLoading ? (
+          <Button
+            variant="gradient"
+            disabled={true}
+            sx={{
+              marginY: '0.5rem',
+              width: '11rem',
+            }}
+          >
+            <Trans>
+              <CircularProgress sx={{ color: 'black' }} size="1.5rem" />
+            </Trans>
+          </Button>
+        ) : loading ? (
+          <Box sx={{ pl: 3.5, overflow: 'hidden' }}>
+            <Skeleton width={100} height={24} />
+          </Box>
+        ) : data ? (
+          <Button
+            variant="gradient"
+            disabled={true}
+            sx={{
+              marginY: '0.5rem',
+              width: '11rem',
+            }}
+          >
+            <Box sx={{ color: 'black' }}>Claimed </Box>
+          </Button>
+        ) : (
+          <Button
+            variant="gradient"
+            onClick={() => makeFaucetCall(currentAccount)}
+            sx={{
+              marginY: '0.5rem',
+              width: '11rem',
+            }}
+          >
+            <Trans>Claim Testnet Tokens</Trans>
+          </Button>
+        )}
+      </Box>
+
+      <Box
+        px={downToXSM ? 4 : 6}
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+        }}
+      >
+        <div>
+          {!isLoading && data ? (
+            <Box color={'success.main'}>
+              Succesfully claimed testnet tokens. It will reflect in you balance soon !
+            </Box>
+          ) : isError ? (
+            <Box color={'error.main'}>Failed to claim testnet tokens. Please try again !</Box>
+          ) : (
+            ''
+          )}
+        </div>
       </Box>
 
       <ListHeaderWrapper px={downToXSM ? 4 : 6}>
@@ -88,8 +171,6 @@ export default function FaucetAssetsList() {
             </ListHeaderTitle>
           </ListColumn>
         )}
-
-        <ListColumn maxWidth={280} />
       </ListHeaderWrapper>
 
       {loading ? (
@@ -138,12 +219,6 @@ export default function FaucetAssetsList() {
                 />
               </ListColumn>
             )}
-
-            <ListColumn maxWidth={280} align="right">
-              <Button variant="contained" onClick={() => openFaucet(reserve.underlyingAsset)}>
-                <Trans>Faucet</Trans>
-              </Button>
-            </ListColumn>
           </ListItem>
         ))
       )}
