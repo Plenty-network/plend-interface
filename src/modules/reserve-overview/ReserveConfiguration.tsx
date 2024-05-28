@@ -217,7 +217,7 @@ export const ReserveConfiguration: React.FC<ReserveConfigurationProps> = ({ rese
                   </Link>{' '}
                   or{' '}
                   <Link
-                    href="https://tezsure.gitbook.io/plend-finance/plend-features#high-efficiency-mode-e-mode"
+                    href="https://docs.plend.finance/plend-features#high-efficiency-mode-e-mode"
                     sx={{ textDecoration: 'underline' }}
                     variant="caption"
                     color="text.secondary"

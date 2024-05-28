@@ -18,10 +18,7 @@ export const SupplyCapMaxedTooltip = ({ supplyCap, ...rest }: SupplyCapMaxedTool
       <TextWithTooltip {...rest} icon={<ExclamationIcon />} color="warning.main" iconSize={18}>
         <>
           <Trans>Protocol supply cap at 100% for this asset. Further supply unavailable.</Trans>{' '}
-          <Link
-            href="https://tezsure.gitbook.io/plend-finance/supplying-and-earning"
-            underline="always"
-          >
+          <Link href="https://docs.plend.finance/supplying-and-earning" underline="always">
             <Trans>Learn more</Trans>
           </Link>
         </>

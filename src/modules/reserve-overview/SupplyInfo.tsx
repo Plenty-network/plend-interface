@@ -89,10 +89,7 @@ export const SupplyInfo = ({
                         Asset supply is limited to a certain amount to reduce protocol exposure to
                         the asset and to help manage risks involved.
                       </Trans>{' '}
-                      <Link
-                        href="https://tezsure.gitbook.io/plend-finance/borrowing"
-                        underline="always"
-                      >
+                      <Link href="https://docs.plend.finance/borrowing" underline="always">
                         <Trans>Learn more</Trans>
                       </Link>
                     </>
