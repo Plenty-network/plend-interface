@@ -1,6 +1,7 @@
 import { calculateHealthFactorFromBalancesBigUnits, valueToBigNumber } from '@aave/math-utils';
 import { Trans } from '@lingui/macro';
 import { Typography } from '@mui/material';
+import { useState } from 'react';
 import { Warning } from 'src/components/primitives/Warning';
 import { useAppDataContext } from 'src/hooks/app-data-provider/useAppDataProvider';
 import { useAssetCaps } from 'src/hooks/useAssetCaps';
@@ -33,8 +34,8 @@ export const CollateralChangeModalContent = ({
   const { user } = useAppDataContext();
   const { debtCeiling } = useAssetCaps();
 
-  // Health factor calculations
-  const usageAsCollateralModeAfterSwitch = !userReserve.usageAsCollateralEnabledOnUser;
+  const [usageAsCollateralModeAfterSwitch] = useState(!userReserve.usageAsCollateralEnabledOnUser);
+
   const currenttotalCollateralMarketReferenceCurrency = valueToBigNumber(
     user.totalCollateralMarketReferenceCurrency
   );

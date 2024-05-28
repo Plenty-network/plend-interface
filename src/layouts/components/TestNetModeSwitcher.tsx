@@ -7,16 +7,17 @@ interface TestNetModeSwitcherProps {
 }
 
 export const TestNetModeSwitcher = ({ component = ListItem }: TestNetModeSwitcherProps) => {
-  const testnetsEnabledId = 'testnetsEnabled';
-  const testnetsEnabledLocalstorage = localStorage.getItem(testnetsEnabledId) === 'true' || false;
-  const [testnetsEnabled, setTestnetsMode] = useState(testnetsEnabledLocalstorage);
+  // const testnetsEnabledId = 'testnetsEnabled';
+  const testnetsEnabledLocalstorage = true;
+  //  localStorage.getItem(testnetsEnabledId) === 'true' || false;
+  const [testnetsEnabled] = useState(testnetsEnabledLocalstorage);
 
   const toggleTestnetsEnabled = () => {
-    const newState = !testnetsEnabled;
-    setTestnetsMode(!testnetsEnabled);
-    localStorage.setItem(testnetsEnabledId, newState ? 'true' : 'false');
-    // Set window.location to trigger a page reload when navigating to the the dashboard
-    window.location.href = '/';
+    // const newState = !testnetsEnabled;
+    // setTestnetsMode(!testnetsEnabled);
+    // localStorage.setItem(testnetsEnabledId, newState ? 'true' : 'false');
+    // // Set window.location to trigger a page reload when navigating to the the dashboard
+    // window.location.href = '/';
   };
 
   return (
@@ -39,6 +40,7 @@ export const TestNetModeSwitcher = ({ component = ListItem }: TestNetModeSwitche
           <Switch
             disableRipple
             checked={testnetsEnabled}
+            disabled={true}
             sx={{ '.MuiSwitch-track': { bgcolor: { xs: '#FFFFFF1F', md: 'primary.light' } } }}
           />
         }
