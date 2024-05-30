@@ -16,7 +16,7 @@ export const getFrozenProposalLink = (
 ): string => {
   symbol;
   currentMarket; // Prevent warnings
-  return 'https://vote.makerdao.com/polling';
+  return 'https://docs.plend.finance/';
 };
 
 export const FrozenTooltip = ({ symbol, currentMarket }: FrozenTooltipProps) => {
@@ -24,7 +24,15 @@ export const FrozenTooltip = ({ symbol, currentMarket }: FrozenTooltipProps) => 
     <ContentWithTooltip
       tooltipContent={
         <Box>
-          <Trans>This asset is frozen due to Plend Protocol decision.</Trans>
+          <Trans>
+            This asset is frozen due to an Plend Protocol decision.{' '}
+            <Link
+              href={getFrozenProposalLink(symbol, currentMarket)}
+              sx={{ textDecoration: 'underline' }}
+            >
+              <Trans>More details</Trans>
+            </Link>
+          </Trans>
         </Box>
       }
     >

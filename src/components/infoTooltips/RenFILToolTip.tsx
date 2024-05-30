@@ -10,7 +10,12 @@ export const RenFILToolTip = () => {
     <ContentWithTooltip
       tooltipContent={
         <Box>
-          <Trans>This asset is frozen due to Plend Protocol decision.</Trans>
+          <Trans>
+            This asset is frozen due to Plend Protocol decision{' '}
+            <Link href={'https://docs.plend.finance'} sx={{ textDecoration: 'underline' }}>
+              <Trans>More details</Trans>
+            </Link>
+          </Trans>
         </Box>
       }
     >
