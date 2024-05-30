@@ -73,6 +73,7 @@ export const marketsData: {
       WALLET_BALANCE_PROVIDER: '0xAE0f454b171dA3C0e3B8a75c92A449964f90f7fd',
       UI_POOL_DATA_PROVIDER: '0xA69C04756c604b63514cBF13466eCE70a5BF755b',
       UI_INCENTIVE_DATA_PROVIDER: '0xdfe6cC78B0A1ed393246B9151c83036AD3e165b8',
+      WETH_GATEWAY: '0x2ae2308F17667980582c6580556317EBdb61cc68',
     },
     faucetUrl: 'https://faucet.plend.finance/receiveFaucetTokens',
   },
