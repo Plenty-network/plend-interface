@@ -39,7 +39,7 @@ const moreMenuItems: MoreMenuItem[] = [
     icon: <QuestionMarkCircleIcon />,
   },
   {
-    link: 'https://tezsure.gitbook.io/plend-finance',
+    link: 'https://docs.plend.finance/',
     title: t`Documentation`,
     icon: <BookOpenIcon />,
   },

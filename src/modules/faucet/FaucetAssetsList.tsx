@@ -147,7 +147,7 @@ export default function FaucetAssetsList() {
         <div>
           {!isLoading && data ? (
             <Box color={'success.main'}>
-              Succesfully claimed testnet tokens. It will reflect in you balance soon !
+              Succesfully claimed testnet tokens. It will reflect in your balance soon !
             </Box>
           ) : isError ? (
             <Box color={'error.main'}>Failed to claim testnet tokens. Please try again !</Box>
