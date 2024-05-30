@@ -4,7 +4,6 @@ import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { useState } from 'react';
 import { ListWrapper } from 'src/components/lists/ListWrapper';
 import { NoSearchResults } from 'src/components/NoSearchResults';
-import { Link } from 'src/components/primitives/Link';
 import { Warning } from 'src/components/primitives/Warning';
 import { TitleWithSearchBar } from 'src/components/TitleWithSearchBar';
 import { MarketWarning } from 'src/components/transactions/Warnings/MarketWarning';
@@ -78,13 +77,9 @@ export const MarketAssetsListContainer = () => {
           </Typography>
           <Warning severity="info">
             <Trans>
-              These assets are temporarily frozen by Plend community decisions, meaning that further
+              These assets are temporarily frozen by Plend Protocol decisions, meaning that further
               supply / borrow, or rate swap of these assets are unavailable. Withdrawals and debt
-              repayments are allowed. Follow the{' '}
-              <Link href="https://forum.makerdao.com/" underline="always">
-                Maker governance forum
-              </Link>{' '}
-              for further updates.
+              repayments are allowed.
             </Trans>
           </Warning>
         </Box>
