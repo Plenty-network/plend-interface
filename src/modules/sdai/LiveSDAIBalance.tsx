@@ -19,6 +19,7 @@ export function LiveSDAIBalance() {
   const { loading: walletLoading, walletBalances } = useWalletBalances();
   const loading = appDataLoading || walletLoading;
   const sDaiReserve = reserves.find((reserve) => reserve.symbol === 'sDAI');
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-non-null-asserted-optional-chain
   const sDaiBalance = walletBalances[sDaiReserve?.underlyingAsset!]?.amount;
   const utcTimestamp = Math.floor(new Date().getTime() / 1000);
 
@@ -70,6 +71,7 @@ const WEI = new BigNumber(10).pow(18);
 const RAY = new BigNumber(10).pow(27);
 
 function useRefresh(ms: number) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setTime] = useState(Date.now());
   useEffect(() => {
     const interval = setInterval(() => setTime(Date.now()), ms);
