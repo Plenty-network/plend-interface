@@ -24,15 +24,7 @@ export const FrozenTooltip = ({ symbol, currentMarket }: FrozenTooltipProps) => 
     <ContentWithTooltip
       tooltipContent={
         <Box>
-          <Trans>
-            This asset is frozen due to an Plend Protocol Governance decision.{' '}
-            <Link
-              href={getFrozenProposalLink(symbol, currentMarket)}
-              sx={{ textDecoration: 'underline' }}
-            >
-              <Trans>More details</Trans>
-            </Link>
-          </Trans>
+          <Trans>This asset is frozen due to Plend Protocol decision.</Trans>
         </Box>
       }
     >

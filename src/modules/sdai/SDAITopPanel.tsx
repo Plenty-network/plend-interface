@@ -19,6 +19,7 @@ export const SDAITopPanel = () => {
   const { loading: walletLoading, walletBalances } = useWalletBalances();
   const { currentAccount } = useWeb3Context();
   const sDaiReserve = reserves.find((reserve) => reserve.symbol === 'sDAI');
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-non-null-asserted-optional-chain
   const sDaiBalance = walletBalances[sDaiReserve?.underlyingAsset!]?.amount;
   const displayPersonalInfo = currentAccount && sDaiBalance !== '0';
 
