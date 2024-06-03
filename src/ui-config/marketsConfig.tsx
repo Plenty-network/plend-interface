@@ -53,6 +53,7 @@ export type MarketDataType = {
 
 export enum CustomMarket {
   etherlink_testnet = 'etherlink_testnet',
+  arb_sepolia = 'arb_sepolia',
 }
 
 export const marketsData: {
@@ -74,6 +75,25 @@ export const marketsData: {
       UI_POOL_DATA_PROVIDER: '0xA69C04756c604b63514cBF13466eCE70a5BF755b',
       UI_INCENTIVE_DATA_PROVIDER: '0xdfe6cC78B0A1ed393246B9151c83036AD3e165b8',
       WETH_GATEWAY: '0x2ae2308F17667980582c6580556317EBdb61cc68',
+    },
+    faucetUrl: 'https://faucet.plend.finance/receiveFaucetTokens',
+  },
+  [CustomMarket.arb_sepolia]: {
+    marketTitle: 'Arbitrum Sepolia',
+    chainId: 421614, //ChainId.etherlink_testnet,
+    v3: true,
+    enabledFeatures: {
+      liquiditySwap: false,
+      collateralRepay: false,
+      faucet: false,
+    },
+    addresses: {
+      LENDING_POOL_ADDRESS_PROVIDER: '0xfAF21dcB6185571128306B2ffAdef9600cF6E922',
+      LENDING_POOL: '0xa8b69d6fE496554d0292D058aDd7DC858CA95E5F',
+      WALLET_BALANCE_PROVIDER: '0xBAF39030C44Ef4E959aFb47F1B7820F562F4CC94',
+      UI_POOL_DATA_PROVIDER: '0x9C937bf9377Cf90Eea5Dbe3aA2F101E286958509',
+      UI_INCENTIVE_DATA_PROVIDER: '0xeFcDF7327c897812f2e09442a579Db942F2486ba',
+      WETH_GATEWAY: '0xC947242338Eb580E2F8212586755F36D20449153',
     },
     faucetUrl: 'https://faucet.plend.finance/receiveFaucetTokens',
   },

@@ -51,6 +51,7 @@ export type BaseNetworkConfig = Omit<NetworkConfig, 'explorerLinkBuilder'>;
 export enum ChainId {
   mainnet = 1,
   etherlink_testnet = 128123,
+  arb_sepolia = 421614,
 }
 
 export const ChainIdToNetwork: Record<number, string> = {
@@ -91,6 +92,18 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     wrappedBaseAssetSymbol: 'WXTZ',
     baseAssetDecimals: 18,
     explorerLink: 'https://testnet-explorer.etherlink.com',
+    isTestnet: true,
+    networkLogoPath: '/icons/networks/etherlink.svg',
+  },
+  [ChainId.arb_sepolia]: {
+    name: 'Arbitrum Sepolia',
+    publicJsonRPCUrl: ['https://arb-sepolia.g.alchemy.com/v2/yCPtGQdadgolaqzEQN5WJUt50kGyM939'],
+    publicJsonRPCWSUrl: 'wss://arb-sepolia.g.alchemy.com/v2/yCPtGQdadgolaqzEQN5WJUt50kGyM939',
+    baseUniswapAdapter: '0x0',
+    baseAssetSymbol: 'ETH',
+    wrappedBaseAssetSymbol: 'WETH',
+    baseAssetDecimals: 18,
+    explorerLink: 'https://sepolia.arbiscan.io',
     isTestnet: true,
     networkLogoPath: '/icons/networks/etherlink.svg',
   },
