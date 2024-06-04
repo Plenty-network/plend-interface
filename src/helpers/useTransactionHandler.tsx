@@ -98,7 +98,7 @@ export const useTransactionHandler = ({
     try {
       const txnResult = await tx();
       try {
-        await txnResult.wait(1);
+        await txnResult.wait(0);
         mounted.current && successCallback && successCallback(txnResult);
 
         refetchWalletBalances();
