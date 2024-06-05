@@ -54,7 +54,6 @@ export const SupplyAssetsList = () => {
   const [sortDesc, setSortDesc] = useState(false);
 
   const { bridge, isTestnet, baseAssetSymbol, name: networkName } = currentNetworkConfig;
-
   const localStorageName = 'showSupplyZeroAssets';
   const [isShowZeroAssets, setIsShowZeroAssets] = useState(
     localStorage.getItem(localStorageName) == null ||
@@ -261,14 +260,13 @@ export const SupplyAssetsList = () => {
             )}
           </Box>
 
-          {filteredSupplyReserves.length >= 1 && (
-            <DashboardListTopPanel
-              value={isShowZeroAssets}
-              onClick={setIsShowZeroAssets}
-              localStorageName={localStorageName}
-              bridge={bridge}
-            />
-          )}
+          <DashboardListTopPanel
+            value={isShowZeroAssets}
+            onClick={setIsShowZeroAssets}
+            localStorageName={localStorageName}
+            bridge={bridge}
+            showFormControlLabel={filteredSupplyReserves.length >= 1}
+          />
         </>
       }
     >

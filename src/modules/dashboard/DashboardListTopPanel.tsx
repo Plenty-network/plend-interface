@@ -11,6 +11,7 @@ interface DashboardListTopPanelProps extends Pick<NetworkConfig, 'bridge'> {
   value: boolean;
   onClick: (value: boolean) => void;
   localStorageName: string;
+  showFormControlLabel: boolean;
 }
 
 export const DashboardListTopPanel = ({
@@ -18,6 +19,7 @@ export const DashboardListTopPanel = ({
   onClick,
   localStorageName,
   bridge,
+  showFormControlLabel,
 }: DashboardListTopPanelProps) => {
   return (
     <Box
@@ -31,13 +33,15 @@ export const DashboardListTopPanel = ({
         pl: { xs: '18px', xsm: '27px' },
       }}
     >
-      <FormControlLabel
-        sx={{ mt: { xs: bridge ? 2 : 0, xsm: 0 } }}
-        control={<Checkbox sx={{ p: '6px' }} />}
-        checked={value}
-        onChange={() => toggleLocalStorageClick(value, onClick, localStorageName)}
-        label={<Trans>Show assets with 0 balance</Trans>}
-      />
+      {showFormControlLabel && (
+        <FormControlLabel
+          sx={{ mt: { xs: bridge ? 2 : 0, xsm: 0 } }}
+          control={<Checkbox sx={{ p: '6px' }} />}
+          checked={value}
+          onChange={() => toggleLocalStorageClick(value, onClick, localStorageName)}
+          label={<Trans>Show assets with 0 balance</Trans>}
+        />
+      )}
 
       {(STAGING_ENV || ENABLE_TESTNET) && <FaucetButton />}
       {!ENABLE_TESTNET && <BridgeButton bridge={bridge} />}
