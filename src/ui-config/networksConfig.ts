@@ -52,11 +52,14 @@ export enum ChainId {
   mainnet = 1,
   etherlink_testnet = 128123,
   arb_sepolia = 421614,
+  amoy = 80002,
 }
 
 export const ChainIdToNetwork: Record<number, string> = {
   1: 'mainnet',
   128123: 'etherlink_testnet',
+  421614: 'arb_sepolia',
+  80002: 'amoy',
 };
 
 export const networkConfigs: Record<string, BaseNetworkConfig> = {
@@ -105,6 +108,17 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAssetDecimals: 18,
     explorerLink: 'https://sepolia.arbiscan.io',
     isTestnet: true,
-    networkLogoPath: '/icons/networks/etherlink.svg',
+    networkLogoPath: '/icons/networks/arbitrum.svg',
+  },
+  [ChainId.amoy]: {
+    name: 'Amoy',
+    publicJsonRPCUrl: ['https://rpc-amoy.polygon.technology'],
+    baseUniswapAdapter: '0x0',
+    baseAssetSymbol: 'MATIC',
+    wrappedBaseAssetSymbol: 'WMATIC',
+    baseAssetDecimals: 18,
+    explorerLink: 'https://amoyscan.io',
+    isTestnet: true,
+    networkLogoPath: '/icons/networks/polygon.svg',
   },
 } as const;
