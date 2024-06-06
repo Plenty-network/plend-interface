@@ -51,11 +51,15 @@ export type BaseNetworkConfig = Omit<NetworkConfig, 'explorerLinkBuilder'>;
 export enum ChainId {
   mainnet = 1,
   etherlink_testnet = 128123,
+  arb_sepolia = 421614,
+  amoy = 80002,
 }
 
 export const ChainIdToNetwork: Record<number, string> = {
   1: 'mainnet',
   128123: 'etherlink_testnet',
+  421614: 'arb_sepolia',
+  80002: 'amoy',
 };
 
 export const networkConfigs: Record<string, BaseNetworkConfig> = {
@@ -93,5 +97,28 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     explorerLink: 'https://testnet-explorer.etherlink.com',
     isTestnet: true,
     networkLogoPath: '/icons/networks/etherlink.svg',
+  },
+  [ChainId.arb_sepolia]: {
+    name: 'Arbitrum Sepolia',
+    publicJsonRPCUrl: ['https://arb-sepolia.g.alchemy.com/v2/yCPtGQdadgolaqzEQN5WJUt50kGyM939'],
+    publicJsonRPCWSUrl: 'wss://arb-sepolia.g.alchemy.com/v2/yCPtGQdadgolaqzEQN5WJUt50kGyM939',
+    baseUniswapAdapter: '0x0',
+    baseAssetSymbol: 'ETH',
+    wrappedBaseAssetSymbol: 'WETH',
+    baseAssetDecimals: 18,
+    explorerLink: 'https://sepolia.arbiscan.io',
+    isTestnet: true,
+    networkLogoPath: '/icons/networks/arbitrum.svg',
+  },
+  [ChainId.amoy]: {
+    name: 'Amoy',
+    publicJsonRPCUrl: ['https://rpc-amoy.polygon.technology'],
+    baseUniswapAdapter: '0x0',
+    baseAssetSymbol: 'MATIC',
+    wrappedBaseAssetSymbol: 'WMATIC',
+    baseAssetDecimals: 18,
+    explorerLink: 'https://amoyscan.io',
+    isTestnet: true,
+    networkLogoPath: '/icons/networks/polygon.svg',
   },
 } as const;
