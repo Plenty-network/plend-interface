@@ -3,6 +3,7 @@ import { Button } from '@mui/material';
 import { useWeb3React } from '@web3-react/core';
 import { BigNumber, constants, Contract, providers } from 'ethers';
 import { parseEther } from 'ethers/lib/utils';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useAssetCaps } from 'src/hooks/useAssetCaps';
 import { useModalContext } from 'src/hooks/useModal';
@@ -51,11 +52,13 @@ export const SupplyAssetsListItem = ({
   const { openSupply, openPSMSwap } = useModalContext();
   const [isLooping, setIsLooping] = useState(false);
 
+  const router = useRouter();
+
   // Hide the asset to prevent it from being supplied if supply cap has been reached
   const { supplyCap: supplyCapUsage } = useAssetCaps();
   if (supplyCapUsage.isMaxed) return null;
 
-  const doLoopingAction = async () => {
+  const handleLoopingAction = async () => {
     try {
       setIsLooping(true);
       const currentMarketData = marketsData[availableMarkets[0]];
@@ -99,33 +102,9 @@ export const SupplyAssetsListItem = ({
         value: parseEther('1'),
       });
 
-      await loopingTxn.wait(1);
       console.log(loopingTxn);
 
-      // unlooping
-      // const aTokenAddress = reserves.filter((item) => item.symbol === 'wstXTZ')[0].aTokenAddress;
-      // const aTokenInstance = new Contract(aTokenAddress, ERC20ABI, signer) as ERC20;
-
-      // const approvalAmt = await aTokenInstance.allowance(
-      //   currentAccount,
-      //   currentMarketData.addresses.LEVERAGE!
-      // );
-      // if (approvalAmt.eq(BigNumber.from('0'))) {
-      //   const aTokenTx = await aTokenInstance.approve(
-      //     currentMarketData.addresses.LEVERAGE!,
-      //     constants.MaxUint256.toString()
-      //   );
-      //   await aTokenTx.wait(2);
-      //   console.log(aTokenTx);
-      // }
-
-      // const unloop = await leverageInstance.unLoop(
-      //   BigNumber.from(parseEther('1')),
-      //   currentAccount,
-      //   interestRateMode
-      // );
-      // await unloop.wait(1);
-      // console.log(unloop);
+      router.reload();
     } catch (error) {
       console.error('Error in doing the looping action', error);
     }
@@ -172,7 +151,8 @@ export const SupplyAssetsListItem = ({
                 background: '#8bc34a',
               },
             })}
-            disabled={!isActive || isFreezed || Number(walletBalance) <= 0}
+            disabled={true}
+            // !isActive || isFreezed || Number(walletBalance) <= 0}
             variant="contained"
             onClick={() => openSupply(underlyingAsset)}
           >
@@ -190,7 +170,7 @@ export const SupplyAssetsListItem = ({
             })}
             disabled={!isActive || isFreezed || Number(walletBalance) <= 0 || isLooping}
             variant="contained"
-            onClick={() => doLoopingAction()}
+            onClick={() => handleLoopingAction()}
           >
             <Trans>Loop</Trans>
           </Button>
