@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro';
-import { Button } from '@mui/material';
+import { Button, CircularProgress } from '@mui/material';
 import { useWeb3React } from '@web3-react/core';
 import { BigNumber, constants, Contract, providers } from 'ethers';
 import { parseEther } from 'ethers/lib/utils';
@@ -85,14 +85,11 @@ export const SupplyAssetsListItem = ({
         currentAccount,
         currentMarketData.addresses.LEVERAGE!
       );
-      console.log('delegation amount ', delegationAmount, delegationAmount.toString());
       if (delegationAmount.eq(BigNumber.from('0'))) {
-        const txn = await debtTokenInstance.approveDelegation(
+        await debtTokenInstance.approveDelegation(
           currentMarketData.addresses.LEVERAGE!,
           constants.MaxUint256.toString()
         );
-        await txn.wait(1);
-        console.log(txn);
       }
 
       const loopCount = 5;
@@ -101,8 +98,7 @@ export const SupplyAssetsListItem = ({
       const loopingTxn = await leverageInstance.loop(loopCount, borrowRatio, interestRateMode, 0, {
         value: parseEther('1'),
       });
-
-      console.log(loopingTxn);
+      await loopingTxn.wait(1);
 
       router.reload();
     } catch (error) {
@@ -172,7 +168,13 @@ export const SupplyAssetsListItem = ({
             variant="contained"
             onClick={() => handleLoopingAction()}
           >
-            <Trans>Loop</Trans>
+            {isLooping ? (
+              <Trans>
+                <CircularProgress sx={{ color: 'white' }} size="1.5rem" />
+              </Trans>
+            ) : (
+              <Trans>Loop</Trans>
+            )}
           </Button>
         )}
         {showSwap && (

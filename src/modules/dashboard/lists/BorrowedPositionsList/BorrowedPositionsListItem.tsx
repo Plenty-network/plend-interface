@@ -1,6 +1,6 @@
 import { InterestRate } from '@aave/contract-helpers';
 import { Trans } from '@lingui/macro';
-import { Button } from '@mui/material';
+import { Button, CircularProgress } from '@mui/material';
 import { useWeb3React } from '@web3-react/core';
 import { BigNumber, constants, Contract, providers } from 'ethers';
 import { parseEther } from 'ethers/lib/utils';
@@ -61,12 +61,10 @@ export const BorrowedPositionsListItem = ({
         currentMarketData.addresses.LEVERAGE!
       );
       if (approvalAmt.eq(BigNumber.from('0'))) {
-        const aTokenTx = await aTokenInstance.approve(
+        await aTokenInstance.approve(
           currentMarketData.addresses.LEVERAGE!,
           constants.MaxUint256.toString()
         );
-        await aTokenTx.wait(2);
-        console.log(aTokenTx);
       }
 
       const unloop = await leverageInstance.unLoop(
@@ -74,8 +72,7 @@ export const BorrowedPositionsListItem = ({
         currentAccount,
         interestRateMode
       );
-      console.log(unloop);
-      await unloop.wait(2);
+      await unloop.wait(1);
 
       router.reload();
     } catch (error) {
@@ -136,7 +133,13 @@ export const BorrowedPositionsListItem = ({
           variant="contained"
           onClick={() => handleUnloopingAction()}
         >
-          <Trans>Unloop</Trans>
+          {isUnlooping ? (
+            <Trans>
+              <CircularProgress sx={{ color: 'white' }} size="1.5rem" />
+            </Trans>
+          ) : (
+            <Trans>Unloop</Trans>
+          )}
         </Button>
         <Button
           disabled={true}
