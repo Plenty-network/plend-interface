@@ -11,6 +11,7 @@ import { useProtocolDataContext } from 'src/hooks/useProtocolDataContext';
 import { DashboardReserve } from 'src/utils/dashboardSortUtils';
 
 import { useAppDataContext } from '../../../../hooks/app-data-provider/useAppDataProvider';
+import { useAssetCaps } from '../../../../hooks/useAssetCaps';
 import { useWeb3Context } from '../../../../libs/hooks/useWeb3Context';
 import { marketsData } from '../../../../ui-config/marketsConfig';
 import { ERC20, ERC20ABI } from '../../../../utils/contracts/ERC20';
@@ -38,8 +39,16 @@ export const BorrowedPositionsListItem = ({
   const { library: provider } = useWeb3React<providers.Web3Provider>();
   const { currentAccount } = useWeb3Context();
   const router = useRouter();
+  const { borrowCap } = useAssetCaps();
 
-  const { isActive, isFrozen, sIncentivesData, vIncentivesData, variableBorrowAPY } = reserve;
+  const {
+    isActive,
+    isFrozen,
+    sIncentivesData,
+    vIncentivesData,
+    variableBorrowAPY,
+    borrowingEnabled,
+  } = reserve;
 
   const handleUnloopingAction = async () => {
     try {
@@ -142,8 +151,7 @@ export const BorrowedPositionsListItem = ({
           )}
         </Button>
         <Button
-          disabled={true}
-          // !isActive || !borrowingEnabled || isFrozen || borrowCap.isMaxed}
+          disabled={!isActive || !borrowingEnabled || isFrozen || borrowCap.isMaxed}
           variant="outlined"
           onClick={() => openBorrow(reserve.underlyingAsset)}
         >

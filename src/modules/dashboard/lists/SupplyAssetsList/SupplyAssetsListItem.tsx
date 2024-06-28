@@ -147,8 +147,7 @@ export const SupplyAssetsListItem = ({
                 background: '#8bc34a',
               },
             })}
-            disabled={true}
-            // !isActive || isFreezed || Number(walletBalance) <= 0}
+            disabled={!isActive || isFreezed || Number(walletBalance) <= 0}
             variant="contained"
             onClick={() => openSupply(underlyingAsset)}
           >

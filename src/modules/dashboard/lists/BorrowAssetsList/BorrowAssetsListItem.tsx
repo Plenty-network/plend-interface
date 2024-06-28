@@ -24,10 +24,11 @@ export const BorrowAssetsListItem = ({
   variableBorrowRate,
   vIncentivesData,
   underlyingAsset,
+  isFreezed,
 }: DashboardReserve) => {
   const { openBorrow } = useModalContext();
   const { currentMarket } = useProtocolDataContext();
-  // const borrowButtonDisable = isFreezed || Number(availableBorrows) <= 0;
+  const borrowButtonDisable = isFreezed || Number(availableBorrows) <= 0;
 
   return (
     <ListItemWrapper
@@ -72,8 +73,7 @@ export const BorrowAssetsListItem = ({
 
       <ListButtonsColumn>
         <Button
-          disabled={true}
-          // borrowButtonDisable}
+          disabled={borrowButtonDisable}
           variant="contained"
           onClick={() => openBorrow(underlyingAsset)}
         >
