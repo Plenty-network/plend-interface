@@ -1,5 +1,10 @@
 import { Trans } from '@lingui/macro';
-import { Button } from '@mui/material';
+import { Button, CircularProgress } from '@mui/material';
+import { useWeb3React } from '@web3-react/core';
+import { BigNumber, constants, Contract, providers } from 'ethers';
+import { parseEther } from 'ethers/lib/utils';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { useAssetCaps } from 'src/hooks/useAssetCaps';
 import { useModalContext } from 'src/hooks/useModal';
 import { useProtocolDataContext } from 'src/hooks/useProtocolDataContext';
@@ -8,6 +13,15 @@ import { DashboardReserve } from 'src/utils/dashboardSortUtils';
 import { CapsHint } from '../../../../components/caps/CapsHint';
 import { CapType } from '../../../../components/caps/helper';
 import { Link, ROUTES } from '../../../../components/primitives/Link';
+import { useAppDataContext } from '../../../../hooks/app-data-provider/useAppDataProvider';
+import { useWeb3Context } from '../../../../libs/hooks/useWeb3Context';
+import { marketsData } from '../../../../ui-config/marketsConfig';
+import {
+  CreditDelegationTokenABI,
+  ICreditDelegationToken,
+} from '../../../../utils/contracts/CreditDelegationToken';
+import { Leverage, LeverageABI } from '../../../../utils/contracts/Leverage';
+import { availableMarkets } from '../../../../utils/marketsAndNetworksConfig';
 import { SpkAirdropNoteInline } from '../BorrowAssetsList/BorrowAssetsListItem';
 import { ListAPRColumn } from '../ListAPRColumn';
 import { ListButtonsColumn } from '../ListButtonsColumn';
@@ -31,12 +45,67 @@ export const SupplyAssetsListItem = ({
   showSwap,
   hideSupply,
 }: DashboardReserve) => {
+  const { reserves } = useAppDataContext();
+  const { library: provider } = useWeb3React<providers.Web3Provider>();
+  const { currentAccount } = useWeb3Context();
   const { currentMarket } = useProtocolDataContext();
   const { openSupply, openPSMSwap } = useModalContext();
+  const [isLooping, setIsLooping] = useState(false);
+
+  const router = useRouter();
 
   // Hide the asset to prevent it from being supplied if supply cap has been reached
   const { supplyCap: supplyCapUsage } = useAssetCaps();
   if (supplyCapUsage.isMaxed) return null;
+
+  const handleLoopingAction = async () => {
+    try {
+      setIsLooping(true);
+      const currentMarketData = marketsData[availableMarkets[0]];
+      const signer = provider?.getSigner(currentAccount);
+      const interestRateMode = 2;
+      const leverageInstance = new Contract(
+        currentMarketData.addresses.LEVERAGE!,
+        LeverageABI,
+        signer
+      ) as Leverage;
+      // looping
+      const debtTokenAddress = reserves.filter(
+        (item) =>
+          item.underlyingAsset.toLowerCase() ===
+          currentMarketData.addresses.WRAPPED_TOKEN?.toLowerCase()
+      )[0].variableDebtTokenAddress;
+      const debtTokenInstance = new Contract(
+        debtTokenAddress,
+        CreditDelegationTokenABI,
+        signer
+      ) as ICreditDelegationToken;
+
+      const delegationAmount = await debtTokenInstance.borrowAllowance(
+        currentAccount,
+        currentMarketData.addresses.LEVERAGE!
+      );
+      if (delegationAmount.eq(BigNumber.from('0'))) {
+        await debtTokenInstance.approveDelegation(
+          currentMarketData.addresses.LEVERAGE!,
+          constants.MaxUint256.toString()
+        );
+      }
+
+      const loopCount = 5;
+      const borrowRatio = 8350; // 83.5%
+
+      const loopingTxn = await leverageInstance.loop(loopCount, borrowRatio, interestRateMode, 0, {
+        value: parseEther('1'),
+      });
+      await loopingTxn.wait(1);
+
+      router.reload();
+    } catch (error) {
+      console.error('Error in doing the looping action', error);
+    }
+    setIsLooping(false);
+  };
 
   return (
     <ListItemWrapper
@@ -83,6 +152,28 @@ export const SupplyAssetsListItem = ({
             onClick={() => openSupply(underlyingAsset)}
           >
             <Trans>Deposit</Trans>
+          </Button>
+        )}
+        {!hideSupply && symbol === 'XTZ' && (
+          <Button
+            sx={(theme) => ({
+              color: theme.palette.common.white,
+              background: '#4caf50',
+              '&:hover, &.Mui-focusVisible': {
+                background: '#8bc34a',
+              },
+            })}
+            disabled={!isActive || isFreezed || Number(walletBalance) <= 0 || isLooping}
+            variant="contained"
+            onClick={() => handleLoopingAction()}
+          >
+            {isLooping ? (
+              <Trans>
+                <CircularProgress sx={{ color: 'white' }} size="1.5rem" />
+              </Trans>
+            ) : (
+              <Trans>Loop</Trans>
+            )}
           </Button>
         )}
         {showSwap && (

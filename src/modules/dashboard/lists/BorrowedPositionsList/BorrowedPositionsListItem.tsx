@@ -1,11 +1,22 @@
 import { InterestRate } from '@aave/contract-helpers';
 import { Trans } from '@lingui/macro';
-import { Button } from '@mui/material';
-import { useAssetCaps } from 'src/hooks/useAssetCaps';
+import { Button, CircularProgress } from '@mui/material';
+import { useWeb3React } from '@web3-react/core';
+import { BigNumber, constants, Contract, providers } from 'ethers';
+import { parseEther } from 'ethers/lib/utils';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { useModalContext } from 'src/hooks/useModal';
 import { useProtocolDataContext } from 'src/hooks/useProtocolDataContext';
 import { DashboardReserve } from 'src/utils/dashboardSortUtils';
 
+import { useAppDataContext } from '../../../../hooks/app-data-provider/useAppDataProvider';
+import { useAssetCaps } from '../../../../hooks/useAssetCaps';
+import { useWeb3Context } from '../../../../libs/hooks/useWeb3Context';
+import { marketsData } from '../../../../ui-config/marketsConfig';
+import { ERC20, ERC20ABI } from '../../../../utils/contracts/ERC20';
+import { Leverage, LeverageABI } from '../../../../utils/contracts/Leverage';
+import { availableMarkets } from '../../../../utils/marketsAndNetworksConfig';
 import { SpkAirdropNoteInline } from '../BorrowAssetsList/BorrowAssetsListItem';
 import { ListAPRColumn } from '../ListAPRColumn';
 import { ListButtonsColumn } from '../ListButtonsColumn';
@@ -21,17 +32,63 @@ export const BorrowedPositionsListItem = ({
   borrowRateMode,
   stableBorrowAPY,
 }: DashboardReserve) => {
+  const { reserves } = useAppDataContext();
   const { openBorrow, openRepay } = useModalContext();
   const { currentMarket } = useProtocolDataContext();
+  const [isUnlooping, setIsUnlooping] = useState(false);
+  const { library: provider } = useWeb3React<providers.Web3Provider>();
+  const { currentAccount } = useWeb3Context();
+  const router = useRouter();
   const { borrowCap } = useAssetCaps();
+
   const {
     isActive,
     isFrozen,
-    borrowingEnabled,
     sIncentivesData,
     vIncentivesData,
     variableBorrowAPY,
+    borrowingEnabled,
   } = reserve;
+
+  const handleUnloopingAction = async () => {
+    try {
+      setIsUnlooping(true);
+      const currentMarketData = marketsData[availableMarkets[0]];
+      const signer = provider?.getSigner(currentAccount);
+      const interestRateMode = 2;
+      const leverageInstance = new Contract(
+        currentMarketData.addresses.LEVERAGE!,
+        LeverageABI,
+        signer
+      ) as Leverage;
+      // unlooping;
+      const aTokenAddress = reserves.filter((item) => item.symbol === 'wstXTZ')[0].aTokenAddress;
+      const aTokenInstance = new Contract(aTokenAddress, ERC20ABI, signer) as ERC20;
+
+      const approvalAmt = await aTokenInstance.allowance(
+        currentAccount,
+        currentMarketData.addresses.LEVERAGE!
+      );
+      if (approvalAmt.eq(BigNumber.from('0'))) {
+        await aTokenInstance.approve(
+          currentMarketData.addresses.LEVERAGE!,
+          constants.MaxUint256.toString()
+        );
+      }
+
+      const unloop = await leverageInstance.unLoop(
+        BigNumber.from(parseEther('1')),
+        currentAccount,
+        interestRateMode
+      );
+      await unloop.wait(1);
+
+      router.reload();
+    } catch (error) {
+      console.error('Error in doing the un looping action', error);
+    }
+    setIsUnlooping(false);
+  };
 
   return (
     <ListItemWrapper
@@ -73,11 +130,25 @@ export const BorrowedPositionsListItem = ({
 
       <ListButtonsColumn>
         <Button
-          disabled={!isActive}
+          disabled={true}
+          // !isActive}
           variant="contained"
           onClick={() => openRepay(reserve.underlyingAsset, borrowRateMode, isFrozen)}
         >
           <Trans>Repay</Trans>
+        </Button>
+        <Button
+          disabled={!isActive || isUnlooping}
+          variant="contained"
+          onClick={() => handleUnloopingAction()}
+        >
+          {isUnlooping ? (
+            <Trans>
+              <CircularProgress sx={{ color: 'white' }} size="1.5rem" />
+            </Trans>
+          ) : (
+            <Trans>Unloop</Trans>
+          )}
         </Button>
         <Button
           disabled={!isActive || !borrowingEnabled || isFrozen || borrowCap.isMaxed}
