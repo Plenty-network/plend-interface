@@ -93,7 +93,7 @@ export const SupplyAssetsListItem = ({
       }
 
       const loopCount = 5;
-      const borrowRatio = 8000; // 80%
+      const borrowRatio = 8350; // 83.5%
 
       const loopingTxn = await leverageInstance.loop(loopCount, borrowRatio, interestRateMode, 0, {
         value: parseEther('1'),
