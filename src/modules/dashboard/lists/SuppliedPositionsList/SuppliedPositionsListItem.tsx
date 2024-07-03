@@ -14,6 +14,12 @@ import { ListButtonsColumn } from '../ListButtonsColumn';
 import { ListItemUsedAsCollateral } from '../ListItemUsedAsCollateral';
 import { ListItemWrapper } from '../ListItemWrapper';
 import { ListValueColumn } from '../ListValueColumn';
+import { useWeb3React } from '@web3-react/core';
+import { BigNumber, constants, Contract, providers } from 'ethers';
+import { useWeb3Context } from 'src/libs/hooks/useWeb3Context';
+import { PortalSend, PortalSendABI } from '../../../../utils/contracts/PortalSend';
+import { ERC20, ERC20ABI } from '../../../../utils/contracts/ERC20';
+import { ChainId } from 'src/ui-config/networksConfig';
 
 export const SuppliedPositionsListItem = ({
   reserve,
@@ -28,6 +34,9 @@ export const SuppliedPositionsListItem = ({
   const { openSupply, openWithdraw, openCollateralChange, openSwap } = useModalContext();
   const { debtCeiling } = useAssetCaps();
   const isSwapButton = isFeatureEnabled.liquiditySwap(currentMarketData);
+  const { library: provider } = useWeb3React<providers.Web3Provider>();
+  const { currentAccount } = useWeb3Context();
+  const { reserves } = useAppDataContext();
 
   const canBeEnabledAsCollateral =
     !debtCeiling.isMaxed &&
@@ -35,6 +44,76 @@ export const SuppliedPositionsListItem = ({
     ((!reserve.isIsolated && !user.isInIsolationMode) ||
       user.isolatedReserve?.underlyingAsset === reserve.underlyingAsset ||
       (reserve.isIsolated && user.totalCollateralMarketReferenceCurrency === '0'));
+
+  const doPortalSend = async (underlyingAsset: string) => {
+    console.log("underlyingAsset", underlyingAsset);
+    const portalSender = currentMarketData.addresses.PORTAL_SENDER;
+    console.log("portalSender", portalSender);
+    const signer = provider?.getSigner(currentAccount);
+    const portalSendContract = new Contract(
+      portalSender!,
+      PortalSendABI,
+      signer
+    ) as PortalSend;
+
+    const aTokenAddress = reserves.filter((item) => item.symbol === 'WETH')[0].aTokenAddress;
+    const asset_address = reserves.filter((item) => item.symbol === 'WETH')[0].underlyingAsset;
+
+    console.log("aTokenAddress", aTokenAddress);
+    console.log("asset_address", asset_address);
+
+    const aTokenInstance = new Contract(aTokenAddress, ERC20ABI, signer) as ERC20;
+
+
+    const approvalAmt = await aTokenInstance.allowance(
+      currentAccount,
+      portalSender!
+    );
+
+    // console.log("approvalAmt", approvalAmt);
+    if (approvalAmt.eq(BigNumber.from('0'))) {
+      console.log("approvalAmt is 0");
+      const aTokenTx = await aTokenInstance.approve(
+        portalSender!,
+        constants.MaxUint256.toString()
+      );
+      await aTokenTx.wait(1);
+      // console.log(aTokenTx);
+    }
+
+
+
+    const sendAmount = 0.01 * Math.pow(10, 18);
+    const relayFees = 0.000001 * Math.pow(10, 18);
+
+    // console.log("sendAmount", sendAmount);
+    // console.log("relayFees", relayFees);
+
+    // log all params
+    // console.log("ChainId", currentMarketData.chainId === ChainId.amoy ?
+    //   "Arbitrum" : "Amoy");
+    // console.log("asset_address", asset_address);
+    // console.log("sendAmount", sendAmount.toString());
+    // console.log("relayFees", relayFees.toString());
+    // console.log("currentAccount", currentAccount);
+
+    const tx = await portalSendContract.bridgeTokens(
+      currentMarketData.chainId === ChainId.amoy ?
+        "Arbitrum" : "Amoy",
+      currentAccount,
+      asset_address.trim(),
+      sendAmount.toString(),
+      relayFees.toString(),
+    );
+
+    console.log("tx", tx);
+
+    await tx.wait(1);
+    console.log(tx);
+
+    // const portalSend = getPortalSend(underlyingAsset);
+    // portalSend.withdraw();
+  }
 
   return (
     <ListItemWrapper
@@ -44,9 +123,8 @@ export const SuppliedPositionsListItem = ({
       detailsAddress={underlyingAsset}
       currentMarket={currentMarket}
       frozen={reserve.isFrozen}
-      data-cy={`dashboardSuppliedListItem_${reserve.symbol.toUpperCase()}_${
-        canBeEnabledAsCollateral && usageAsCollateralEnabledOnUser ? 'Collateral' : 'NoCollateral'
-      }`}
+      data-cy={`dashboardSuppliedListItem_${reserve.symbol.toUpperCase()}_${canBeEnabledAsCollateral && usageAsCollateralEnabledOnUser ? 'Collateral' : 'NoCollateral'
+        }`}
       showSupplyCapTooltips
       showDebtCeilingTooltips
     >
@@ -83,6 +161,17 @@ export const SuppliedPositionsListItem = ({
         >
           <Trans>Withdraw</Trans>
         </Button>
+
+        {(reserve.symbol === 'ETH' || reserve.symbol === 'WETH') && (
+          <Button
+            disabled={!isActive || isFrozen}
+            variant="outlined"
+            onClick={() => doPortalSend(underlyingAsset)}
+            data-cy={`swapButton`}
+          >
+            <Trans>Move</Trans>
+          </Button>
+        )}
 
         {isSwapButton ? (
           <Button
