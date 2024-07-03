@@ -11,7 +11,7 @@ import {
 // Helpers
 export const DASHBOARD_LIST_COLUMN_WIDTHS = {
   ASSET: 110,
-  BUTTONS: 160,
+  BUTTONS: 220,
   CELL: 110,
 };
 

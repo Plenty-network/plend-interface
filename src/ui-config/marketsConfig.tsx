@@ -38,6 +38,7 @@ export type MarketDataType = {
     CHAINLOG?: string;
     SAVINGS_DAI?: string;
     V3_MIGRATOR?: string;
+    PORTAL_SENDER?: string;
   };
   faucetUrl: string;
   /**
@@ -95,6 +96,7 @@ export const marketsData: {
       UI_POOL_DATA_PROVIDER: '0x9C937bf9377Cf90Eea5Dbe3aA2F101E286958509',
       UI_INCENTIVE_DATA_PROVIDER: '0xeFcDF7327c897812f2e09442a579Db942F2486ba',
       WETH_GATEWAY: '0xC947242338Eb580E2F8212586755F36D20449153',
+      PORTAL_SENDER: '0x4923c0ccb6E11B75f80aFB3707b49EAbd461Db23',
     },
     faucetUrl: 'https://faucet.plend.finance/receiveFaucetTokens',
   },
@@ -114,6 +116,7 @@ export const marketsData: {
       UI_POOL_DATA_PROVIDER: '0x1b8A658e134883194A16c85622Ad35ceE14c46F8',
       UI_INCENTIVE_DATA_PROVIDER: '0x855FEEf492CA6Da186a4F4F98e9D5B8b689E7aAA',
       WETH_GATEWAY: '0x56130f7f03600FC86aa3c49C72d7e3C7C3b3394E',
+      PORTAL_SENDER: '0xC590F21651cF0370b803Ba2ee4B493213Ef15c80',
     },
     faucetUrl: 'https://faucet.plend.finance/receiveFaucetTokens',
   },
