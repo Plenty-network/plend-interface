@@ -61,31 +61,31 @@ if (typeof document !== 'undefined') {
 
 export const useStakeDataSubscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refetchStakeData();
-}, 60000);
+}, 30000);
 
 export const useWalletBalancesSubscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refetchWalletBalances();
-}, 60000);
+}, 30000);
 
 export const usePoolDataSubscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refreshPoolData();
-}, 60000);
+}, 30000);
 
 export const usePoolDataV3Subscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refreshPoolV3Data();
-}, 60000);
+}, 30000);
 
 export const usePoolDataV2Subscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refreshPoolV2Data();
-}, 60000);
+}, 30000);
 
 export const useIncentiveDataSubscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refreshIncentiveData();
-}, 60000);
+}, 30000);
 
 export const useGovernanceDataSubscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refreshGovernanceData();
-}, 60000);
+}, 30000);
 
 // let latest: V3FaucetService;
 useRootStore.subscribe(
