@@ -1,4 +1,4 @@
-import { V3FaucetService } from '@aave/contract-helpers';
+// import { V3FaucetService } from '@aave/contract-helpers';
 import { enableMapSet } from 'immer';
 import { CustomMarket } from 'src/ui-config/marketsConfig';
 import { ENABLE_TESTNET, STAGING_ENV } from 'src/utils/marketsAndNetworksConfig';
@@ -87,11 +87,11 @@ export const useGovernanceDataSubscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refreshGovernanceData();
 }, 60000);
 
-let latest: V3FaucetService;
+// let latest: V3FaucetService;
 useRootStore.subscribe(
   (state) => state.currentMarketData,
   async (selected) => {
-    const { setIsFaucetPermissioned: setFaucetPermissioned, jsonRpcProvider } =
+    const { setIsFaucetPermissioned: setFaucetPermissioned } =
       useRootStore.getState();
     if (ENABLE_TESTNET || STAGING_ENV) {
       if (!selected.v3) {
@@ -102,19 +102,19 @@ useRootStore.subscribe(
       // If there are multiple calls in flight, we only want to use the result from the latest one.
       // Use the instance of the service to check if it's the latest one since it is recreated
       // everytime this subscription fires.
-      const service = new V3FaucetService(jsonRpcProvider(), selected.addresses.FAUCET);
-      latest = service;
-      service
-        .isPermissioned()
-        .then((isPermissioned) => {
-          if (latest === service) {
-            setFaucetPermissioned(isPermissioned);
-          }
-        })
-        .catch((e) => {
-          console.error('error checking faucet permission', e);
-          setFaucetPermissioned(false);
-        });
+      // const service = new V3FaucetService(jsonRpcProvider(), selected.addresses.FAUCET);
+      // latest = service;
+      // service
+      //   .isPermissioned()
+      //   .then((isPermissioned) => {
+      //     if (latest === service) {
+      //       setFaucetPermissioned(isPermissioned);
+      //     }
+      //   })
+      //   .catch((e) => {
+      //     console.error('error checking faucet permission', e);
+      //     setFaucetPermissioned(false);
+      //   });
     } else {
       setFaucetPermissioned(false);
     }
