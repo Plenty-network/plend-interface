@@ -76,6 +76,6 @@ export const marketsData: {
       WETH_GATEWAY: '0x3D9a3e55e354647bbf63Aac7c30744e0a704e35e',
       COLLECTOR: '0x250fB04547404729D22Eb8f9C498Da13E9980f2D',
     },
-    faucetUrl: 'https://faucet.plend.finance/receiveFaucetTokens',
+    faucetUrl: 'https://faucet.etherlink.com',
   },
 } as const;
