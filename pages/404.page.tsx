@@ -2,7 +2,7 @@ import { Trans } from '@lingui/macro';
 import { Box, Button, Paper, Typography, useTheme } from '@mui/material';
 import Link from 'next/link';
 import { ContentContainer } from 'src/components/ContentContainer';
-import { TopInfoPanel } from 'src/components/TopInfoPanel/TopInfoPanel';
+// import { TopInfoPanel } from 'src/components/TopInfoPanel/TopInfoPanel';
 import { MainLayout } from 'src/layouts/MainLayout';
 
 export default function Aave404Page() {
@@ -10,7 +10,7 @@ export default function Aave404Page() {
 
   return (
     <>
-      <TopInfoPanel />
+      {/* <TopInfoPanel /> */}
       <ContentContainer>
         <Paper
           sx={{
