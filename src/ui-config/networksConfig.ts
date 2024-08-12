@@ -83,14 +83,14 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
   [ChainId.etherlink_testnet]: {
     name: 'Etherlink Testnet',
     publicJsonRPCUrl: [
+      'https://etherlink-rollup-testnet-archive.zeeve.net/Rdj3r1npGPHxcDcQvOT/rpc',
       'https://node.ghostnet.etherlink.com',
-      'https://etherlink-ghostnet-6lcp5r.zeeve.net/rpc',
     ],
     baseUniswapAdapter: '0x0',
     baseAssetSymbol: 'XTZ',
     wrappedBaseAssetSymbol: 'WXTZ',
     baseAssetDecimals: 18,
-    explorerLink: 'https://testnet-explorer.etherlink.com',
+    explorerLink: 'https://testnet.explorer.etherlink.com',
     isTestnet: true,
     networkLogoPath: '/icons/networks/etherlink.svg',
   },
