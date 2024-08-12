@@ -1,14 +1,3 @@
 body {
   --wcm-z-index: 1300;
-  padding: 0 !important;
-}
-
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.shrink-0 {
-  flex-shrink: 0;
 }

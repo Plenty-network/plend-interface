@@ -3,7 +3,6 @@ import { Trans } from '@lingui/macro';
 import {
   Button,
   Slide,
-  Stack,
   SvgIcon,
   Typography,
   useMediaQuery,
@@ -105,46 +104,40 @@ export function AppHeader() {
           flexDirection: 'space-between',
         })}
       >
-        <Stack
-          direction={{ xs: 'column', sm: 'row' }}
-          alignItems="center"
-          // spacing={{ xs: 0, sm: 2 }}
+        <Box
+          component={Link}
+          href="/"
+          aria-label="Go to homepage"
+          sx={{
+            lineHeight: 0,
+            mr: 3,
+            transition: '0.3s ease all',
+            '&:hover': { opacity: 0.7 },
+          }}
+          onClick={() => setMobileMenuOpen(false)}
         >
-          <Box
-            component={Link}
-            href="/"
-            aria-label="Go to homepage"
-            sx={{
-              lineHeight: 0,
-              mr: 3,
-              transition: '0.3s ease all',
-              '&:hover': { opacity: 0.7 },
-            }}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <img src={uiConfig.appLogo} alt="An SVG of the Plend logo" height={40} />
-          </Box>
-          <Box sx={{ mr: sm ? 1 : 3, alignSelf: sm ? "end" : "center" }}>
-            {ENABLE_TESTNET && (
-              <ContentWithTooltip tooltipContent={testnetTooltip} offset={[0, -4]} withoutHover>
-                <Button
-                  variant="surface"
-                  size="small"
-                  color="primary"
-                  sx={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                    '&:hover, &.Mui-focusVisible': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
-                  }}
-                >
-                  TESTNET
-                  <SvgIcon sx={{ marginLeft: '2px', fontSize: '16px' }}>
-                    <InformationCircleIcon />
-                  </SvgIcon>
-                </Button>
-              </ContentWithTooltip>
-            )}
-          </Box>
-        </Stack>
+          <img src={uiConfig.appLogo} alt="An SVG of the Plend logo" height={40} />
+        </Box>
+        <Box sx={{ mr: sm ? 1 : 3 }}>
+          {ENABLE_TESTNET && (
+            <ContentWithTooltip tooltipContent={testnetTooltip} offset={[0, -4]} withoutHover>
+              <Button
+                variant="surface"
+                size="small"
+                color="primary"
+                sx={{
+                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                  '&:hover, &.Mui-focusVisible': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
+                }}
+              >
+                TESTNET
+                <SvgIcon sx={{ marginLeft: '2px', fontSize: '16px' }}>
+                  <InformationCircleIcon />
+                </SvgIcon>
+              </Button>
+            </ContentWithTooltip>
+          )}
+        </Box>
 
         <Box sx={{ display: { xs: 'none', md: 'block' } }}>
           <NavItems />
