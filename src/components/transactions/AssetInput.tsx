@@ -141,8 +141,10 @@ export const AssetInput = <T extends Asset = Asset>({
                 if (!onChange) return;
                 if (maxValue !== undefined && Number(e.target.value) > Number(maxValue)) {
                   onChange('-1');
+                  console.log('onChange -1 =>', e.target.value)
                 } else {
                   onChange(e.target.value);
+                  console.log('onUpdate +1 =>', e.target.value)
                 }
               }}
               inputProps={{

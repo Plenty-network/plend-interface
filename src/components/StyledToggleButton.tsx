@@ -8,7 +8,7 @@ const CustomToggleButton = styled(ToggleButton)<ToggleButtonProps>(({ theme }) =
   borderRadius: '4px',
 
   '&.Mui-selected, &.Mui-selected:hover': {
-    backgroundColor: '#3F2566',
+    backgroundColor: '#D4FFDF',
     borderRadius: '4px !important',
     border: 'none',
   },
@@ -20,14 +20,14 @@ const CustomToggleButton = styled(ToggleButton)<ToggleButtonProps>(({ theme }) =
     justifyContent: 'center',
 
     '.MuiTypography-subheader1': {
-      background: theme.palette.gradients.aaveGradient,
-      backgroundClip: 'text',
-      textFillColor: 'transparent',
+      // background: theme.palette.gradients.aaveGradient,
+      // backgroundClip: 'text',
+      textFillColor: '#2A2826',
     },
     '.MuiTypography-secondary14': {
-      background: theme.palette.gradients.aaveGradient,
-      backgroundClip: 'text',
-      textFillColor: 'transparent',
+      // background: theme.palette.gradients.aaveGradient,
+      // backgroundClip: 'text',
+      // textFillColor: 'transparent',
     },
   },
 })) as typeof ToggleButton;

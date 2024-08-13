@@ -131,7 +131,7 @@ export const MarketSwitcher = () => {
                   variant={upToLG ? 'display1' : 'h1'}
                   sx={{
                     fontSize: downToXSM ? '1.55rem' : undefined,
-                    color: 'common.white',
+                    color: theme.palette.mode === 'dark' ? 'common.white' : '#2A2826',
                     mr: 1,
                   }}
                 >
@@ -147,7 +147,7 @@ export const MarketSwitcher = () => {
             p: 0,
             backgroundColor: 'transparent !important',
           },
-          '.MuiSelect-icon': { color: '#F1F1F3' },
+          '.MuiSelect-icon': { color: theme.palette.mode === 'dark' ? '#F1F1F3' : '#2A2826' },
         },
         MenuProps: {
           anchorOrigin: {

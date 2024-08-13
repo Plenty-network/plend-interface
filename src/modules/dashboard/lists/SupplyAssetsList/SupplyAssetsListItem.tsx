@@ -70,13 +70,13 @@ export const SupplyAssetsListItem = ({
       <ListButtonsColumn>
         {!hideSupply && (
           <Button
-            sx={(theme) => ({
-              color: theme.palette.common.white,
-              background: '#4caf50',
-              '&:hover, &.Mui-focusVisible': {
-                background: '#8bc34a',
-              },
-            })}
+            // sx={(theme) => ({
+            //   color: theme.palette.common.white,
+            //   background: '#4caf50',
+            //   '&:hover, &.Mui-focusVisible': {
+            //     background: '#8bc34a',
+            //   },
+            // })}
             disabled={!isActive || isFreezed || Number(walletBalance) <= 0}
             variant="contained"
             onClick={() => openSupply(underlyingAsset)}

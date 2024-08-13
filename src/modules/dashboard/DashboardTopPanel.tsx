@@ -81,8 +81,8 @@ export const DashboardTopPanel = () => {
     user?.totalCollateralMarketReferenceCurrency === '0'
       ? '0'
       : valueToBigNumber(user?.totalBorrowsMarketReferenceCurrency || '0')
-          .dividedBy(user?.totalCollateralMarketReferenceCurrency || '1')
-          .toFixed();
+        .dividedBy(user?.totalCollateralMarketReferenceCurrency || '1')
+        .toFixed();
 
   const valueTypographyVariant = downToSM ? 'main16' : 'main21';
   const noDataTypographyVariant = downToSM ? 'secondary16' : 'secondary21';
@@ -100,7 +100,7 @@ export const DashboardTopPanel = () => {
           </Box>
         }
       >
-        <TopInfoPanelItem icon={<WalletIcon />} title={<Trans>Net worth</Trans>} loading={loading}>
+        <TopInfoPanelItem icon={<WalletIcon />} variant={theme.palette.mode} title={<Trans>Net worth</Trans>} loading={loading}>
           {currentAccount ? (
             <FormattedNumber
               value={Number(user?.netWorthUSD || 0)}
@@ -110,6 +110,7 @@ export const DashboardTopPanel = () => {
               compact
               symbolsColor="#A5A8B6"
               symbolsVariant={noDataTypographyVariant}
+              mode={theme.palette.mode}
             />
           ) : (
             <NoData variant={noDataTypographyVariant} sx={{ opacity: '0.7' }} />
@@ -117,6 +118,7 @@ export const DashboardTopPanel = () => {
         </TopInfoPanelItem>
 
         <TopInfoPanelItem
+          variant={theme.palette.mode}
           icon={<NetAPYIcon />}
           title={
             <div style={{ display: 'flex' }}>
@@ -128,6 +130,7 @@ export const DashboardTopPanel = () => {
         >
           {currentAccount && Number(user?.netWorthUSD) > 0 ? (
             <FormattedNumber
+              mode={theme.palette.mode}
               value={user.netAPY}
               variant={valueTypographyVariant}
               visibleDecimals={2}
@@ -142,6 +145,7 @@ export const DashboardTopPanel = () => {
 
         {currentAccount && user?.healthFactor !== '-1' && (
           <TopInfoPanelItem
+            variant={theme.palette.mode}
             icon={<EmptyHeartIcon />}
             title={
               <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
@@ -178,6 +182,7 @@ export const DashboardTopPanel = () => {
 
         {currentAccount && claimableRewardsUsd > 0 && (
           <TopInfoPanelItem
+            variant={theme.palette.mode}
             title={<Trans>Available rewards</Trans>}
             icon={<ClaimGiftIcon />}
             loading={loading}
@@ -191,6 +196,7 @@ export const DashboardTopPanel = () => {
             >
               <Box sx={{ display: 'inline-flex', alignItems: 'center' }} data-cy={'Claim_Box'}>
                 <FormattedNumber
+                  mode={theme.palette.mode}
                   value={claimableRewardsUsd}
                   variant={valueTypographyVariant}
                   visibleDecimals={2}

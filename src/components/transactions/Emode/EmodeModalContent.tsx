@@ -188,7 +188,7 @@ export const EmodeModalContent = ({ mode }: EmodeModalContentProps) => {
             <Trans>
               Enabling E-Mode only allows you to borrow assets belonging to the selected category.
               Please visit our{' '}
-              <Link href="https://docs.plend.finance" target="_blank" rel="noopener">
+              <Link href="https://docs.plend.finance/plend-features#high-efficiency-mode-e-mode" target="_blank" rel="noopener">
                 FAQ guide
               </Link>{' '}
               to learn more about how it works and the applied restrictions.

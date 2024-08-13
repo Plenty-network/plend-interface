@@ -16,7 +16,7 @@ export function ReserveOverviewBox({
     <Box
       sx={(theme) => ({
         borderRadius: '6px',
-        border: `1px solid ${theme.palette.divider}`,
+        border: `1px solid ${theme.palette.mode === 'dark' ? theme.palette.divider : '#cecece'}`,
         flex: fullWidth ? '0 100%' : '0 32%',
         marginBottom: '2%',
         height: { md: '70px', lg: '60px' },

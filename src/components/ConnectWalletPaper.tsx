@@ -3,6 +3,7 @@ import { Box, CircularProgress, Paper, PaperProps, Typography, useTheme } from '
 import { ReactNode } from 'react';
 
 import WalletConnectLogoDark from '/public/walletConnectLogoDark.svg';
+import FullLogo from '/public/logos/superlend-full-svg.svg';
 
 import MarkedList from './lists/MarkedList';
 import MarkedListItem from './lists/MarkedListItem';
@@ -34,22 +35,18 @@ export const ConnectWalletPaper = ({
         ...sx,
       }}
     >
-      {theme.palette.mode === 'light' ? (
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            width: '100%',
-            backgroundColor: '#27212F',
-            borderTopLeftRadius: '6px',
-            borderTopRightRadius: '6px',
-          }}
-        >
-          <WalletConnectLogoDark style={{ marginBottom: '16px', maxWidth: '250px' }} />
-        </Box>
-      ) : (
-        <WalletConnectLogoDark style={{ marginBottom: '16px', maxWidth: '250px' }} />
-      )}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+          backgroundColor: '#FF5B00',
+          borderTopLeftRadius: '6px',
+          borderTopRightRadius: '6px',
+        }}
+      >
+        <FullLogo style={{ marginBottom: '16px', maxWidth: '250px' }} />
+      </Box>
       <Box sx={{ p: 4 }}>
         {loading ? (
           <CircularProgress />

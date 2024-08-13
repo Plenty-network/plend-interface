@@ -109,11 +109,11 @@ export const SupplyAssetsListMobileItem = ({
         {!hideSupply && (
           <Button
             sx={(theme) => ({
-              color: theme.palette.common.white,
-              background: '#4caf50',
-              '&:hover, &.Mui-focusVisible': {
-                background: '#8bc34a',
-              },
+              // color: theme.palette.common.white,
+              // background: '#4caf50',
+              // '&:hover, &.Mui-focusVisible': {
+              //   background: '#8bc34a',
+              // },
               mr: 1.5,
             })}
             disabled={!isActive || isFreezed || Number(walletBalance) <= 0}
