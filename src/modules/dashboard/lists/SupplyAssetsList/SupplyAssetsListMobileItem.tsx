@@ -108,7 +108,7 @@ export const SupplyAssetsListMobileItem = ({
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mt: 5 }}>
         {!hideSupply && (
           <Button
-            sx={(theme) => ({
+            sx={() => ({
               // color: theme.palette.common.white,
               // background: '#4caf50',
               // '&:hover, &.Mui-focusVisible': {
