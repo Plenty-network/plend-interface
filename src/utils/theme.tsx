@@ -189,7 +189,7 @@ export const getDesignTokens = (mode: 'light' | 'dark') => {
         navbar: getColor('#FF5B00', '#FF5B00'),
         header: getColor('#d9d9d9', '#151519'),
         paper: getColor('#f1f1f1', '#302D2A'),
-        surface: getColor('#F7F7F9', '#3F2566'),
+        surface: getColor('#F7F7F9', '#2A2826'),
         disabled: getColor('#EAEBEF', '#EBEBEF14'),
       },
       divider: getColor('#EAEBEF', '#EBEBEF14'),
@@ -454,14 +454,14 @@ export function getThemedComponents(theme: Theme) {
             style: {
               color: theme.palette.mode === 'light' ?
                 theme.palette.common.white : theme.palette.common.black,
-              background: theme.palette.gradients.aaveGradient,
-              // background: theme.palette.mode === 'light' ?
-              //   '#0F244B' : '#D4FFDF',
+              // background: theme.palette.gradients.aaveGradient,
+              background: theme.palette.mode === 'light' ?
+                '#0F244B' : '#F1FF52',
               transition: 'all 0.2s ease',
               '&:hover, &.Mui-focusVisible': {
-                background: theme.palette.gradients.aaveGradient,
-                // background: theme.palette.mode === 'light' ?
-                //   '#0F244B' : '#D4FFDF',
+                // background: theme.palette.gradients.aaveGradient,
+                background: theme.palette.mode === 'light' ?
+                  '#0F244B' : '#F1FF52',
                 opacity: '0.9',
               },
             },
@@ -471,10 +471,10 @@ export function getThemedComponents(theme: Theme) {
             style: {
               background: "transparent",
               borderColor: theme.palette.mode === 'light'
-                ? "#2A2826" : "#D4FFDF",
+                ? "#2A2826" : "#F1FF52",
               '&:hover, &.Mui-focusVisible': {
                 background: theme.palette.mode === 'light'
-                  ? "#0F244B" : "#D4FFDF",
+                  ? "#0F244B" : "#F1FF52",
                 color: theme.palette.mode === 'light'
                   ? '#f1f1f1' : '#2A2826'
               },
@@ -584,7 +584,8 @@ export function getThemedComponents(theme: Theme) {
           {
             props: { variant: 'outlined' },
             style: {
-              border: `1px solid ${theme.palette.divider}`,
+              border: `1px solid ${theme.palette.mode === 'dark' ?
+                theme.palette.divider : "#cecece"}`,
               boxShadow: '0px 0px 2px rgba(0, 0, 0, 0.2), 0px 2px 10px rgba(0, 0, 0, 0.1)',
               background:
                 theme.palette.mode === 'light'

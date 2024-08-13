@@ -192,7 +192,7 @@ export const MigrationBottomPanel = ({
         <Typography sx={{ mb: { xs: 3, lg: 4 } }}>
           <Trans>
             Please always be aware of your <b>Health Factor (HF)</b> when partially migrating a
-            position and that your rates will be updated to Plend Protocol rates.
+            position and that your rates will be updated to Superlend Protocol rates.
           </Trans>
         </Typography>
         <Typography sx={{ mb: { xs: 3, lg: 4 } }}>

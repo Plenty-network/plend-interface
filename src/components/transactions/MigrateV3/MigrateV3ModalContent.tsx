@@ -72,7 +72,7 @@ export const MigrateV3ModalContent = () => {
 
   return (
     <>
-      <TxModalTitle title="Migrate to Plend Protocol" />
+      <TxModalTitle title="Migrate to Superlend Protocol" />
       {isWrongNetwork && !readOnlyModeAddress && (
         <ChangeNetworkWarning networkName={networkConfig.name} chainId={currentChainId} />
       )}

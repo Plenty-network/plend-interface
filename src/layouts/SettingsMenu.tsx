@@ -61,7 +61,7 @@ export function SettingsMenu() {
         anchorEl={anchorEl}
         open={settingsOpen}
         onClose={handleClose}
-        sx={{ '.MuiMenuItem-root.Mui-disabled': { opacity: 1 }, '.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#0F244B" : "#f1f1f1" } }}
+        sx={{ '.MuiMenuItem-root.Mui-disabled': { opacity: 1 }, '.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#2A2826" : "#f1f1f1" } }}
         keepMounted={true}
       >
         <MenuItem disabled sx={{ mb: '4px' }}>

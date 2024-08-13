@@ -116,7 +116,7 @@ export function AppHeader() {
           }}
           onClick={() => setMobileMenuOpen(false)}
         >
-          <img src={uiConfig.appLogo} alt="An SVG of the Plend logo" height={40} />
+          <img src={uiConfig.appLogo} alt="An SVG of the Superlend logo" height={40} />
         </Box>
         <Box sx={{ mr: sm ? 1 : 3 }}>
           {ENABLE_TESTNET && (

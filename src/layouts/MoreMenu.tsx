@@ -59,7 +59,7 @@ export function MoreMenu() {
         open={open}
         onClose={handleClose}
         keepMounted={true}
-        sx={{'.MuiList-root.MuiMenu-list': { background: "#0F244B" }}}
+        // sx={{'.MuiList-root.MuiMenu-list': { background: "#0F244B" }}}
       >
         {moreNavigation.map((item, index) => (
           <MenuItem

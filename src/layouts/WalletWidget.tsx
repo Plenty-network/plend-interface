@@ -442,7 +442,7 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
 
       {md ? (
         <DrawerWrapper open={open} setOpen={setOpen} headerHeight={headerHeight}>
-          <List sx={{ px: 2, '.MuiListItem-root.Mui-disabled': { opacity: 1 }, '.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#0F244B" : "#f1f1f1" } }}>
+          <List sx={{ px: 2, '.MuiListItem-root.Mui-disabled': { opacity: 1 }, '.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#2A2826" : "#f1f1f1" } }}>
             <Content />
           </List>
         </DrawerWrapper>
@@ -456,7 +456,7 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
           open={open}
           onClose={handleClose}
           keepMounted={true}
-          sx={{'.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#0F244B" : "#f1f1f1"  }}}
+          sx={{'.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#2A2826" : "#f1f1f1"  }}}
         >
           <MenuList disablePadding sx={{ '.MuiMenuItem-root.Mui-disabled': { opacity: 1 },}}>
             <Content component={MenuItem} />

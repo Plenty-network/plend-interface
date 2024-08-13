@@ -127,7 +127,7 @@ export const DashboardEModeButton = ({ userEmodeCategoryId }: DashboardEModeButt
       <Menu
         open={open}
         anchorEl={anchorEl}
-        sx={{ '.MuiMenu-paper': { maxWidth: '280px' }, '.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#0F244B" : "paper" } }}
+        sx={{ '.MuiMenu-paper': { maxWidth: '280px' }, '.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#2A2826" : "paper" } }}
         onClose={handleClose}
         keepMounted={true}
       >

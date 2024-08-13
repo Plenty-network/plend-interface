@@ -110,7 +110,7 @@ export const Disclaimers = () => {
             the jurisdiction in which I reside and am located.
           </MarkedListItem>
           <MarkedListItem>
-            I understand the risks associated with entering into using the Plend.
+            I understand the risks associated with entering into using the Superlend.
           </MarkedListItem>
         </MarkedList>
       </Trans>
@@ -128,7 +128,7 @@ export const InnerLink = ({ children, href }: InnerLinkProps) => {
       href={href}
       target="_blank"
       sx={(theme) => ({
-        color: theme.palette.mode === 'light' ? '#3F2566' : '#52F4DC',
+        color: theme.palette.mode === 'light' ? '#0F244B' : '#F1FF52',
         textDecoration: 'underline',
       })}
     >
