@@ -18,7 +18,7 @@ const {
 } = theme;
 
 const FONT = 'Inter, Arial';
-const FONT_HEADER = 'Space Grotesk, monospace';
+const FONT_HEADER = '"Basier Circle Regular"';
 
 declare module '@mui/material/styles/createPalette' {
   interface PaletteColor extends ColorPartial { }
