@@ -1,8 +1,7 @@
 import { Trans } from '@lingui/macro';
-import { Box, CircularProgress, Paper, PaperProps, Typography, useTheme } from '@mui/material';
+import { Box, CircularProgress, Paper, PaperProps, Typography } from '@mui/material';
 import { ReactNode } from 'react';
 
-import WalletConnectLogoDark from '/public/walletConnectLogoDark.svg';
 import FullLogo from '/public/logos/superlend-full-svg.svg';
 
 import MarkedList from './lists/MarkedList';
@@ -21,7 +20,6 @@ export const ConnectWalletPaper = ({
   sx,
   ...rest
 }: ConnectWalletPaperProps) => {
-  const theme = useTheme();
   return (
     <Paper
       {...rest}
