@@ -84,7 +84,7 @@ export function SettingsMenu() {
         open={languagesOpen}
         onClose={handleClose}
         keepMounted={true}
-        sx={{ '.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#0F244B" : "#f1f1f1" } }}
+        sx={{ '.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#2A2826" : "#f1f1f1" } }}
       >
         <LanguagesList onClick={handleCloseLanguage} component={MenuItem} />
       </Menu>
