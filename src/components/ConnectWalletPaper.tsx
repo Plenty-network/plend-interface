@@ -127,8 +127,8 @@ export const InnerLink = ({ children, href }: InnerLinkProps) => {
     <Link
       href={href}
       target="_blank"
-      sx={(theme) => ({
-        color: theme.palette.mode === 'light' ? '#0F244B' : '#F1FF52',
+      sx={() => ({
+        color: '#FF5B00',
         textDecoration: 'underline',
       })}
     >

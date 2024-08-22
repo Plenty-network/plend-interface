@@ -205,7 +205,7 @@ export const DashboardEModeButton = ({ userEmodeCategoryId }: DashboardEModeButt
           {isEModeDisabled ? (
             <Button
               fullWidth
-              variant={'gradient'}
+              variant={'contained'}
               onClick={() => {
                 openEmode(EmodeModalType.ENABLE);
                 handleClose();

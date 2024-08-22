@@ -97,7 +97,7 @@ export const ReserveTopDetails = ({ underlyingAsset }: ReserveTopDetailsProps) =
             }}
           >
             <Button
-              variant="contained"
+              variant="outlined"
               size="medium"
               color="primary"
               startIcon={

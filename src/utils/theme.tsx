@@ -17,7 +17,7 @@ const {
   typography: { pxToRem },
 } = theme;
 
-const FONT = 'Inter, Arial';
+const FONT = '"Basier Circle Regular"';
 const FONT_HEADER = '"Basier Circle Regular"';
 
 declare module '@mui/material/styles/createPalette' {
@@ -471,12 +471,12 @@ export function getThemedComponents(theme: Theme) {
             style: {
               background: "transparent",
               borderColor: theme.palette.mode === 'light'
-                ? "#2A2826" : "#F1FF52",
+                ? "#2A2826" : "#6D6C6B",
               '&:hover, &.Mui-focusVisible': {
                 background: theme.palette.mode === 'light'
-                  ? "#0F244B" : "#F1FF52",
+                  ? "#0F244B" : "#6D6C6B",
                 color: theme.palette.mode === 'light'
-                  ? '#f1f1f1' : '#2A2826'
+                  ? '#f1f1f1' : '#fff'
               },
             },
           },
