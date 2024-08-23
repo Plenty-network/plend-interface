@@ -192,7 +192,7 @@ export const DashboardEModeButton = ({ userEmodeCategoryId }: DashboardEModeButt
             <Trans>
               E-Mode increases your LTV for a selected category of assets up to 97%.{' '}
               <Link
-                href="https://docs.plend.finance/plend-features#high-efficiency-mode-e-mode"
+                href="https://docs.superlend.xyz/superlend-features#high-efficiency-mode-e-mode"
                 sx={{ textDecoration: 'underline' }}
                 variant="caption"
                 color="text.secondary"
