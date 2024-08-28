@@ -2,7 +2,7 @@ import { Trans } from '@lingui/macro';
 import { Box, CircularProgress, Paper, PaperProps, Typography } from '@mui/material';
 import { ReactNode } from 'react';
 
-import FullLogo from '/public/logos/superlend-full-svg.svg';
+import FullLogo from '/public/logos/superlend-full-logo.svg';
 
 import MarkedList from './lists/MarkedList';
 import MarkedListItem from './lists/MarkedListItem';

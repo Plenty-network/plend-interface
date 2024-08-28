@@ -110,13 +110,15 @@ export function AppHeader() {
           aria-label="Go to homepage"
           sx={{
             lineHeight: 0,
-            mr: 3,
+            mr: 5,
             transition: '0.3s ease all',
             '&:hover': { opacity: 0.7 },
+            height: sm ? 20 : 30,
+            width: sm ? 20 : 30
           }}
           onClick={() => setMobileMenuOpen(false)}
         >
-          <img src={uiConfig.appLogo} alt="An SVG of the Superlend logo" height={40} />
+          <img src={uiConfig.appLogo} alt="An SVG of the Superlend logo" height="100%" width="100%" />
         </Box>
         <Box sx={{ mr: sm ? 1 : 3 }}>
           {ENABLE_TESTNET && (

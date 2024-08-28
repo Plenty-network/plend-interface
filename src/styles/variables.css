@@ -1,3 +1,4 @@
 body {
   --wcm-z-index: 1300;
+  padding: 0 !important;
 }

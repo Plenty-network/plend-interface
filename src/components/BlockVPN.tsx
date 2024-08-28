@@ -2,7 +2,7 @@
 import { Box, Link, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 
-import WalletConnectLogoDark from '/public/walletConnectLogoDark.svg';
+import WalletConnectLogoDark from '/public/logos/superlend-full-logo.svg';
 
 export function BlockVPN({ children }: { children: React.ReactNode }): React.ReactElement {
   if (process.env.NEXT_PUBLIC_VPN_PROTECTION !== '1') {
