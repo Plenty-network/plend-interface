@@ -113,8 +113,8 @@ export function AppHeader() {
             mr: 5,
             transition: '0.3s ease all',
             '&:hover': { opacity: 0.7 },
-            height: sm ? 20 : 30,
-            width: sm ? 20 : 30
+            height: sm ? 25 : 30,
+            width: sm ? 25 : 30
           }}
           onClick={() => setMobileMenuOpen(false)}
         >
