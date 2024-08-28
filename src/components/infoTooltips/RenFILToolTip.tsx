@@ -12,7 +12,7 @@ export const RenFILToolTip = () => {
         <Box>
           <Trans>
             This asset is frozen due to Superlend Protocol decision{' '}
-            <Link href={'https://docs.plend.finance'} sx={{ textDecoration: 'underline' }}>
+            <Link href={'https://docs.superlend.xyz'} sx={{ textDecoration: 'underline' }}>
               <Trans>More details</Trans>
             </Link>
           </Trans>

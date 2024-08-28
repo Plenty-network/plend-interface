@@ -23,8 +23,8 @@ export enum WalletType {
   READ_ONLY_MODE = 'read_only_mode',
 }
 
-const APP_NAME = 'Plend';
-const APP_LOGO_URL = 'https://sparkapp.finance/favicon.ico';
+const APP_NAME = 'Superlend';
+const APP_LOGO_URL = 'https://asset.cloudinary.com/dbogvpefw/07d39cb3701b76bca4dbeacfb5b9e927';
 
 const mockProvider = {
   request: Promise.resolve(null),

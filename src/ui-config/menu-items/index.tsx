@@ -1,4 +1,4 @@
-import { BookOpenIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline';
+import { BookOpenIcon } from '@heroicons/react/outline';
 import { t } from '@lingui/macro';
 import { ReactNode } from 'react';
 import { ROUTES } from 'src/components/primitives/Link';
@@ -33,13 +33,13 @@ interface MoreMenuItem extends Navigation {
 }
 
 const moreMenuItems: MoreMenuItem[] = [
+  // {
+  //   link: 'https://docs.superlend.xyz',
+  //   title: t`FAQ`,
+  //   icon: <QuestionMarkCircleIcon />,
+  // },
   {
-    link: 'https://docs.plend.finance',
-    title: t`FAQ`,
-    icon: <QuestionMarkCircleIcon />,
-  },
-  {
-    link: 'https://docs.plend.finance/',
+    link: 'https://docs.superlend.xyz/',
     title: t`Documentation`,
     icon: <BookOpenIcon />,
   },

@@ -20,7 +20,7 @@ export const IsolationModeWarning = ({ asset, severity }: IsolationModeWarningPr
           In Isolation mode, you cannot supply other assets as collateral. A global debt ceiling
           limits the borrowing power of the isolated asset. To exit isolation mode disable{' '}
           {asset ? asset : ''} as collateral before borrowing another asset. Read more in our{' '}
-          <Link href="https://docs.plend.finance">FAQ</Link>
+          <Link href="https://docs.superlend.xyz">FAQ</Link>
         </Trans>
       </Typography>
     </Warning>

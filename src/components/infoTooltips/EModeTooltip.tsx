@@ -20,7 +20,7 @@ export const EModeTooltip = ({
         />
         .{' '}
         <Link
-          href="https://docs.plend.finance"
+          href="https://docs.superlend.xyz"
           sx={{ textDecoration: 'underline' }}
           variant="caption"
           color="text.secondary"

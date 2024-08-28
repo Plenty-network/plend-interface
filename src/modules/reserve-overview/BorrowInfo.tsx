@@ -86,7 +86,7 @@ export const BorrowInfo = ({
                         Borrowing of this asset is limited to a certain amount to minimize liquidity
                         pool insolvency.
                       </Trans>{' '}
-                      <Link href="https://docs.plend.finance/borrowing" underline="always">
+                      <Link href="https://docs.superlend.xyz/borrowing" underline="always">
                         <Trans>Learn more</Trans>
                       </Link>
                     </>

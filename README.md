@@ -1,10 +1,10 @@
-# Plend Protocol Interface
+# Superlend Protocol Interface
 
-An open source interface for the decentralized liquidity protocol Plend
+An open source interface for the decentralized liquidity protocol Superlend
 
 Enabling users to:
 
-- Manage and monitor their positions on the Plend Protocol, and the overall status of it
+- Manage and monitor their positions on the Superlend Protocol, and the overall status of it
 
 ## How to use
 
