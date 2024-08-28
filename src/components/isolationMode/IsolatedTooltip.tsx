@@ -41,7 +41,7 @@ export const IsolatedTooltip = () => {
       <Typography variant="subheader2" color="text.secondary">
         <Trans>
           Learn more in our{' '}
-          <Link href="https://docs.plend.finance" fontWeight={500}>
+          <Link href="https://docs.superlend.xyz" fontWeight={500}>
             FAQ guide
           </Link>
         </Trans>

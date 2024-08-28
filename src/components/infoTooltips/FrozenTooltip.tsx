@@ -16,7 +16,7 @@ export const getFrozenProposalLink = (
 ): string => {
   symbol;
   currentMarket; // Prevent warnings
-  return 'https://docs.plend.finance/';
+  return 'https://docs.superlend.xyz/';
 };
 
 export const FrozenTooltip = ({ symbol, currentMarket }: FrozenTooltipProps) => {

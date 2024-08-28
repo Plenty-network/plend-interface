@@ -70,7 +70,7 @@ export function AppHeader() {
       <Typography variant="description">
         <Trans>The app is running in testnet mode. Learn how it works in</Trans>{' '}
         <Link
-          href="https://docs.plend.finance"
+          href="https://docs.superlend.xyz"
           style={{ fontSize: '14px', fontWeight: 400, textDecoration: 'underline' }}
         >
           FAQ.

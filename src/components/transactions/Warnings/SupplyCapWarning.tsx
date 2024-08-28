@@ -30,7 +30,7 @@ export const SupplyCapWarning = ({ supplyCap, icon = true, ...rest }: SupplyCapW
   return (
     <Warning severity={severity} icon={icon} {...rest}>
       {renderText()}{' '}
-      <Link href="https://docs.plend.finance/borrowing" underline="always">
+      <Link href="https://docs.superlend.xyz/borrowing" underline="always">
         <Trans>Learn more</Trans>
       </Link>
     </Warning>

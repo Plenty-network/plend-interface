@@ -59,7 +59,7 @@ export const DebtCeilingStatus = ({
                 Debt ceiling limits the amount possible to borrow against this asset by protocol
                 users. Debt ceiling is specific to assets in isolation mode and is denoted in USD.
               </Trans>{' '}
-              <Link href="https://docs.plend.finance" underline="always">
+              <Link href="https://docs.superlend.xyz" underline="always">
                 <Trans>Learn more</Trans>
               </Link>
             </>

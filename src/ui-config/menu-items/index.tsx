@@ -33,13 +33,13 @@ interface MoreMenuItem extends Navigation {
 }
 
 const moreMenuItems: MoreMenuItem[] = [
+  // {
+  //   link: 'https://docs.superlend.xyz',
+  //   title: t`FAQ`,
+  //   icon: <QuestionMarkCircleIcon />,
+  // },
   {
-    link: 'https://docs.plend.finance',
-    title: t`FAQ`,
-    icon: <QuestionMarkCircleIcon />,
-  },
-  {
-    link: 'https://docs.plend.finance/',
+    link: 'https://docs.superlend.xyz/',
     title: t`Documentation`,
     icon: <BookOpenIcon />,
   },

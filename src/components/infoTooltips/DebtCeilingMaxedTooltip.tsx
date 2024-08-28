@@ -21,7 +21,7 @@ export const DebtCeilingMaxedTooltip = ({ debtCeiling, ...rest }: DebtCeilingMax
             Protocol debt ceiling is at 100% for this asset. Futher borrowing against this asset is
             unavailable.
           </Trans>{' '}
-          <Link href="https://docs.plend.finance" underline="always">
+          <Link href="https://docs.superlend.xyz" underline="always">
             <Trans>Learn more</Trans>
           </Link>
         </>
