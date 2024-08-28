@@ -1,4 +1,4 @@
-import { BookOpenIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline';
+import { BookOpenIcon } from '@heroicons/react/outline';
 import { t } from '@lingui/macro';
 import { ReactNode } from 'react';
 import { ROUTES } from 'src/components/primitives/Link';
