@@ -6,7 +6,7 @@ export const AMPLWarning = () => {
   return (
     <Trans>
       <b>Ampleforth</b> is a rebasing asset. Visit the{' '}
-      <Link href="https://docs.plend.finance" underline="always">
+      <Link href="https://docs.superlend.xyz/" underline="always">
         <Trans>documentation</Trans>
       </Link>{' '}
       to learn more.

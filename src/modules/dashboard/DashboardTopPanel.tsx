@@ -81,8 +81,8 @@ export const DashboardTopPanel = () => {
     user?.totalCollateralMarketReferenceCurrency === '0'
       ? '0'
       : valueToBigNumber(user?.totalBorrowsMarketReferenceCurrency || '0')
-          .dividedBy(user?.totalCollateralMarketReferenceCurrency || '1')
-          .toFixed();
+        .dividedBy(user?.totalCollateralMarketReferenceCurrency || '1')
+        .toFixed();
 
   const valueTypographyVariant = downToSM ? 'main16' : 'main21';
   const noDataTypographyVariant = downToSM ? 'secondary16' : 'secondary21';
@@ -100,7 +100,7 @@ export const DashboardTopPanel = () => {
           </Box>
         }
       >
-        <TopInfoPanelItem icon={<WalletIcon />} title={<Trans>Net worth</Trans>} loading={loading}>
+        <TopInfoPanelItem icon={<WalletIcon />}  title={<Trans>Net worth</Trans>} loading={loading}>
           {currentAccount ? (
             <FormattedNumber
               value={Number(user?.netWorthUSD || 0)}
@@ -117,6 +117,7 @@ export const DashboardTopPanel = () => {
         </TopInfoPanelItem>
 
         <TopInfoPanelItem
+          
           icon={<NetAPYIcon />}
           title={
             <div style={{ display: 'flex' }}>
@@ -142,6 +143,7 @@ export const DashboardTopPanel = () => {
 
         {currentAccount && user?.healthFactor !== '-1' && (
           <TopInfoPanelItem
+            
             icon={<EmptyHeartIcon />}
             title={
               <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
@@ -178,6 +180,7 @@ export const DashboardTopPanel = () => {
 
         {currentAccount && claimableRewardsUsd > 0 && (
           <TopInfoPanelItem
+            
             title={<Trans>Available rewards</Trans>}
             icon={<ClaimGiftIcon />}
             loading={loading}

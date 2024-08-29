@@ -1,5 +1,5 @@
 import { normalizeBN, valueToBigNumber } from '@aave/math-utils';
-import { Typography } from '@mui/material';
+import { Typography, useTheme } from '@mui/material';
 import { Variant } from '@mui/material/styles/createTypography';
 import { TypographyProps } from '@mui/material/Typography';
 import { TypographyPropsVariantOverrides } from '@mui/material/Typography/Typography';
@@ -63,6 +63,7 @@ export function FormattedNumber({
   roundDown,
   ...rest
 }: FormattedNumberProps) {
+  const { palette } = useTheme();
   const number = percent ? Number(value) * 100 : Number(value);
 
   let decimals: number = visibleDecimals ?? 0;
@@ -94,6 +95,7 @@ export function FormattedNumber({
         flexDirection: 'row',
         alignItems: 'center',
         position: 'relative',
+        color: palette.mode === "dark" ? symbolsColor || 'text.secondary' : "#545351",
         ...rest.sx,
       }}
       noWrap
@@ -113,7 +115,7 @@ export function FormattedNumber({
           component="span"
           sx={{ mr: 0.5 }}
           variant={symbolsVariant || rest.variant}
-          color={symbolsColor || 'text.secondary'}
+          color={palette.mode === "dark" ? symbolsColor || 'text.secondary' : "#545351"}
         >
           $
         </Typography>
@@ -133,7 +135,7 @@ export function FormattedNumber({
           component="span"
           sx={{ ml: 0.5 }}
           variant={symbolsVariant || rest.variant}
-          color={symbolsColor || 'text.secondary'}
+          color={palette.mode === "dark" ? symbolsColor || 'text.secondary' : "#545351"}
         >
           %
         </Typography>
@@ -143,7 +145,7 @@ export function FormattedNumber({
           component="span"
           sx={{ ml: 0.5 }}
           variant={symbolsVariant || rest.variant}
-          color={symbolsColor || 'text.secondary'}
+          color={palette.mode === "dark" ? symbolsColor || 'text.secondary' : "#545351"}
         >
           {symbol}
         </Typography>

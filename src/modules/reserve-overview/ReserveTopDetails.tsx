@@ -78,7 +78,7 @@ export const ReserveTopDetails = ({ underlyingAsset }: ReserveTopDetailsProps) =
     return loading ? (
       <Skeleton width={60} height={28} sx={{ background: '#383D51' }} />
     ) : (
-      <Typography variant={valueTypographyVariant}>{poolReserve.name}</Typography>
+      <Typography variant={valueTypographyVariant} color={theme.palette.mode === 'dark' ? '' : 'text.secondary'}>{poolReserve.name}</Typography>
     );
   };
 
@@ -97,7 +97,7 @@ export const ReserveTopDetails = ({ underlyingAsset }: ReserveTopDetailsProps) =
             }}
           >
             <Button
-              variant="surface"
+              variant="outlined"
               size="medium"
               color="primary"
               startIcon={
@@ -117,7 +117,7 @@ export const ReserveTopDetails = ({ underlyingAsset }: ReserveTopDetailsProps) =
 
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <MarketLogo size={20} logo={network.networkLogoPath} />
-              <Typography variant="subheader1" sx={{ color: 'common.white' }}>
+              <Typography variant="subheader1" sx={{ color: theme.palette.mode === 'dark' ? 'common.white' : 'common.black' }}>
                 {market.marketTitle} <Trans>Market</Trans>
               </Typography>
             </Box>

@@ -37,7 +37,7 @@ export const DebtCeilingWarning = ({
   return (
     <Warning severity={severity} icon={icon} {...rest}>
       {renderText()}{' '}
-      <Link href="https://docs.plend.finance" underline="always">
+      <Link href="https://docs.superlend.xyz" underline="always">
         <Trans>Learn more</Trans>
       </Link>
     </Warning>

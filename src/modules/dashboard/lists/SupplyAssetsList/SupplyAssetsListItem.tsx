@@ -28,11 +28,10 @@ export const SupplyAssetsListItem = ({
   isActive,
   isFreezed,
   detailsAddress,
-  showSwap,
   hideSupply,
 }: DashboardReserve) => {
   const { currentMarket } = useProtocolDataContext();
-  const { openSupply, openPSMSwap } = useModalContext();
+  const { openSupply } = useModalContext();
 
   // Hide the asset to prevent it from being supplied if supply cap has been reached
   const { supplyCap: supplyCapUsage } = useAssetCaps();
@@ -71,13 +70,13 @@ export const SupplyAssetsListItem = ({
       <ListButtonsColumn>
         {!hideSupply && (
           <Button
-            sx={(theme) => ({
-              color: theme.palette.common.white,
-              background: '#4caf50',
-              '&:hover, &.Mui-focusVisible': {
-                background: '#8bc34a',
-              },
-            })}
+            // sx={(theme) => ({
+            //   color: theme.palette.common.white,
+            //   background: '#4caf50',
+            //   '&:hover, &.Mui-focusVisible': {
+            //     background: '#8bc34a',
+            //   },
+            // })}
             disabled={!isActive || isFreezed || Number(walletBalance) <= 0}
             variant="contained"
             onClick={() => openSupply(underlyingAsset)}
@@ -85,12 +84,12 @@ export const SupplyAssetsListItem = ({
             <Trans>Deposit</Trans>
           </Button>
         )}
-        {showSwap && (
+        {/* {showSwap && (
           <Button variant="contained" onClick={() => openPSMSwap(underlyingAsset)}>
             <Trans>Swap</Trans>
           </Button>
-        )}
-        {!(showSwap && !hideSupply) && (
+        )} */}
+        {!hideSupply && (
           <Button
             variant="outlined"
             component={Link}

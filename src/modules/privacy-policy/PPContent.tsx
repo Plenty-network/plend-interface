@@ -25,7 +25,7 @@ const PPContent = (): JSX.Element => {
       <Typography mb={4}>
         This privacy notice applies to you if (i) you access and/or use the website (the{' '}
         <strong>Website</strong>) and front-end provided by the Foundation to interact with the
-        Plend Protocol (the <strong>Front-End</strong>), including by connecting your digital assets
+        Superlend Protocol (the <strong>Front-End</strong>), including by connecting your digital assets
         wallet to the Front-End; (ii) your personal data has been provided to the Foundation by
         another person; or (iii) the Foundation otherwise uses your personal data. This privacy
         notice sets out the basis on which personal data about you will be processed by the

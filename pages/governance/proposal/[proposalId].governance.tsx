@@ -21,7 +21,7 @@ import {
   useTheme,
 } from '@mui/material';
 import dayjs from 'dayjs';
-import AaveMetaImage from 'public/plendMetaLogo.jpg';
+// import AaveMetaImage from 'public/superlendMetaLogo.jpg';
 import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -165,7 +165,7 @@ export default function ProposalPage({
   return (
     <>
       {ipfs && (
-        <Meta imageUrl={AaveMetaImage.src} title={ipfs.title} description={ipfs.shortDescription} />
+        <Meta imageUrl="https://asset.cloudinary.com/dbogvpefw/07d39cb3701b76bca4dbeacfb5b9e927" title={ipfs.title} description={ipfs.shortDescription} />
       )}
       <ProposalTopPanel />
 

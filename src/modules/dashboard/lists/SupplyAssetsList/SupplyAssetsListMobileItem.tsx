@@ -32,12 +32,11 @@ export const SupplyAssetsListMobileItem = ({
   isFreezed,
   underlyingAsset,
   detailsAddress,
-  showSwap,
   hideSupply,
 }: DashboardReserve) => {
   const { currentMarket } = useProtocolDataContext();
   const { dsr } = useAppDataContext();
-  const { openSupply, openPSMSwap } = useModalContext();
+  const { openSupply, } = useModalContext();
 
   // Hide the asset to prevent it from being supplied if supply cap has been reached
   const { supplyCap: supplyCapUsage } = useAssetCaps();
@@ -109,12 +108,12 @@ export const SupplyAssetsListMobileItem = ({
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mt: 5 }}>
         {!hideSupply && (
           <Button
-            sx={(theme) => ({
-              color: theme.palette.common.white,
-              background: '#4caf50',
-              '&:hover, &.Mui-focusVisible': {
-                background: '#8bc34a',
-              },
+            sx={() => ({
+              // color: theme.palette.common.white,
+              // background: '#4caf50',
+              // '&:hover, &.Mui-focusVisible': {
+              //   background: '#8bc34a',
+              // },
               mr: 1.5,
             })}
             disabled={!isActive || isFreezed || Number(walletBalance) <= 0}
@@ -125,12 +124,12 @@ export const SupplyAssetsListMobileItem = ({
             <Trans>Deposit</Trans>
           </Button>
         )}
-        {showSwap && (
+        {/* {showSwap && (
           <Button variant="contained" onClick={() => openPSMSwap(underlyingAsset)} fullWidth>
             <Trans>Swap</Trans>
           </Button>
-        )}
-        {!(showSwap && !hideSupply) && (
+        )} */}
+        {!hideSupply && (
           <Button
             variant="outlined"
             component={Link}

@@ -16,7 +16,7 @@ export const getFrozenProposalLink = (
 ): string => {
   symbol;
   currentMarket; // Prevent warnings
-  return 'https://docs.plend.finance/';
+  return 'https://docs.superlend.xyz/';
 };
 
 export const FrozenTooltip = ({ symbol, currentMarket }: FrozenTooltipProps) => {
@@ -25,7 +25,7 @@ export const FrozenTooltip = ({ symbol, currentMarket }: FrozenTooltipProps) => 
       tooltipContent={
         <Box>
           <Trans>
-            This asset is frozen due to Plend Protocol decision.{' '}
+            This asset is frozen due to Superlend Protocol decision.{' '}
             <Link
               href={getFrozenProposalLink(symbol, currentMarket)}
               sx={{ textDecoration: 'underline' }}

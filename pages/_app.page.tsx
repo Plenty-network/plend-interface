@@ -1,5 +1,6 @@
+import '/public/fonts/basier-circle/basier-circle.css';
 import '/public/fonts/inter/inter.css';
-import '/public/fonts/space-grotesk/space-grotesk.css';
+// import '/public/fonts/space-grotesk/space-grotesk.css';
 import '/src/styles/variables.css';
 
 import { CacheProvider, EmotionCache } from '@emotion/react';
@@ -8,7 +9,7 @@ import { providers } from 'ethers';
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import PlendMetaImage from 'public/plendMetaLogo.jpg';
+// import SuperlendMetaImage from '/public/superlendMetaLogo.jpg';
 import * as React from 'react';
 // import { AddressBlocked } from 'src/components/AddressBlocked';
 import { BlockVPN } from 'src/components/BlockVPN';
@@ -65,8 +66,8 @@ export default function MyApp(props: MyAppProps) {
       </Head>
       <Meta
         title={'Etherlink-Powered Lending Market'}
-        description={'Plend'}
-        imageUrl={PlendMetaImage.src}
+        description={'Superlend'}
+        imageUrl="https://asset.cloudinary.com/dbogvpefw/07d39cb3701b76bca4dbeacfb5b9e927"
       />
       <LanguageProvider>
         <BlockVPN>

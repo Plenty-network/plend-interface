@@ -17,11 +17,11 @@ const {
   typography: { pxToRem },
 } = theme;
 
-const FONT = 'Inter, Arial';
-const FONT_HEADER = 'Space Grotesk, monospace';
+const FONT = '"Basier Circle Regular"';
+const FONT_HEADER = '"Basier Circle Regular"';
 
 declare module '@mui/material/styles/createPalette' {
-  interface PaletteColor extends ColorPartial {}
+  interface PaletteColor extends ColorPartial { }
 
   interface TypeText {
     muted: string;
@@ -80,10 +80,10 @@ interface TypographyCustomVariants {
 }
 
 declare module '@mui/material/styles' {
-  interface TypographyVariants extends TypographyCustomVariants {}
+  interface TypographyVariants extends TypographyCustomVariants { }
 
   // allow configuration using `createTheme`
-  interface TypographyVariantsOptions extends TypographyCustomVariants {}
+  interface TypographyVariantsOptions extends TypographyCustomVariants { }
 
   interface BreakpointOverrides {
     xsm: true;
@@ -185,11 +185,11 @@ export const getDesignTokens = (mode: 'light' | 'dark') => {
         muted: getColor('#A5A8B6', '#8E92A3'),
       },
       background: {
-        default: getColor('#F1F1F3', '#151519'),
-        paper: getColor('#f1f1f1', '#27212F'),
-        surface: getColor('#F7F7F9', '#3F2566'),
-        navbar: getColor('#180E26', '#180E26'),
-        header: getColor('#1C112E', '#1C112E'),
+        default: getColor('#eaeaea', '#151519'),
+        navbar: getColor('#FF5B00', '#FF5B00'),
+        header: getColor('#d9d9d9', '#151519'),
+        paper: getColor('#f1f1f1', '#302D2A'),
+        surface: getColor('#F7F7F9', '#2A2826'),
         disabled: getColor('#EAEBEF', '#EBEBEF14'),
       },
       divider: getColor('#EAEBEF', '#EBEBEF14'),
@@ -403,7 +403,7 @@ export function getThemedComponents(theme: Theme) {
       },
       MuiButton: {
         defaultProps: {
-          disableElevation: true,
+          disableElevation: false,
         },
         styleOverrides: {
           root: {
@@ -429,9 +429,9 @@ export function getThemedComponents(theme: Theme) {
               color: theme.palette.common.white,
               border: '1px solid',
               borderColor: '#EBEBED1F',
-              backgroundColor: '#3F2566',
+              backgroundColor: '#FF5B00',
               '&:hover, &.Mui-focusVisible': {
-                backgroundColor: theme.palette.background.header,
+                backgroundColor: 'ff7b33',
               },
             },
           },
@@ -441,22 +441,27 @@ export function getThemedComponents(theme: Theme) {
               color:
                 theme.palette.mode === 'light'
                   ? theme.palette.common.white
-                  : theme.palette.common.black,
-              borderColor: '#EBEBED1F',
-              background: '#33c0ab',
+                  : theme.palette.common.white,
+              borderColor: '#3f4f6f',
+              background: '#FF5B00',
               '&:hover, &.Mui-focusVisible': {
-                background: '#52F4DC',
+                background: '#ff7b33',
               },
             },
           },
           {
             props: { variant: 'gradient' },
             style: {
-              color: theme.palette.common.black,
-              background: theme.palette.gradients.aaveGradient,
+              color: theme.palette.mode === 'light' ?
+                theme.palette.common.white : theme.palette.common.black,
+              // background: theme.palette.gradients.aaveGradient,
+              background: theme.palette.mode === 'light' ?
+                '#0F244B' : '#F1FF52',
               transition: 'all 0.2s ease',
               '&:hover, &.Mui-focusVisible': {
-                background: theme.palette.gradients.aaveGradient,
+                // background: theme.palette.gradients.aaveGradient,
+                background: theme.palette.mode === 'light' ?
+                  '#0F244B' : '#F1FF52',
                 opacity: '0.9',
               },
             },
@@ -464,8 +469,15 @@ export function getThemedComponents(theme: Theme) {
           {
             props: { color: 'primary', variant: 'outlined' },
             style: {
-              background: theme.palette.background.surface,
-              borderColor: theme.palette.background.disabled,
+              background: "transparent",
+              borderColor: theme.palette.mode === 'light'
+                ? "#2A2826" : "#6D6C6B",
+              '&:hover, &.Mui-focusVisible': {
+                background: theme.palette.mode === 'light'
+                  ? "#0F244B" : "#6D6C6B",
+                color: theme.palette.mode === 'light'
+                  ? '#f1f1f1' : '#fff'
+              },
             },
           },
         ],
@@ -558,6 +570,7 @@ export function getThemedComponents(theme: Theme) {
           root: {
             marginTop: 0,
             marginBottom: 0,
+            borderColor: "#2A2826"
           },
         },
       },
@@ -571,7 +584,8 @@ export function getThemedComponents(theme: Theme) {
           {
             props: { variant: 'outlined' },
             style: {
-              border: `1px solid ${theme.palette.divider}`,
+              border: `1px solid ${theme.palette.mode === 'dark' ?
+                theme.palette.divider : "#cecece"}`,
               boxShadow: '0px 0px 2px rgba(0, 0, 0, 0.2), 0px 2px 10px rgba(0, 0, 0, 0.1)',
               background:
                 theme.palette.mode === 'light'

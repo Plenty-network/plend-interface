@@ -34,13 +34,13 @@ export function MoreMenu() {
         aria-haspopup="true"
         onClick={handleClick}
         sx={{
-          color: 'rgba(255, 255, 255, 0.5)',
+          color: '#FFFFFF',
           minWidth: 'unset',
           p: '6px 8px',
           fontFamily: palette.fonts.header,
           fontWeight: 400,
           '&:hover': {
-            color: '#52F4DC',
+            color: '#F1FF52',
           },
         }}
       >
@@ -59,6 +59,7 @@ export function MoreMenu() {
         open={open}
         onClose={handleClose}
         keepMounted={true}
+        // sx={{'.MuiList-root.MuiMenu-list': { background: "#0F244B" }}}
       >
         {moreNavigation.map((item, index) => (
           <MenuItem

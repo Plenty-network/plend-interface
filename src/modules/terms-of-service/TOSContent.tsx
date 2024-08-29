@@ -60,16 +60,16 @@ const TOSContent = (): JSX.Element => {
         <MarkedListItem>
           be at least eighteen years of age, of sound mental capacity and have all technical
           knowledge necessary or advisable to understand and evaluate the risks of the Site and
-          Plend;
+          Superlend;
         </MarkedListItem>
         <MarkedListItem>
           agree that the Site is provided for informational purposes only and is not directly or
-          indirectly in control of or capable of interacting with Etherlink Mainnet, Plend Altchains
+          indirectly in control of or capable of interacting with Etherlink Mainnet, PlSuperlendend Altchains
           and related Blockchain Systems or performing or effecting any transactions on your behalf;
         </MarkedListItem>
         <MarkedListItem>
           agree that the Site is only being provided as an aid to your own independent research and
-          evaluation of Plend and that no representation or warranty is being made as to the
+          evaluation of Superlend and that no representation or warranty is being made as to the
           accuracy or completeness of information on the Site;
         </MarkedListItem>
         <MarkedListItem>
@@ -87,7 +87,7 @@ const TOSContent = (): JSX.Element => {
         </MarkedListItem>
         <MarkedListItem>
           not hold the Site Operator or any of its representatives or affiliates liable for any
-          damages you suffer in connection with your use of the Site or Plend;
+          damages you suffer in connection with your use of the Site or Superlend;
         </MarkedListItem>
         <MarkedListItem>
           waive your right to initiate or participate in class actions relating to the Site; and
@@ -118,70 +118,70 @@ const TOSContent = (): JSX.Element => {
           <MarkedList markerType="disc" name="thirdpartyinformation" sx={{ mb: 4 }}>
             <MarkedListItem>the Etherlink Mainnet;</MarkedListItem>
             <MarkedListItem>
-              the Plend Smart Contract System, Plend Smart Contract Protocol, Plend Mainnet, and
-              Plend Altchains;
+              the Superlend Smart Contract System, Superlend Smart Contract Protocol, Superlend Mainnet, and
+              Superlend Altchains;
             </MarkedListItem>
             <MarkedListItem>
               tokens that exist and have been or may be made available for withdrawal or “borrowing”
-              by third parties known as “lenders” or “depositors” in connection with the Plend Smart
+              by third parties known as “lenders” or “depositors” in connection with the Superlend Smart
               Contract System;
             </MarkedListItem>
             <MarkedListItem>
               third-party smart contract systems that act as “borrowers” or “lenders” in
-              contract-to-contract (C2C) transactions of the Plend Smart Contract Systems;
+              contract-to-contract (C2C) transactions of the Superlend Smart Contract Systems;
             </MarkedListItem>
             <MarkedListItem>
               the implied or express fair market prices of tokens, which may be denominated in terms
               of other tokens; and
             </MarkedListItem>
             <MarkedListItem>
-              transaction records relating to the Plend Smart Contract System.
+              transaction records relating to the Superlend Smart Contract System.
             </MarkedListItem>
           </MarkedList>
           <Typography mb={4}>
             The Site also offers interaction methods whereby the User can indicate a transaction the
-            User would like to perform in connection with the Plend Smart Contract System (such as
+            User would like to perform in connection with the Superlend Smart Contract System (such as
             swapping one token for another).
           </Typography>
           <Typography mb={4}>
             When used in this way, the Site can generate a draft transaction message which the User
             can independently use in conjunction with a third-party wallet application or device to
-            conduct transactions on Etherlink Mainnet or Plend Altchains.
+            conduct transactions on Etherlink Mainnet or Superlend Altchains.
           </Typography>
         </MarkedListItem>
         <MarkedListItem disableTypography>
           <Typography mb={4} sx={{ fontWeight: 600, textDecoration: 'underline' }}>
-            About Plend
+            About Superlend
           </Typography>
           <Typography mb={4}>
-            The Plend Smart Contract Protocol is software source code freely licensed to the public,
+            The Superlend Smart Contract Protocol is software source code freely licensed to the public,
             which provides a decentralized “credit” protocol through which tokens can be ‘loaned'
-            and ‘borrowed'. The Plend Smart Contract System is a copy of the Plend Smart Contract
+            and ‘borrowed'. The Superlend Smart Contract System is a copy of the Superlend Smart Contract
             Protocol that has been compiled to bytecode and permanently associated with one or more
-            specific public addresses on Etherlink Mainnet and Plend Altchains. Through a compatible
+            specific public addresses on Etherlink Mainnet and Superlend Altchains. Through a compatible
             third-party wallet application or device, Etherlink Mainnet Node or node compatible with
-            a Plend Altchain, as applicable, any User may pay Etherlink Mainnet Validators or other
+            a Superlend Altchain, as applicable, any User may pay Etherlink Mainnet Validators or other
             validators on the appropriate Blockchain System to operate and record the results of the
-            Plend Smart Contract System in accordance with the User's instructions, thus
+            Superlend Smart Contract System in accordance with the User's instructions, thus
             effectuating token transactions.
           </Typography>
         </MarkedListItem>
         <MarkedListItem disableTypography>
           <Typography mb={4} sx={{ fontWeight: 600, textDecoration: 'underline' }}>
-            Relationship to Plend Smart Contract System
+            Relationship to Superlend Smart Contract System
           </Typography>
           <Typography mb={4}>
-            Using Plend Mainnet, Plend Altchains, Etherlink Mainnet, or the Plend Smart Contract
+            Using Superlend Mainnet, Superlend Altchains, Etherlink Mainnet, or the Superlend Smart Contract
             System does not require use of the Site. The Site aggregates and publishes publicly
-            available information about the Plend Smart Contract System in a user- friendly and
+            available information about the Superlend Smart Contract System in a user- friendly and
             convenient format. Such information is also independently available from other
             sources—for example, a person may directly review transaction history, account balances
-            and the Plend Smart Contract System on a compatible block explorer for Etherlink Mainnet
-            or a Plend Altchain.
+            and the Superlend Smart Contract System on a compatible block explorer for Etherlink Mainnet
+            or a Superlend Altchain.
           </Typography>
           <Typography mb={4}>
             By combining publicly available information with the User's interactions with the Site,
-            the Site can draft standard transaction messages compatible with the Plend Smart
+            the Site can draft standard transaction messages compatible with the Superlend Smart
             Contract System which are designed to accomplish the User's operational goals as
             expressed through the interactions. If the User so wishes, the User may broadcast such
             messages in order to initiate token transactions.
@@ -190,12 +190,12 @@ const TOSContent = (): JSX.Element => {
             All draft transaction messages are delivered by the Site via API to a compatible
             third-party wallet application or device selected by the User after pressing the
             “Connect Wallet” (or similar) button on the Site. The User must personally review and
-            authorize all transaction messages that the User wishes to send to Plend Mainnet, Plend
+            authorize all transaction messages that the User wishes to send to Superlend Mainnet, Superlend
             Altchains or other blockchain systems; this requires the User to sign the relevant
             transaction message with a private cryptographic key inaccessible to the Site. The User-
             authorized message will then be broadcast to Validators through the wallet application
             or device and the User may pay a network fee to have the Validators apply the
-            transaction message to the Plend Smart Contract System and record the results on the
+            transaction message to the Superlend Smart Contract System and record the results on the
             appropriate blockchain—resulting in a token transaction being completed on that
             blockchain.
           </Typography>
@@ -204,7 +204,7 @@ const TOSContent = (): JSX.Element => {
             store or have access to or control over any tokens, private keys, passwords, accounts or
             other property of the User, and are not capable of performing transactions or sending
             transaction messages on behalf of the User. The Site does not hold and cannot purchase,
-            sell or trade any tokens. All transactions relating to the Plend Smart Contract System
+            sell or trade any tokens. All transactions relating to the Superlend Smart Contract System
             are effected and recorded solely through the interactions of the User with the
             respective Validators, who are not under the control of or affiliated with the Site
             Operator or the Site.
@@ -217,7 +217,7 @@ const TOSContent = (): JSX.Element => {
           <Typography mb={4}>
             Important disclaimers and disclosures regarding the subject material of the Site can be
             found in Section 6. You should familiarize yourself with these disclaimers and
-            disclosures and conduct your own thorough due diligence into the Plend Smart Contract
+            disclosures and conduct your own thorough due diligence into the Superlend Smart Contract
             Protocol before using the Site.
           </Typography>
         </MarkedListItem>
@@ -273,37 +273,37 @@ const TOSContent = (): JSX.Element => {
               Mainnet Nodes selected as a validator for Etherlink Mainnet at such time.
             </MarkedListItem>
             <MarkedListItem>
-              <strong>“Plend”</strong> means, collectively, the Plend Smart Contract Protocol, Plend
-              Mainnet, Plend Smart Contract Systems, and Plend Altchains.
+              <strong>“Superlend”</strong> means, collectively, the Superlend Smart Contract Protocol, Superlend
+              Mainnet, Superlend Smart Contract Systems, and Superlend Altchains.
             </MarkedListItem>
             <MarkedListItem>
-              <strong>“Plend Altchains”</strong> means Plend Smart Contract Systems deployed to
+              <strong>“Superlend Altchains”</strong> means Superlend Smart Contract Systems deployed to
               Blockchain Systems other than the Etherlink Mainnet.
             </MarkedListItem>
             <MarkedListItem>
-              <strong>“Plend Mainnet”</strong> means Plend Smart Contract Systems deployed to
+              <strong>“Superlend Mainnet”</strong> means Superlend Smart Contract Systems deployed to
               Etherlink Mainnet.
             </MarkedListItem>
             <MarkedListItem>
-              <strong>“Plend Smart Contract Protocol”</strong> means the source code for
+              <strong>“Superlend Smart Contract Protocol”</strong> means the source code for
               Blockchain-based smart contracts at{' '}
-              <Link href="https://github.com/Plenty-network/plend-core-contracts">
-                https://github.com/Plenty-network/plend-core-contracts
+              <Link href="https://github.com/Plenty-network/Superlend-core-contracts">
+                https://github.com/Plenty-network/Superlend-core-contracts
               </Link>{' '}
-              intended to be deployed to Etherlink Mainnet or Plend Altchains.
+              intended to be deployed to Etherlink Mainnet or Superlend Altchains.
             </MarkedListItem>
             <MarkedListItem>
-              <strong>“Plend Smart Contract Systems”</strong> means all blockchain-based smart
-              contract bytecodes that: (i) are compiled from the Plend Smart Contract Protocol (or
+              <strong>“Superlend Smart Contract Systems”</strong> means all blockchain-based smart
+              contract bytecodes that: (i) are compiled from the Superlend Smart Contract Protocol (or
               any part thereof); and (ii) are deployed to production Blockchain Systems.
             </MarkedListItem>
             <MarkedListItem>
               <strong>“Site”</strong> means the web site, web pages, web applications and
               information and software available at or accessible through the URLs{' '}
-              <Link href="https://www.Plendprotocol.io/">https://www.Plendprotocol.io/</Link>,{' '}
-              <Link href="https://app.Plendprotocol.io/">https://app.Plendprotocol.io/</Link>,{' '}
-              <Link href="https://docs.Plendprotocol.io/">https://docs.Plendprotocol.io/</Link> or
-              any sub-URL of any such URL and any other Plend-related website or web application
+              <Link href="https://www.Superlendprotocol.io/">https://www.Superlendprotocol.io/</Link>,{' '}
+              <Link href="https://app.Superlendprotocol.io/">https://app.Superlendprotocol.io/</Link>,{' '}
+              <Link href="https://docs.Superlendprotocol.io/">https://docs.Superlendprotocol.io/</Link> or
+              any sub-URL of any such URL and any other Superlend-related website or web application
               maintained by the Site Operator.
             </MarkedListItem>
           </MarkedList>
@@ -368,8 +368,8 @@ const TOSContent = (): JSX.Element => {
                 No Site Fees; Third-Party Fees Irreversible
               </Typography>
               <Typography mb={4}>
-                There are no fees or charges for use of the Site. Use of the Plend Smart Contract
-                System and use of Plend Mainnet and Plend Altchains are subject to third-party
+                There are no fees or charges for use of the Site. Use of the Superlend Smart Contract
+                System and use of Superlend Mainnet and Superlend Altchains are subject to third-party
                 transaction fees. The Site Operator does not receive such fees and has no ability to
                 reverse or refund any amounts paid in error.
               </Typography>
@@ -392,28 +392,28 @@ const TOSContent = (): JSX.Element => {
               </Typography>
               <Typography mb={4}>
                 The Site Operator has no obligation to ensure that the Site is a complete and
-                accurate source of all information relating to the Plend Smart Contract System,
-                Plend Mainnet, Plend Altchains or any other subject matter. The Site does not
+                accurate source of all information relating to the Superlend Smart Contract System,
+                Superlend Mainnet, Superlend Altchains or any other subject matter. The Site does not
                 necessarily display all tokens that are available for trading in connection with the
-                Plend Smart Contract System or Plend Mainnet or Plend Altchains. Even if the Site
+                Superlend Smart Contract System or Superlend Mainnet or Superlend Altchains. Even if the Site
                 currently displays a particular token or token pair, the Site may discontinue
                 tracking and publishing information about that token or token pair at any time, in
                 the Site Operator's sole and absolute discretion. In the event of such a
                 discontinuation, Users may need to rely on third-party resources such as block
-                explorers or Etherlink Mainnet Nodes, or applicable node for a Plend Altchains, in
+                explorers or Etherlink Mainnet Nodes, or applicable node for a Superlend Altchains, in
                 order to get equivalent information, and, depending on the User's level of expertise
                 and the quality of such third-party resources, this may result in the User incurring
                 financial losses due to delays or mistakes in processing information or
                 transactions.
               </Typography>
               <Typography mb={4}>
-                The Plend Smart Contract Protocol is available under a free open-source license, and
+                The Superlend Smart Contract Protocol is available under a free open-source license, and
                 the Site Operator does not have proprietary or exclusive rights in all copies or
-                derivatives thereof. It is possible that additional copies of the Plend Smart
+                derivatives thereof. It is possible that additional copies of the Superlend Smart
                 Contract Protocol or derivatives thereof will be deployed to other Blockchain
-                Systems in the future by any person, resulting in the existence of multiple ‘Plend-
+                Systems in the future by any person, resulting in the existence of multiple ‘Superlend-
                 branded' smart contract systems. The Site Operator is under no obligation to publish
-                information for all such copies of the Plend Smart Contract Protocol or to warn
+                information for all such copies of the Superlend Smart Contract Protocol or to warn
                 Users regarding the existence of such alternatives.
               </Typography>
             </MarkedListItem>
@@ -486,7 +486,7 @@ const TOSContent = (): JSX.Element => {
               </Typography>
               <Typography mb={4}>
                 The software code for the Site is available at https://github.com/plentynetwork and
-                is licensed for use in connection with the Plend Smart Contract System, Etherlink
+                is licensed for use in connection with the Superlend Smart Contract System, Etherlink
                 Mainnet and Altchains.
               </Typography>
             </MarkedListItem>
@@ -505,10 +505,10 @@ const TOSContent = (): JSX.Element => {
             </MarkedListItem>
             <MarkedListItem disableTypography>
               <Typography mb={4} sx={{ fontWeight: 600 }}>
-                Plend Smart Contract Protocol
+                Superlend Smart Contract Protocol
               </Typography>
               <Typography mb={4}>
-                The Plend Smart Contract Protocol will be available in various repositories at
+                The Superlend Smart Contract Protocol will be available in various repositories at
                 GITHUBLINK, and will be subject to any licenses set forth in each such repository,
                 as applicable.
               </Typography>
@@ -678,8 +678,8 @@ const TOSContent = (): JSX.Element => {
                 User is not, (and, if User is an entity, User is not owned or controlled by any
                 other person who is), acting, directly or indirectly, on behalf of any other person
                 who is, located, ordinarily resident, organized, established, or domiciled in the
-                United States or any country where use of the Plend Smart Contract System, Plend
-                Mainnet, Plend Altchains or related activities is illegal, prohibited, or requires a
+                United States or any country where use of the Superlend Smart Contract System, Superlend
+                Mainnet, Superlend Altchains or related activities is illegal, prohibited, or requires a
                 permit or license. User is not (and, if User is an entity, User is not owned or
                 controlled by any other person who is) acting, directly or indirectly, on behalf of
                 any other person who is: in contravention of any applicable laws and regulations,
@@ -699,7 +699,7 @@ const TOSContent = (): JSX.Element => {
                 writing that it is such a person, conduct further due diligence and determines that
                 the User shall be permitted to use the Site; or as trustee, agent, representative or
                 nominee for a foreign shell bank. The tokens or other funds User uses to participate
-                in the Plend Smart Contract System, Plend Mainnet or Plend Altchains are not derived
+                in the Superlend Smart Contract System, Superlend Mainnet or Superlend Altchains are not derived
                 from, and do not otherwise represent the proceeds of, any activities done in
                 violation or contravention of any law.
               </Typography>
@@ -710,12 +710,12 @@ const TOSContent = (): JSX.Element => {
               </Typography>
               <Typography mb={4}>
                 User is knowledgeable, experienced and sophisticated in using and evaluating
-                blockchain and related technologies and assets, including Plend Altchains, tokens,
+                blockchain and related technologies and assets, including Superlend Altchains, tokens,
                 yield-generating smart contract systems, automated market making smart contract
                 systems, bonding curve systems and “smart contracts” (runtime bytecode deployed to
-                Plend Altchains or another blockchain). User has conducted its own thorough
-                independent investigation and analysis of the Plend Smart Contract System, Plend
-                Mainnet, Plend Altchains and the other matters contemplated by these Terms, and has
+                Superlend Altchains or another blockchain). User has conducted its own thorough
+                independent investigation and analysis of the Superlend Smart Contract System, Superlend
+                Mainnet, Superlend Altchains and the other matters contemplated by these Terms, and has
                 not relied upon any information, statement, omission, representation or warranty,
                 express or implied, written or oral, made byor on behalf of Site Operator in
                 connection therewith, except as expressly set forth by Site Operator in these Terms.
@@ -770,11 +770,11 @@ const TOSContent = (): JSX.Element => {
                 No Responsibility for Tokens; No Guarantee of Uniqueness or IP
               </Typography>
               <Typography mb={4}>
-                Site Operator has no responsibility for the tokens traded by Users on the Plend
-                Smart Contract System or Plend Mainnet or Plend Altchains. Site Operator does not
+                Site Operator has no responsibility for the tokens traded by Users on the Superlend
+                Smart Contract System or Superlend Mainnet or Superlend Altchains. Site Operator does not
                 investigate and cannot guarantee or warrant the authenticity, originality,
                 uniqueness, marketability, legality or value of any token traded by Users on the
-                Plend Smart Contract System or Plend Mainnet or Plend Altchains, even if information
+                Superlend Smart Contract System or Superlend Mainnet or Superlend Altchains, even if information
                 about such token is available on the Site.
               </Typography>
             </MarkedListItem>
@@ -848,13 +848,13 @@ const TOSContent = (): JSX.Element => {
                 <MarkedListItem>
                   <Underlined>Certain Risks of Blockchain Technology</Underlined>. The technologies
                   relevant to the Site depend on public peer-to-peer networks such as Etherlink
-                  Mainnet and the Plend Altchains that are not under the control or influence of
+                  Mainnet and the Superlend Altchains that are not under the control or influence of
                   Site Operator and are subject to many risks and uncertainties. Such technologies
-                  include the Plend Smart Contract System, which Site Operator has no ability to
+                  include the Superlend Smart Contract System, which Site Operator has no ability to
                   change, other than ceasing to display information about certain “smart contracts”
                   or adding information about new “smart contracts”. Users are solely responsible
                   for the safekeeping of the private key associated with the blockchain address used
-                  in connection with the Plend Smart Contract System. Site Operator will not be able
+                  in connection with the Superlend Smart Contract System. Site Operator will not be able
                   to restore or issue any refund in respect of property lost or frozen due to loss
                   of private keys or otherwise. If a User is not able to spend or use tokens due to
                   loss or theft of the corresponding private key or otherwise, a User will be unable
@@ -862,14 +862,14 @@ const TOSContent = (): JSX.Element => {
                 </MarkedListItem>
                 <MarkedListItem>
                   <Underlined>Certain Risks of Smart Contract Technology</Underlined>. Digital
-                  assets relevant to the Site depend on the Plend Smart Contract System or other
-                  smart contracts deployed to Plend Altchains or other blockchain systems, or on the
+                  assets relevant to the Site depend on the Superlend Smart Contract System or other
+                  smart contracts deployed to Superlend Altchains or other blockchain systems, or on the
                   Etherlink Mainnet, each of which may be coded or deployed by persons other than
-                  Site Operator. Etherlink Mainnet, Plend Altchains, and other Blockchain Systems,
+                  Site Operator. Etherlink Mainnet, Superlend Altchains, and other Blockchain Systems,
                   and, once deployed to a Blockchain System, the code of smart contracts, including
-                  the Plend Smart Contract System, typically cannot be modified, or can only be
-                  modified in limited ways. In the event that the Etherlink Mainnet, Plend
-                  Altchains, Plend Smart Contract System or other smart contracts or blockchain
+                  the Superlend Smart Contract System, typically cannot be modified, or can only be
+                  modified in limited ways. In the event that the Etherlink Mainnet, Superlend
+                  Altchains, Superlend Smart Contract System or other smart contracts or blockchain
                   systems are adversely affected by malfunctions, bugs, defects, malfunctions,
                   hacking, theft, attacks, negligent coding or design choices, or changes to the
                   applicable protocol rules, Users may be exposed to a risk of total loss and
@@ -885,17 +885,17 @@ const TOSContent = (): JSX.Element => {
                   is generated by speculators and investors seeking to profit from the short- or
                   long-term holding of blockchain assets. The market value of any token may decline
                   below the price for which a User acquires such asset through the Etherlink
-                  Mainnet, Plend Altchains or Plend Smart Contract System or on any other system.
+                  Mainnet, Superlend Altchains or Superlend Smart Contract System or on any other system.
                   User acknowledges and agrees that the costs and speeds of transacting with
-                  cryptographic and blockchain-based systems such as the Etherlink Mainnet, Plend
-                  Altchains and Plend Smart Contract System are variable and may increase or
+                  cryptographic and blockchain-based systems such as the Etherlink Mainnet, Superlend
+                  Altchains and Superlend Smart Contract System are variable and may increase or
                   decrease dramatically at any time, resulting in prolonged inability to access or
                   use any tokens.
                 </MarkedListItem>
                 <MarkedListItem>
                   <Underlined>Regulatory Uncertainty</Underlined>. Blockchain technologies and
                   digital assets are subject to many legal and regulatory uncertainties, and the
-                  Etherlink Mainnet, Plend Altchains, Plend Smart Contract System or any tokens
+                  Etherlink Mainnet, Superlend Altchains, Superlend Smart Contract System or any tokens
                   could be adversely impacted by one or more regulatory or legal inquiries, actions,
                   suits, investigations, claims, fines or judgments, which could impede or limit the
                   ability of User to continue the use and enjoyment of such assets and technologies.
@@ -903,13 +903,13 @@ const TOSContent = (): JSX.Element => {
                 <MarkedListItem>
                   <Underlined>Cryptography Risks</Underlined>. Cryptography is a progressing field.
                   Advances in code cracking or technical advances such as the development of quantum
-                  computers may present risks to Blockchain Systems, the Etherlink Mainnet, Plend
-                  Altchains, Plend Smart Contract System or tokens, including the theft, loss or
+                  computers may present risks to Blockchain Systems, the Etherlink Mainnet, Superlend
+                  Altchains, Superlend Smart Contract System or tokens, including the theft, loss or
                   inaccessibility thereof.
                 </MarkedListItem>
                 <MarkedListItem>
-                  <Underlined>Fork Handling</Underlined>. Etherlink Mainnet, Plend Altchains, the
-                  Plend Smart Contract System, and all tokens may be subject to “forks.” Forks occur
+                  <Underlined>Fork Handling</Underlined>. Etherlink Mainnet, Superlend Altchains, the
+                  Superlend Smart Contract System, and all tokens may be subject to “forks.” Forks occur
                   when some or all persons running the software clients for a particular blockchain
                   system adopt a new client or a new version of an existing client that: (i) changes
                   the protocol rules in backwards-compatible or backwards-incompatible manner that
@@ -929,10 +929,10 @@ const TOSContent = (): JSX.Element => {
                   obligation or liability to a User if such response (or lack of such response) acts
                   to a User detriment. Without limiting the generality of the foregoing, Site
                   Operator's possible and permissible responses to a fork may include: (i) honoring
-                  the Etherlink Mainnet, Plend Altchains, Plend Smart Contract System and tokens on
-                  both chains;(ii) honoring the Etherlink Mainnet, Plend Altchains, Plend Smart
+                  the Etherlink Mainnet, Superlend Altchains, Superlend Smart Contract System and tokens on
+                  both chains;(ii) honoring the Etherlink Mainnet, Superlend Altchains, Superlend Smart
                   Contract System and tokens on only one of the chains; (iii) honoring the Etherlink
-                  Mainnet, Plend Altchains, Plend Smart Contract System and tokens in different
+                  Mainnet, Superlend Altchains, Superlend Smart Contract System and tokens in different
                   respects or to a different extent on both chains; or (iv) any other response or
                   policy or procedure, as determined by Site Operator in its sole and absolute
                   discretion. Each User assumes full responsibility to independently remain apprised
@@ -941,17 +941,17 @@ const TOSContent = (): JSX.Element => {
                 </MarkedListItem>
                 <MarkedListItem>
                   <Underlined>Essential Third-Party Software Dependencies</Underlined>. The
-                  Etherlink Mainnet, Plend Altchains, Plend Smart Contract System and other relevant
+                  Etherlink Mainnet, Superlend Altchains, Superlend Smart Contract System and other relevant
                   Blockchain Systems and smart contracts are public software utilities which are
                   accessible directly through any compatible node or indirectly through any
                   compatible “wallet” application (such as the web browser plugin MetaMask) which
-                  interacts with such a node. Interacting with the Plend Smart Contract System does
+                  interacts with such a node. Interacting with the Superlend Smart Contract System does
                   not require use of the Site, but the Site provides a convenient and user- friendly
-                  method of reading and displaying data from the Plend Smart Contract System and
-                  generating standard transaction messages compatible with the Plend Smart Contract
-                  System. Because the Site does not provide wallet software or nodes for Plend
-                  Mainnet or Plend Altchains, such software constitutes an essential third-party or
-                  user dependency without which the Plend Smart Contract System cannot be utilized,
+                  method of reading and displaying data from the Superlend Smart Contract System and
+                  generating standard transaction messages compatible with the Superlend Smart Contract
+                  System. Because the Site does not provide wallet software or nodes for Superlend
+                  Mainnet or Superlend Altchains, such software constitutes an essential third-party or
+                  user dependency without which the Superlend Smart Contract System cannot be utilized,
                   and tokens cannot be traded or used. Furthermore, the site may utilize APIs,
                   middleware and servers of Site Operator or third parties, and Site Operator does
                   not guarantee the continued operation, maintenance, availability or security of
@@ -1206,8 +1206,8 @@ const TOSContent = (): JSX.Element => {
                 (including any provision of any present or future law or regulation or any act of
                 any governmental authority, any act of God or war or terrorism, any epidemic or
                 pandemic, or the unavailability, disruption or malfunction of the Internet, the
-                World Wide Web or any other electronic network, the Etherlink Mainnet or Plend
-                Altchains or Plend Smart Contract System or any aspect thereof, or any consensus
+                World Wide Web or any other electronic network, the Etherlink Mainnet or Superlend
+                Altchains or Superlend Smart Contract System or any aspect thereof, or any consensus
                 attack, or hack, or denial-of-service or other attack on the foregoing or any aspect
                 thereof, or on the other software, networks and infrastructure that enables Site
                 Operator to provide the Site), it being understood that Site Operator shall use

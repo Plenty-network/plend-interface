@@ -74,7 +74,7 @@ export const ReserveConfiguration: React.FC<ReserveConfigurationProps> = ({ rese
         {reserve.isFrozen ? (
           <Warning sx={{ mt: '16px', mb: '40px' }} severity="error">
             <Trans>
-              This asset is frozen due to an Plend community decision.{' '}
+              This asset is frozen due to an Superlend community decision.{' '}
               <Link
                 href={getFrozenProposalLink(reserve.symbol, currentMarket)}
                 sx={{ textDecoration: 'underline' }}
@@ -196,7 +196,7 @@ export const ReserveConfiguration: React.FC<ReserveConfigurationProps> = ({ rese
                 <Trans>
                   E-Mode increases your LTV for a selected category of assets, meaning that when
                   E-mode is enabled, you will have higher borrowing power over assets of the same
-                  E-mode category which are defined by Plend Governance. You can enter E-Mode from
+                  E-mode category which are defined by Superlend Governance. You can enter E-Mode from
                   your{' '}
                   <Link
                     href={ROUTES.dashboard}
@@ -208,7 +208,7 @@ export const ReserveConfiguration: React.FC<ReserveConfigurationProps> = ({ rese
                   </Link>
                   . To learn more about E-Mode and applied restrictions in{' '}
                   <Link
-                    href="https://docs.plend.finance"
+                    href="https://docs.superlend.xyz"
                     sx={{ textDecoration: 'underline' }}
                     variant="caption"
                     color="text.secondary"
@@ -217,12 +217,12 @@ export const ReserveConfiguration: React.FC<ReserveConfigurationProps> = ({ rese
                   </Link>{' '}
                   or{' '}
                   <Link
-                    href="https://docs.plend.finance/plend-features#high-efficiency-mode-e-mode"
+                    href="https://docs.superlend.xyz/superlend-features#high-efficiency-mode-e-mode"
                     sx={{ textDecoration: 'underline' }}
                     variant="caption"
                     color="text.secondary"
                   >
-                    Plend Documentation
+                    Superlend Documentation
                   </Link>
                   .
                 </Trans>

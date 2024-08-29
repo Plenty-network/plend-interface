@@ -1,8 +1,8 @@
 import { Trans } from '@lingui/macro';
-import { Box, CircularProgress, Paper, PaperProps, Typography, useTheme } from '@mui/material';
+import { Box, CircularProgress, Paper, PaperProps, Typography } from '@mui/material';
 import { ReactNode } from 'react';
 
-import WalletConnectLogoDark from '/public/walletConnectLogoDark.svg';
+import FullLogo from '/public/logos/superlend-full-logo.svg';
 
 import MarkedList from './lists/MarkedList';
 import MarkedListItem from './lists/MarkedListItem';
@@ -20,7 +20,6 @@ export const ConnectWalletPaper = ({
   sx,
   ...rest
 }: ConnectWalletPaperProps) => {
-  const theme = useTheme();
   return (
     <Paper
       {...rest}
@@ -28,28 +27,23 @@ export const ConnectWalletPaper = ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
         textAlign: 'center',
         flex: 1,
         ...sx,
       }}
     >
-      {theme.palette.mode === 'light' ? (
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            width: '100%',
-            backgroundColor: '#27212F',
-            borderTopLeftRadius: '6px',
-            borderTopRightRadius: '6px',
-          }}
-        >
-          <WalletConnectLogoDark style={{ marginBottom: '16px', maxWidth: '250px' }} />
-        </Box>
-      ) : (
-        <WalletConnectLogoDark style={{ marginBottom: '16px', maxWidth: '250px' }} />
-      )}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+          backgroundColor: '#FF5B00',
+          borderTopLeftRadius: '6px',
+          borderTopRightRadius: '6px',
+        }}
+      >
+        <FullLogo style={{ marginBottom: '16px', maxWidth: '250px' }} />
+      </Box>
       <Box sx={{ p: 4 }}>
         {loading ? (
           <CircularProgress />
@@ -115,7 +109,7 @@ export const Disclaimers = () => {
             the jurisdiction in which I reside and am located.
           </MarkedListItem>
           <MarkedListItem>
-            I understand the risks associated with entering into using the Plend.
+            I understand the risks associated with entering into using the Superlend.
           </MarkedListItem>
         </MarkedList>
       </Trans>
@@ -132,8 +126,8 @@ export const InnerLink = ({ children, href }: InnerLinkProps) => {
     <Link
       href={href}
       target="_blank"
-      sx={(theme) => ({
-        color: theme.palette.mode === 'light' ? '#3F2566' : '#52F4DC',
+      sx={() => ({
+        color: '#FF5B00',
         textDecoration: 'underline',
       })}
     >

@@ -1,4 +1,4 @@
-import { V3FaucetService } from '@aave/contract-helpers';
+// import { V3FaucetService } from '@aave/contract-helpers';
 import { enableMapSet } from 'immer';
 import { CustomMarket } from 'src/ui-config/marketsConfig';
 import { ENABLE_TESTNET, STAGING_ENV } from 'src/utils/marketsAndNetworksConfig';
@@ -61,37 +61,37 @@ if (typeof document !== 'undefined') {
 
 export const useStakeDataSubscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refetchStakeData();
-}, 60000);
+}, 30000);
 
 export const useWalletBalancesSubscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refetchWalletBalances();
-}, 60000);
+}, 30000);
 
 export const usePoolDataSubscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refreshPoolData();
-}, 60000);
+}, 30000);
 
 export const usePoolDataV3Subscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refreshPoolV3Data();
-}, 60000);
+}, 30000);
 
 export const usePoolDataV2Subscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refreshPoolV2Data();
-}, 60000);
+}, 30000);
 
 export const useIncentiveDataSubscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refreshIncentiveData();
-}, 60000);
+}, 30000);
 
 export const useGovernanceDataSubscription = createSingletonSubscriber(() => {
   return useRootStore.getState().refreshGovernanceData();
-}, 60000);
+}, 30000);
 
-let latest: V3FaucetService;
+// let latest: V3FaucetService;
 useRootStore.subscribe(
   (state) => state.currentMarketData,
   async (selected) => {
-    const { setIsFaucetPermissioned: setFaucetPermissioned, jsonRpcProvider } =
+    const { setIsFaucetPermissioned: setFaucetPermissioned } =
       useRootStore.getState();
     if (ENABLE_TESTNET || STAGING_ENV) {
       if (!selected.v3) {
@@ -102,19 +102,19 @@ useRootStore.subscribe(
       // If there are multiple calls in flight, we only want to use the result from the latest one.
       // Use the instance of the service to check if it's the latest one since it is recreated
       // everytime this subscription fires.
-      const service = new V3FaucetService(jsonRpcProvider(), selected.addresses.FAUCET);
-      latest = service;
-      service
-        .isPermissioned()
-        .then((isPermissioned) => {
-          if (latest === service) {
-            setFaucetPermissioned(isPermissioned);
-          }
-        })
-        .catch((e) => {
-          console.error('error checking faucet permission', e);
-          setFaucetPermissioned(false);
-        });
+      // const service = new V3FaucetService(jsonRpcProvider(), selected.addresses.FAUCET);
+      // latest = service;
+      // service
+      //   .isPermissioned()
+      //   .then((isPermissioned) => {
+      //     if (latest === service) {
+      //       setFaucetPermissioned(isPermissioned);
+      //     }
+      //   })
+      //   .catch((e) => {
+      //     console.error('error checking faucet permission', e);
+      //     setFaucetPermissioned(false);
+      //   });
     } else {
       setFaucetPermissioned(false);
     }

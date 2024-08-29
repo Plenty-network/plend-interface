@@ -44,7 +44,7 @@ export const CapsCircularStatus = ({ value, tooltipContent }: CapsCircularStatus
         <CircularProgress
           variant="determinate"
           sx={{
-            color: (theme) => theme.palette.grey[theme.palette.mode === 'light' ? 200 : 800],
+            color: (theme) => theme.palette.grey[theme.palette.mode === 'light' ? 300 : 800],
             position: 'absolute',
             left: 1.25,
             top: 1.25,

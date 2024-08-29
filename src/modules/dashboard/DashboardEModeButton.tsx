@@ -1,6 +1,6 @@
 import { CogIcon, LightningBoltIcon } from '@heroicons/react/solid';
 import { Trans } from '@lingui/macro';
-import { Box, Button, SvgIcon, Typography } from '@mui/material';
+import { Box, Button, SvgIcon, Typography, useTheme } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import React, { useState } from 'react';
 import { EmodeModalType } from 'src/components/transactions/Emode/EmodeModalContent';
@@ -19,6 +19,7 @@ interface DashboardEModeButtonProps {
 }
 
 export const DashboardEModeButton = ({ userEmodeCategoryId }: DashboardEModeButtonProps) => {
+  const { palette } = useTheme();
   const { openEmode } = useModalContext();
   const { eModes: _eModes } = useAppDataContext();
   const iconButtonSize = 12;
@@ -58,7 +59,7 @@ export const DashboardEModeButton = ({ userEmodeCategoryId }: DashboardEModeButt
         }}
         data-cy={`emode-open`}
         size="small"
-        variant="outlined"
+        // variant="outlined"
         sx={(theme) => ({
           ml: 1,
           borderRadius: '4px',
@@ -85,9 +86,10 @@ export const DashboardEModeButton = ({ userEmodeCategoryId }: DashboardEModeButt
               ? open
                 ? theme.palette.background.disabled
                 : theme.palette.background.surface
-              : theme.palette.background.paper,
+              : "",
             px: '4px',
             borderRadius: '4px',
+            background: "#FF5B00"
           })}
         >
           <SvgIcon
@@ -101,7 +103,7 @@ export const DashboardEModeButton = ({ userEmodeCategoryId }: DashboardEModeButt
           </SvgIcon>
 
           {isEModeDisabled ? (
-            <Typography variant="buttonS" color="text.secondary">
+            <Typography variant="buttonS" color="#f1f1f1">
               <EModeLabelMessage />
             </Typography>
           ) : (
@@ -125,7 +127,7 @@ export const DashboardEModeButton = ({ userEmodeCategoryId }: DashboardEModeButt
       <Menu
         open={open}
         anchorEl={anchorEl}
-        sx={{ '.MuiMenu-paper': { maxWidth: '280px' } }}
+        sx={{ '.MuiMenu-paper': { maxWidth: '280px' }, '.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#2A2826" : "paper" } }}
         onClose={handleClose}
         keepMounted={true}
       >
@@ -190,7 +192,7 @@ export const DashboardEModeButton = ({ userEmodeCategoryId }: DashboardEModeButt
             <Trans>
               E-Mode increases your LTV for a selected category of assets up to 97%.{' '}
               <Link
-                href="https://docs.plend.finance"
+                href="https://docs.superlend.xyz/superlend-features#high-efficiency-mode-e-mode"
                 sx={{ textDecoration: 'underline' }}
                 variant="caption"
                 color="text.secondary"
@@ -203,7 +205,7 @@ export const DashboardEModeButton = ({ userEmodeCategoryId }: DashboardEModeButt
           {isEModeDisabled ? (
             <Button
               fullWidth
-              variant={'gradient'}
+              variant={'contained'}
               onClick={() => {
                 openEmode(EmodeModalType.ENABLE);
                 handleClose();

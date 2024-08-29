@@ -204,7 +204,7 @@ export const BorrowAssetsList = () => {
               {user?.isInIsolationMode && (
                 <Warning severity="warning">
                   <Trans>Borrowing power and assets are limited due to Isolation mode. </Trans>
-                  <Link href="https://docs.plend.finance" target="_blank" rel="noopener">
+                  <Link href="https://docs.superlend.xyz" target="_blank" rel="noopener">
                     Learn More
                   </Link>
                 </Warning>

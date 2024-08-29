@@ -1,14 +1,14 @@
 import { styled, ToggleButton, ToggleButtonProps } from '@mui/material';
 import React from 'react';
 
-const CustomToggleButton = styled(ToggleButton)<ToggleButtonProps>(({ theme }) => ({
+const CustomToggleButton = styled(ToggleButton)<ToggleButtonProps>(() => ({
   border: '0px',
   flex: 1,
   backgroundColor: '#27212F',
   borderRadius: '4px',
 
   '&.Mui-selected, &.Mui-selected:hover': {
-    backgroundColor: '#3F2566',
+    backgroundColor: '#FF5B00',
     borderRadius: '4px !important',
     border: 'none',
   },
@@ -20,14 +20,14 @@ const CustomToggleButton = styled(ToggleButton)<ToggleButtonProps>(({ theme }) =
     justifyContent: 'center',
 
     '.MuiTypography-subheader1': {
-      background: theme.palette.gradients.aaveGradient,
-      backgroundClip: 'text',
-      textFillColor: 'transparent',
+      // background: theme.palette.gradients.aaveGradient,
+      // backgroundClip: 'text',
+      textFillColor: '#fff',
     },
     '.MuiTypography-secondary14': {
-      background: theme.palette.gradients.aaveGradient,
-      backgroundClip: 'text',
-      textFillColor: 'transparent',
+      // background: theme.palette.gradients.aaveGradient,
+      // backgroundClip: 'text',
+      // textFillColor: 'transparent',
     },
   },
 })) as typeof ToggleButton;

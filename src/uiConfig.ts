@@ -1,3 +1,3 @@
 export const uiConfig = {
-  appLogo: '/plendLogo.svg',
+  appLogo: '/logos/superlendlogo.webp',
 };

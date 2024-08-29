@@ -193,7 +193,7 @@ export const WalletSelector = () => {
           sx={(theme) => ({
             py: 1,
             px: 3,
-            border: `1px solid ${theme.palette.divider}`,
+            border: `1px solid ${theme.palette.mode === "dark" ? theme.palette.divider : theme.palette.text.secondary}`,
             borderRadius: '6px',
             mb: 1,
             overflow: 'show',
@@ -235,7 +235,7 @@ export const WalletSelector = () => {
       <Typography variant="description" sx={{ mt: '22px', mb: '30px', alignSelf: 'center' }}>
         <Trans>
           Need help connecting a wallet?{' '}
-          <Link href="https://docs.plend.finance" target="_blank" rel="noopener">
+          <Link href="https://docs.superlend.xyz" target="_blank" rel="noopener">
             Read our FAQ
           </Link>
         </Trans>

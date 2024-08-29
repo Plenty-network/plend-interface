@@ -4,13 +4,13 @@ import { Button, SvgIcon, Typography } from '@mui/material';
 import { useProtocolDataContext } from 'src/hooks/useProtocolDataContext';
 
 import { DarkTooltip } from './infoTooltips/DarkTooltip';
-import { Link, ROUTES } from './primitives/Link';
+import { Link } from './primitives/Link';
 
 export const FaucetButton = () => {
   const { currentNetworkConfig } = useProtocolDataContext();
 
   return (
-    <DarkTooltip title="Get free assets to test Plend Protocol">
+    <DarkTooltip title="Get free assets to test Superlend Protocol">
       <Button
         startIcon={
           <img
@@ -25,7 +25,7 @@ export const FaucetButton = () => {
           </SvgIcon>
         }
         component={Link}
-        href={ROUTES.faucet}
+        href={"https://faucet.etherlink.com"}
         variant="outlined"
         size="small"
       >

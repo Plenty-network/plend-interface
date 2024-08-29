@@ -269,7 +269,7 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
           </Button>
         </Box>
       )}
-      <Divider sx={{ my: { xs: 7, md: 0 }, borderColor: { xs: '#FFFFFF1F', md: 'divider' } }} />
+      <Divider sx={{ my: { xs: 7, md: 0 }, borderColor: { xs: '#FFFFFF1F', md: palette.mode === 'dark' ? 'divider' : '#cecece' } }} />
 
       <Box component={component} disabled>
         <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
@@ -311,7 +311,7 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
           </Box>
         </Box>
       </Box>
-      <Divider sx={{ my: { xs: 7, md: 0 }, borderColor: { xs: '#FFFFFF1F', md: 'divider' } }} />
+      <Divider sx={{ my: { xs: 7, md: 0 }, borderColor: { xs: '#FFFFFF1F', md: palette.mode === 'dark' ? 'divider' : '#cecece' } }} />
 
       <Box
         component={component}
@@ -366,7 +366,7 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
       )}
       {md && (
         <>
-          <Divider sx={{ my: { xs: 7, md: 0 }, borderColor: { xs: '#FFFFFF1F', md: 'divider' } }} />
+          <Divider sx={{ my: { xs: 7, md: 0 }, borderColor: { xs: '#FFFFFF1F', md: palette.mode === 'dark' ? 'divider' : '#cecece' } }} />
           <Box sx={{ padding: '16px 16px 10px' }}>
             <Button
               sx={{
@@ -407,7 +407,7 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
         <Skeleton height={36} width={126} sx={{ background: '#383D51' }} />
       ) : (
         <Button
-          variant={connected || readOnlyModeAddress ? 'surface' : 'gradient'}
+          // variant={connected || readOnlyModeAddress ? 'surface' : 'gradient'}
           aria-label="wallet"
           id="wallet-button"
           aria-controls={open ? 'wallet-button' : undefined}
@@ -418,6 +418,8 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
             p: connected || readOnlyModeAddress ? '5px 8px' : undefined,
             minWidth: hideWalletAccountText ? 'unset' : undefined,
             fontFamily: palette.fonts.header,
+            background: "rgba(235, 235, 237, 0.20)",
+            color: "#f1f1f1"
           }}
           startIcon={(connected || readOnlyModeAddress) && !hideWalletAccountText && accountAvatar}
           endIcon={
@@ -440,7 +442,7 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
 
       {md ? (
         <DrawerWrapper open={open} setOpen={setOpen} headerHeight={headerHeight}>
-          <List sx={{ px: 2, '.MuiListItem-root.Mui-disabled': { opacity: 1 } }}>
+          <List sx={{ px: 2, '.MuiListItem-root.Mui-disabled': { opacity: 1 }, '.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#2A2826" : "#f1f1f1" } }}>
             <Content />
           </List>
         </DrawerWrapper>
@@ -454,8 +456,9 @@ export default function WalletWidget({ open, setOpen, headerHeight }: WalletWidg
           open={open}
           onClose={handleClose}
           keepMounted={true}
+          sx={{'.MuiList-root.MuiMenu-list': { background: palette.mode === 'dark' ? "#2A2826" : "#f1f1f1"  }}}
         >
-          <MenuList disablePadding sx={{ '.MuiMenuItem-root.Mui-disabled': { opacity: 1 } }}>
+          <MenuList disablePadding sx={{ '.MuiMenuItem-root.Mui-disabled': { opacity: 1 },}}>
             <Content component={MenuItem} />
           </MenuList>
         </Menu>

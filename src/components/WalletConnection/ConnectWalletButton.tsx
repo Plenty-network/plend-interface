@@ -9,7 +9,7 @@ export const ConnectWalletButton = () => {
 
   return (
     <>
-      <Button variant="gradient" onClick={() => setWalletModalOpen(true)}>
+      <Button variant="contained" onClick={() => setWalletModalOpen(true)}>
         <Trans>Accept and Connect</Trans>
       </Button>
       <WalletModal />
