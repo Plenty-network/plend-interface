@@ -68,19 +68,26 @@ export function AppHeader() {
   const testnetTooltip = (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: 1 }}>
       <Typography variant="subheader1">
-        <Trans>Testnet mode is {ENABLE_TESTNET ? "ON" : "OFF"}</Trans>
+        {ENABLE_TESTNET && <Trans>Testnet mode is ON</Trans>}
+        {!ENABLE_TESTNET && <Trans>Testnet mode is OFF</Trans>}
       </Typography>
       <Typography variant="description">
-        <Trans>The app is running in {ENABLE_TESTNET ? "testnet" : "mainnet"} mode. Learn how it works in</Trans>{' '}
+        {ENABLE_TESTNET &&
+          <Trans>The app is running in testnet mode. Learn how it works in</Trans>
+        }
+        {!ENABLE_TESTNET &&
+          <Trans>The app is running in mainnet mode. Learn how it works in</Trans>
+        }
         <Link
           href="https://docs.superlend.xyz"
-          style={{ fontSize: '14px', fontWeight: 400, textDecoration: 'underline' }}
+          style={{ fontSize: '14px', fontWeight: 400, textDecoration: 'underline', marginLeft: '5px' }}
         >
           FAQ.
         </Link>
       </Typography>
       <Button variant="outlined" sx={{ mt: '12px' }} onClick={disableTestnet}>
-        <Trans>{ENABLE_TESTNET ? "Disable" : "Enable"} testnet</Trans>
+        {ENABLE_TESTNET && <Trans>Disable testnet</Trans>}
+        {!ENABLE_TESTNET && <Trans>Enable testnet</Trans>}
       </Button>
     </Box>
   );
