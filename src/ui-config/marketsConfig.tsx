@@ -53,6 +53,7 @@ export type MarketDataType = {
 
 export enum CustomMarket {
   etherlink_testnet = 'etherlink_testnet',
+  etherlink = 'etherlink',
 }
 
 export const marketsData: {
@@ -77,5 +78,25 @@ export const marketsData: {
       COLLECTOR: '0x250fB04547404729D22Eb8f9C498Da13E9980f2D',
     },
     faucetUrl: 'https://faucet.etherlink.com',
+    },
+    [CustomMarket.etherlink]: {
+      marketTitle: 'Etherlink',
+      chainId: 42793, //ChainId.etherlink,
+      v3: true,
+      enabledFeatures: {
+        liquiditySwap: false,
+        collateralRepay: false,
+        faucet: false,
+      },
+      addresses: {
+        LENDING_POOL_ADDRESS_PROVIDER: '0x33cf76bcff795d3C3522B9EF539c10877D3C32dE'.toLowerCase(),
+        LENDING_POOL: '0xb12Ec57a854C2D6beE878ac803d84624f525226A',
+        WALLET_BALANCE_PROVIDER: '0xAB6e6CbCeA13870c809B93e1134747c0239c9B75',
+        UI_POOL_DATA_PROVIDER: '0xa412ab4428c6E5543661e463987485121a898943',
+        UI_INCENTIVE_DATA_PROVIDER: '0x8d254ECDb2FF209e00771A006814D5D74fbFf28C',
+        WETH_GATEWAY: '0x0d2304c30Fca9781dF8a4DC06A44f3f7c475dD1A',
+        COLLECTOR: '0x78466b9DC7023Ad14b955dCDf8BffD2888BCfcF0',
+      },
+      faucetUrl: 'https://faucet.etherlink.com',
   },
 } as const;
