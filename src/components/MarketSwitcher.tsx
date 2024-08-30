@@ -11,7 +11,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BaseNetworkConfig } from 'src/ui-config/networksConfig';
 
 import { useProtocolDataContext } from '../hooks/useProtocolDataContext';
@@ -59,7 +59,7 @@ type MarketLogoProps = {
 export const MarketLogo = ({ size, logo, testChainName }: MarketLogoProps) => {
   return (
     <Box sx={{ mr: 2, width: size, height: size, position: 'relative' }}>
-      <Box sx={{filter: 'brightness(0.7)'}}><img src={logo} alt="" width="100%" height="100%" /></Box>
+      <Box sx={{ filter: 'brightness(0.7)' }}><img src={logo} alt="" width="100%" height="100%" /></Box>
 
       {testChainName && (
         <Tooltip title={testChainName} arrow>
@@ -93,6 +93,15 @@ export const MarketSwitcher = () => {
   const theme = useTheme();
   const upToLG = useMediaQuery(theme.breakpoints.up('lg'));
   const downToXSM = useMediaQuery(theme.breakpoints.down('xsm'));
+
+  useEffect(() => {
+    const marketName = ENABLE_TESTNET ? CustomMarket.etherlink_testnet : CustomMarket.etherlink;
+    setCurrentMarket(marketName);
+  }, [ENABLE_TESTNET])
+
+  function hasEnabledTestnet(name: string) {
+    return ENABLE_TESTNET || STAGING_ENV ? name === "etherlink_testnet" : name === "etherlink"
+  }
 
   if (process.env.NEXT_PUBLIC_ENABLE_GNOSIS !== '1') return null;
 
@@ -173,35 +182,37 @@ export const MarketSwitcher = () => {
         </Typography>
       </Box>
 
-      {availableMarkets.map((marketId: CustomMarket) => {
-        const { market, network } = getMarketInfoById(marketId);
-        const marketNaming = getMarketHelpData(market.marketTitle);
-        return (
-          <MenuItem
-            key={marketId}
-            data-cy={`marketSelector_${marketId}`}
-            value={marketId}
-            sx={{
-              '.MuiListItemIcon-root': { minWidth: 'unset' },
-              display: market.v3 ? 'flex' : 'none',
-            }}
-          >
-            <MarketLogo
-              size={32}
-              logo={network.networkLogoPath}
-              testChainName={marketNaming.testChainName}
-            />
-            <ListItemText sx={{ mr: 0 }}>
-              {marketNaming.name} {market.isFork ? 'Fork' : ''}
-            </ListItemText>
-            <ListItemText sx={{ textAlign: 'right' }}>
-              <Typography color="text.secondary" variant="description">
-                {marketNaming.testChainName}
-              </Typography>
-            </ListItemText>
-          </MenuItem>
-        );
-      })}
+      {availableMarkets
+        .filter(hasEnabledTestnet)
+        .map((marketId: CustomMarket) => {
+          const { market, network } = getMarketInfoById(marketId);
+          const marketNaming = getMarketHelpData(market.marketTitle);
+          return (
+            <MenuItem
+              key={marketId}
+              data-cy={`marketSelector_${marketId}`}
+              value={marketId}
+              sx={{
+                '.MuiListItemIcon-root': { minWidth: 'unset' },
+                display: market.v3 ? 'flex' : 'none',
+              }}
+            >
+              <MarketLogo
+                size={32}
+                logo={network.networkLogoPath}
+                testChainName={marketNaming.testChainName}
+              />
+              <ListItemText sx={{ mr: 0 }}>
+                {marketNaming.name} {market.isFork ? 'Fork' : ''}
+              </ListItemText>
+              <ListItemText sx={{ textAlign: 'right' }}>
+                <Typography color="text.secondary" variant="description">
+                  {marketNaming.testChainName}
+                </Typography>
+              </ListItemText>
+            </MenuItem>
+          );
+        })}
     </TextField>
   );
 };

@@ -57,7 +57,10 @@ export function AppHeader() {
   const headerHeight = 80;
 
   const disableTestnet = () => {
-    localStorage.setItem('testnetsEnabled', 'false');
+    const isTestnet = localStorage.getItem('testnetsEnabled');
+    const toggledTestnet = isTestnet === "true" ? "false" : "true";
+    localStorage.setItem('testnetsEnabled', toggledTestnet);
+
     // Set window.location to trigger a page reload when navigating to the the dashboard
     window.location.href = '/';
   };
@@ -65,10 +68,10 @@ export function AppHeader() {
   const testnetTooltip = (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: 1 }}>
       <Typography variant="subheader1">
-        <Trans>Testnet mode is ON</Trans>
+        <Trans>Testnet mode is {ENABLE_TESTNET ? "ON" : "OFF"}</Trans>
       </Typography>
       <Typography variant="description">
-        <Trans>The app is running in testnet mode. Learn how it works in</Trans>{' '}
+        <Trans>The app is running in {ENABLE_TESTNET ? "testnet" : "mainnet"} mode. Learn how it works in</Trans>{' '}
         <Link
           href="https://docs.superlend.xyz"
           style={{ fontSize: '14px', fontWeight: 400, textDecoration: 'underline' }}
@@ -77,7 +80,7 @@ export function AppHeader() {
         </Link>
       </Typography>
       <Button variant="outlined" sx={{ mt: '12px' }} onClick={disableTestnet}>
-        <Trans>Disable testnet</Trans>
+        <Trans>{ENABLE_TESTNET ? "Disable" : "Enable"} testnet</Trans>
       </Button>
     </Box>
   );
@@ -121,24 +124,22 @@ export function AppHeader() {
           <img src={uiConfig.appLogo} alt="An SVG of the Superlend logo" height="100%" width="100%" />
         </Box>
         <Box sx={{ mr: sm ? 1 : 3 }}>
-          {ENABLE_TESTNET && (
-            <ContentWithTooltip tooltipContent={testnetTooltip} offset={[0, -4]} withoutHover>
-              <Button
-                variant="surface"
-                size="small"
-                color="primary"
-                sx={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                  '&:hover, &.Mui-focusVisible': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
-                }}
-              >
-                TESTNET
-                <SvgIcon sx={{ marginLeft: '2px', fontSize: '16px' }}>
-                  <InformationCircleIcon />
-                </SvgIcon>
-              </Button>
-            </ContentWithTooltip>
-          )}
+          <ContentWithTooltip tooltipContent={testnetTooltip} offset={[0, -4]} withoutHover>
+            <Button
+              variant="surface"
+              size="small"
+              color="primary"
+              sx={{
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                '&:hover, &.Mui-focusVisible': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
+              }}
+            >
+              {ENABLE_TESTNET ? "TESTNET" : "MAINNET"}
+              <SvgIcon sx={{ marginLeft: '2px', fontSize: '16px' }}>
+                <InformationCircleIcon />
+              </SvgIcon>
+            </Button>
+          </ContentWithTooltip>
         </Box>
 
         <Box sx={{ display: { xs: 'none', md: 'block' } }}>
