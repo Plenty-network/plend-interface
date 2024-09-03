@@ -96,9 +96,10 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     networkLogoPath: '/icons/networks/etherlink.svg',
   },
   [ChainId.etherlink]: {
-    name: 'Etherlink Testnet',
+    name: 'Etherlink',
     publicJsonRPCUrl: [
       'https://rpc.superlend.xyz',
+      'https://plend-etherlink-mainnet-djs2w.zeeve.net/TuychDxGCScIED1nCk0m/rpc',
       'https://node.mainnet.etherlink.com'
     ],
     baseUniswapAdapter: '0x0',
@@ -106,7 +107,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     wrappedBaseAssetSymbol: 'WXTZ',
     baseAssetDecimals: 18,
     explorerLink: 'https://explorer.etherlink.com',
-    isTestnet: true,
+    isTestnet: false,
     networkLogoPath: '/icons/networks/etherlink.svg',
   },
 } as const;

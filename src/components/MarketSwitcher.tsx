@@ -11,7 +11,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BaseNetworkConfig } from 'src/ui-config/networksConfig';
 
 import { useProtocolDataContext } from '../hooks/useProtocolDataContext';
@@ -94,15 +94,6 @@ export const MarketSwitcher = () => {
   const upToLG = useMediaQuery(theme.breakpoints.up('lg'));
   const downToXSM = useMediaQuery(theme.breakpoints.down('xsm'));
 
-  useEffect(() => {
-    const marketName = ENABLE_TESTNET ? CustomMarket.etherlink_testnet : CustomMarket.etherlink;
-    setCurrentMarket(marketName);
-  }, [ENABLE_TESTNET])
-
-  function hasEnabledTestnet(name: string) {
-    return ENABLE_TESTNET || STAGING_ENV ? name === "etherlink_testnet" : name === "etherlink"
-  }
-
   if (process.env.NEXT_PUBLIC_ENABLE_GNOSIS !== '1') return null;
 
   return (
@@ -183,7 +174,6 @@ export const MarketSwitcher = () => {
       </Box>
 
       {availableMarkets
-        .filter(hasEnabledTestnet)
         .map((marketId: CustomMarket) => {
           const { market, network } = getMarketInfoById(marketId);
           const marketNaming = getMarketHelpData(market.marketTitle);

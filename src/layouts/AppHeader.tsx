@@ -21,6 +21,9 @@ import { NavItems } from './components/NavItems';
 import { MobileMenu } from './MobileMenu';
 import { SettingsMenu } from './SettingsMenu';
 import WalletWidget from './WalletWidget';
+import { toggleMode } from 'src/helpers/toggle-mode';
+import { useWeb3Context } from 'src/libs/hooks/useWeb3Context';
+import { ChainId } from 'src/ui-config/networksConfig';
 
 interface Props {
   children: React.ReactElement;
@@ -40,6 +43,7 @@ export function AppHeader() {
   const { breakpoints } = useTheme();
   const md = useMediaQuery(breakpoints.down('md'));
   const sm = useMediaQuery(breakpoints.down('sm'));
+  const { switchNetwork } = useWeb3Context();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [walletWidgetOpen, setWalletWidgetOpen] = useState(false);
@@ -56,13 +60,17 @@ export function AppHeader() {
 
   const headerHeight = 80;
 
-  const disableTestnet = () => {
-    const isTestnet = localStorage.getItem('testnetsEnabled');
-    const toggledTestnet = isTestnet === "true" ? "false" : "true";
-    localStorage.setItem('testnetsEnabled', toggledTestnet);
+  function handleToggleMode() {
+    handleSwitchNetwork();
+  }
 
-    // Set window.location to trigger a page reload when navigating to the the dashboard
-    window.location.href = '/';
+  const handleSwitchNetwork = () => {
+    const isTestnetEnabled = localStorage.getItem('testnetsEnabled') === 'true';
+    const newChainId = isTestnetEnabled ? ChainId.etherlink : ChainId.etherlink_testnet;
+
+    switchNetwork(newChainId)
+      .then(toggleMode)
+      .catch(err => console.log('Switch network error => ', `"${err.message}"`));
   };
 
   const testnetTooltip = (
@@ -85,7 +93,7 @@ export function AppHeader() {
           FAQ.
         </Link>
       </Typography>
-      <Button variant="outlined" sx={{ mt: '12px' }} onClick={disableTestnet}>
+      <Button variant="outlined" sx={{ mt: '12px' }} onClick={handleToggleMode}>
         {ENABLE_TESTNET && <Trans>Disable testnet</Trans>}
         {!ENABLE_TESTNET && <Trans>Enable testnet</Trans>}
       </Button>

@@ -1,29 +1,34 @@
 import { Trans } from '@lingui/macro';
 import { Box, FormControlLabel, ListItem, ListItemText, MenuItem, Switch } from '@mui/material';
 import React, { useState } from 'react';
+import { toggleMode } from 'src/helpers/toggle-mode';
+import { useWeb3Context } from 'src/libs/hooks/useWeb3Context';
+import { ChainId } from 'src/ui-config/networksConfig';
 
 interface TestNetModeSwitcherProps {
   component?: typeof MenuItem | typeof ListItem;
 }
 
 export const TestNetModeSwitcher = ({ component = ListItem }: TestNetModeSwitcherProps) => {
-  // const testnetsEnabledId = 'testnetsEnabled';
-  const testnetsEnabledLocalstorage = true;
-  //  localStorage.getItem(testnetsEnabledId) === 'true' || false;
-  const [testnetsEnabled] = useState(testnetsEnabledLocalstorage);
+  const [testnetEnabled] = useState(localStorage.getItem("testnetsEnabled") === 'true');
+  const { switchNetwork } = useWeb3Context();
 
-  const toggleTestnetsEnabled = () => {
-    // const newState = !testnetsEnabled;
-    // setTestnetsMode(!testnetsEnabled);
-    // localStorage.setItem(testnetsEnabledId, newState ? 'true' : 'false');
-    // // Set window.location to trigger a page reload when navigating to the the dashboard
-    // window.location.href = '/';
+  function handleToggleMode() {
+    handleSwitchNetwork();
+  }
+
+  const handleSwitchNetwork = () => {
+    const newChainId = testnetEnabled ? ChainId.etherlink : ChainId.etherlink_testnet;
+
+    switchNetwork(newChainId)
+      .then(toggleMode)
+      .catch(err => console.log('Switch network error => ', `"${err.message}"`));
   };
 
   return (
     <Box
       component={component}
-      onClick={toggleTestnetsEnabled}
+      onClick={handleToggleMode}
       sx={{
         cursor: 'pointer',
         color: { xs: 'text.primary' },
@@ -39,12 +44,11 @@ export const TestNetModeSwitcher = ({ component = ListItem }: TestNetModeSwitche
         control={
           <Switch
             disableRipple
-            checked={testnetsEnabled}
-            disabled={true}
+            checked={testnetEnabled}
             sx={{ '.MuiSwitch-track': { bgcolor: { xs: '#FFFFFF1F', md: 'primary.light' } } }}
           />
         }
-        label={testnetsEnabled ? 'On' : 'Off'}
+        label={testnetEnabled ? 'On' : 'Off'}
         labelPlacement="start"
       />
     </Box>
