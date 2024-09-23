@@ -1,7 +1,17 @@
 import { Alert, Snackbar } from '@mui/material'
 import React from 'react'
 
-export default function WarningSnackbar({ snackbar, handleCloseSnackbar }: any) {
+type TSnackbar = {
+    open: boolean;
+    message: string;
+}
+
+type TProps = {
+    snackbar: TSnackbar;
+    handleCloseSnackbar: () => void;
+}
+
+export default function WarningSnackbar({ snackbar, handleCloseSnackbar }: TProps) {
     return (
         <Snackbar
             open={snackbar.open}
