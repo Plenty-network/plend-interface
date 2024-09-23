@@ -1,6 +1,6 @@
 import { Trans } from '@lingui/macro';
 import { Box, FormControlLabel, ListItem, ListItemText, MenuItem, Switch } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import WarningSnackbar from 'src/components/primitives/WarningSnackbar';
 import { toggleMode } from 'src/helpers/toggle-mode';
 import useSnackbar from 'src/hooks/useSnackbar';
