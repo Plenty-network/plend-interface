@@ -51,11 +51,13 @@ export type BaseNetworkConfig = Omit<NetworkConfig, 'explorerLinkBuilder'>;
 export enum ChainId {
   mainnet = 1,
   etherlink_testnet = 128123,
+  etherlink = 42793,
 }
 
 export const ChainIdToNetwork: Record<number, string> = {
   1: 'mainnet',
   128123: 'etherlink_testnet',
+  42793: 'etherlink',
 };
 
 export const networkConfigs: Record<string, BaseNetworkConfig> = {
@@ -84,7 +86,6 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     name: 'Etherlink Testnet',
     publicJsonRPCUrl: [
       'https://node.ghostnet.etherlink.com',
-      'https://etherlink-rollup-testnet-archive.zeeve.net/Rdj3r1npGPHxcDcQvOT/rpc',
     ],
     baseUniswapAdapter: '0x0',
     baseAssetSymbol: 'XTZ',
@@ -92,6 +93,21 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     baseAssetDecimals: 18,
     explorerLink: 'https://testnet.explorer.etherlink.com',
     isTestnet: true,
+    networkLogoPath: '/icons/networks/etherlink.svg',
+  },
+  [ChainId.etherlink]: {
+    name: 'Etherlink',
+    publicJsonRPCUrl: [
+      'https://rpc.superlend.xyz',
+      'https://plend-etherlink-mainnet-djs2w.zeeve.net/TuychDxGCScIED1nCk0m/rpc',
+      'https://node.mainnet.etherlink.com'
+    ],
+    baseUniswapAdapter: '0x0',
+    baseAssetSymbol: 'XTZ',
+    wrappedBaseAssetSymbol: 'WXTZ',
+    baseAssetDecimals: 18,
+    explorerLink: 'https://explorer.etherlink.com',
+    isTestnet: false,
     networkLogoPath: '/icons/networks/etherlink.svg',
   },
 } as const;

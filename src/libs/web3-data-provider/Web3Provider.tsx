@@ -366,8 +366,10 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
           }
         } else if (switchError.code === 4001) {
           setSwitchNetworkError(undefined);
+          throw switchError;
         } else {
           setSwitchNetworkError(switchError);
+          throw switchError;
         }
       }
     }

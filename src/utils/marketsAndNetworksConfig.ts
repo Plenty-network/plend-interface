@@ -22,9 +22,8 @@ export type Pool = {
 };
 
 export const STAGING_ENV = process.env.NEXT_PUBLIC_ENV === 'staging';
-export const PROD_ENV = !process.env.NEXT_PUBLIC_ENV || process.env.NEXT_PUBLIC_ENV === 'prod';
-export const ENABLE_TESTNET =
-  PROD_ENV || global?.window?.localStorage.getItem('testnetsEnabled') === 'true';
+export const PROD_ENV = process.env.NEXT_PUBLIC_ENV === 'prod';
+export const ENABLE_TESTNET = global?.window?.localStorage.getItem('testnetsEnabled') === 'true';
 
 // determines if forks should be shown
 const FORK_ENABLED =
@@ -102,7 +101,7 @@ export function getSupportedChainIds(): number[] {
         if (STAGING_ENV || ENABLE_TESTNET) {
           return isTestnet;
         }
-
+        
         return !isTestnet;
       })
       .reduce(
