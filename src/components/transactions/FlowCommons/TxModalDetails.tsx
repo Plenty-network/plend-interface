@@ -144,8 +144,8 @@ export const DetailsNumberLineWithSub = ({
   loading = false,
 }: DetailsNumberLineWithSubProps) => {
   return (
-    <Row caption={description} captionVariant="description" mb={4} align="flex-start">
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+    <Row caption={description} captionVariant="description" mb={4} align="flex-start" flexWrap={'wrap'} gap={'5px'}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', marginLeft: 'auto' }}>
         {loading ? (
           <>
             <Skeleton variant="rectangular" height={20} width={100} sx={{ borderRadius: '4px' }} />
